@@ -5,14 +5,14 @@
 \usepackage{warwickthesis}
 \usepackage[numbers,sort&compress,square]{natbib}
 
-\phdthesis
-%\thesisdraft                       %% Uncomment this if you want a draft
+%\phdthesis
+\thesisdraft                       %% Uncomment this if you want a draft
                                      %% version; this will print a timestamp
                                      %% on each page of your thesis.
 
-\leftchapter                       %% Uncomment one of these if you want
+%\leftchapter                       %% Uncomment one of these if you want
 % \centerchapter                     %% left-justified, centered or
-% \rightchapter                      %% right-justified chapter headings.
+\rightchapter                      %% right-justified chapter headings.
                                      %% Chapter headings includes the
                                      %% Contents, Acknowledgments, Lists
                                      %% of Tables and Figures and the Vita.
@@ -25,25 +25,25 @@
 %\singlespacing                     %! Uncomment if you want single-spacing,
 %\doublespacing                     %! uncomment if you want real double-spacing for some perverse reason.
 
-\renewcommand{\thesisdepartmentname}{Department of \ldots}
+\renewcommand{\thesisdepartmentname}{Department of Physics}
 
 \renewcommand{\thesissubmission}{
 	Submitted to the University of Warwick\\
 	in partial fulfilment of the requirements\\
 	for admission to the degree of}
 
-\renewcommand{\thesisauthor}{Author Name}
-\renewcommand{\thesismonth}{Month}
-\renewcommand{\thesisyear}{Year}
+\renewcommand{\thesisauthor}{SJ Spencer}
+\renewcommand{\thesismonth}{October}
+\renewcommand{\thesisyear}{2021}
 
 \renewcommand{\thesistitle}{Thesis Title}
 \renewcommand{\thesistitletypesize}{\huge}
 
-\renewcommand{\thesissupervisor}{Supervisor Name}
+\renewcommand{\thesissupervisor}{Tony Arber}
                                      %% Your thesis supervisor; use mixed-case
                                      %% and don't use any titles or degrees.
 
-\renewcommand{\thesissubject}{Thesis Subject}
+\renewcommand{\thesissubject}{Physics}
                                      %% The subject your thesis is in.
 
 \renewcommand{\thesiskeywords}{Keyword 1, Keyword 2}
@@ -107,7 +107,7 @@
 
 \include{Preamble/Abstract}
 
-\include{Preamble/SponsorshipAndGrants}
+%\include{Preamble/SponsorshipAndGrants}
 
 \include{Preamble/Abbreviations}
 
@@ -116,13 +116,13 @@
 
 \include{Chapters/C1_Introduction/Introduction}
 
-\include{Chapters/C2_Background/Background}
+\include{Chapters/C2_Theory/Theory}
 
-\include{Chapters/C3/C3}
+\include{Chapters/C3_Methods/Methods}
 
-\include{Chapters/C4/C4}
+\include{Chapters/C4_iSRS/iSRS}
 
-\include{Chapters/C5/C5}
+\include{Chapters/C5_magSRS/magSRS}
 
 \include{Chapters/C6_Evaluation/Discussion}
 
