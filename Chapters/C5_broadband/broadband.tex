@@ -7,12 +7,13 @@
 \subsection{Homogeneous plasmas}
 \subsubsection{Decoupled broadband lasers}
 In \cite{zhao_suppression_2019} they consider the suppression of parametric
-instabilities in a homogeneous plasma by \acrfull{DBL}. A
+instabilities in a homogeneous plasma by decoupled broadband lasers
+(\acrshort{DBL}). A
 decoupled broadband laser is defined in Ref \cite{zhao_effective_2017} as
 
 \begin{equation}\label{eqn:DBL}
-  a_{\mathrm{DBL}} = \sum_{i=1}^{N} a_i \mathrm{cos}(\omega_it + \phi_i)
-\end{equation},
+  a_{\mathrm{DBL}} = \sum_{i=1}^{N} a_i \mathrm{cos}(\omega_it + \phi_i),
+\end{equation}
 where $a_i,\omega_i,\phi_i$ are the amplitude, carrier frequency, and phase of
 each of the $N$ beamlets. The central frequency and wavelength of the laser is
 $(\omega_0,k_0)$ and the total frequency spectrum bandwidth is
@@ -25,7 +26,16 @@ SRS. An important result of their one-dimensional PIC simulations is that iSRS
 instability can grow to a high level if the beamlets satifsy this coupling
 condition, even if the total bandwidth is very large.
 
+\subsubsection{Strongly kinetic regime}
+In Ref \cite{zhou_kinetic_2018} Zhou \textit{et al.} consider the case of SRS
+driven by a broadband laser for a homogeneous plasma, with NIF-relevant plasma
+density and temperature such that $\kld > 0.3$. The result most relevant to our
+work is that the bandwidth can interact with the nonlinear frequency shift associated with electron trapping in the SRS EPW to \emph{enhance} SRS rather than suppress it.
+
+
 \subsection{Inhomogeneous plasmas}
+
+
 \subsection{Decoupled broadband lasers}
 Zhao \textit{et al.} \cite{zhao_effective_2017} consider the case of an
 inhomgeneous plasma density profile relevant to indirect-drive ICF. The results
@@ -33,16 +43,30 @@ are similar to those described in the homogeneous case, and they find a
 condition for the complete suppression of SRS. The follow-up paper
 \cite{zhao_suppression_2019} finds that SRS can be well controlled for a laser
 beam structure of multiple frequency components and total bandwidth of a few
-percent.
+percent. They derive a gain exponent for standard convective SRS driven by two
+beamlets of different frequencies, and find that two beamlets are independent
+when
+
+\begin{equation}\label{DLB_threshold_inhomo}
+\delta \omega_{0} \geq \frac{\pi n_{0} c\left(\omega_{0}^{2}-\omega_{p e}^{2}\right)^{3 / 2}}{8 L \omega_{0} \omega_{L}^{2} \nu_{p}^{2}}.
+\end{equation}
+
+
 
 \subsection{SSD-type bandwidth}
  Han Wen in Feb 2019 was working on SSD-type bandwidth defined like so:
  $$E_{pump} = 0.5E_0\left(exp[i(\omega_0t-kx+\sum_MA_Msin(\omega_Mt))]\right)$$.
 
-
+Considering all of these results together, it is not at all clear how a
+broadband laser driver will affect inflationary SRS in a long scale-length
+inhomogeneous plasma relevant to SI.
 
 \section{1D simulations and threshold}
+The first step of this work was to design a perfect example of SRS due to
+autoresonance
+
 \subsection{Base case: seeded iSRS at a single frequency}
+
 \subsection{Case two: SSD-type bandwidth}
 \section{2D simulations}
 
