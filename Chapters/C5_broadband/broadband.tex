@@ -30,7 +30,8 @@ condition, even if the total bandwidth is very large.
 In Ref \cite{zhou_kinetic_2018} Zhou \textit{et al.} consider the case of SRS
 driven by a broadband laser for a homogeneous plasma, with NIF-relevant plasma
 density and temperature such that $\kld > 0.3$. The result most relevant to our
-work is that the bandwidth can interact with the nonlinear frequency shift associated with electron trapping in the SRS EPW to \emph{enhance} SRS rather than suppress it.
+work is that the bandwidth can interact with the nonlinear frequency shift associated
+with electron trapping in the SRS EPW to \emph{enhance} SRS rather than suppress it.
 
 
 \subsection{Inhomogeneous plasmas}
@@ -43,13 +44,26 @@ are similar to those described in the homogeneous case, and they find a
 condition for the complete suppression of SRS. The follow-up paper
 \cite{zhao_suppression_2019} finds that SRS can be well controlled for a laser
 beam structure of multiple frequency components and total bandwidth of a few
-percent. They derive a gain exponent for standard convective SRS driven by two
+percent. The parameters considered in this study are
+$\lambda_0=0.33\si{\micro\metre}$,
+$T_e=2\si{\kilo\electronvolt}$, $n_e = [0.08,0.12]n_c$, giving $\kld \sim
+[0.26,0.35]$, well within the kinetic regime for SRS.
+
+They derive a gain exponent for standard convective SRS driven by two
 beamlets of different frequencies, and find that two beamlets are independent
 when
-
 \begin{equation}\label{DLB_threshold_inhomo}
-\delta \omega_{0} \geq \frac{\pi n_{0} c\left(\omega_{0}^{2}-\omega_{p e}^{2}\right)^{3 / 2}}{8 L \omega_{0} \omega_{L}^{2} \nu_{p}^{2}}.
+\delta \omega_{0} \geq \frac{\pi n_{0} c\left(\omega_{0}^{2}-\omega_{p
+e}^{2}\right)^{3 / 2}}{8 L \omega_{0} \omega_{L}^{2} \nu_{p}^{2}}.
 \end{equation}
+Importantly, this condition is independent of the amplitude of the incident
+laser. In theory, this condition would allow us to construct a DBL to suppress
+SRS in a large-scale inhomogeneous plasma, however, secondary amplification of
+back-scattered light by one of the beamlets is a possibility. We must therefore
+consider another threshold for this secondary amplification: $\delta\omega_0 >
+\omega_{L1}-\omega_{L2}$ where $[\omega_{L1},\omega_{L2}]$ is the range of EPW
+frequencies excited by SRS in the plasma (not including nonlinear frequency
+shift).
 
 
 
