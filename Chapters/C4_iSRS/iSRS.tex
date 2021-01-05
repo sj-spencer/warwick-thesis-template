@@ -15,17 +15,33 @@ This chapter is adapted, with the permission of AIP Publishing, from:
 \section{Motivation and literature review}
 \subsection{Homogeneous plasmas}
 \subsection{Inhomogeneous plasmas}
-test\cite{Vu2001}
 
 
 \section{Code and initial conditions}\label{sec:code&IC}
+As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \cite{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur, which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
+with 2048
+particles per cell (PPC) for the electron species.
+We treat the ions as a neutralising background population since we simulate only a two pico-second interval of SRS
+development, during which ion dynamics will not become important \cite{Rousseaux2006}.
+For the plasma parameters laid out above, electron-ion collisions occur on a characteristic timescale of approximately
+$7 \si{\pico\second}$ at the highest density probed, $0.22n_\mathrm{cr}$. Since the inflationary Raman process we
+are investigating takes place
+on a sub-picosecond timescale, we do not include collisions in our simulations.
+The plasma density profiles are given by the expression $n(x) = n_\mathrm{min}\mathrm{exp}(x/L_n)$ and can be seen in Table
+\ref{tab:densities}.
+
+We simulate a frequency-tripled Nd:glass laser with vacuum wavelength $\lambda_0 = 351\si{\nano\metre}$, polarised in the $y$-direction. The laser intensity was varied in 20 logarithmically evenly-spaced increme\
+nts between $10^{14}$\si{W/\centi\metre^2} and $10^{16}$\si{W/\centi\metre^2}, with a half-Gaussian temporal profile followed by a flat top, and a rise-time of 50 laser periods.
+We use absorbing boundaries for the fields and thermal for the particles; these replace any particle leaving the
+simulation with an incoming particle with velocity consistent with a Maxwellian plasma based on the initial temperature of $4.5$\si{keV}.
 
 \begin{table}[ht]
     \caption{\label{tab:densities}
         Summary of density profiles and $k_{EPW}\lambda_\mathrm{D}$ values in each simulation. $L_n=n_e/(dn_e/dx)$ evaluated at $n_\mathrm{mid}$. For all but the case centred at $0.2n_\mathrm{cr}$, $k_\mathrm{EPW}\lambda_\mathrm{D} > 0.28$ and we are in the strongly kinetic regime. The total range of $k_\mathrm{EPW}\lambda_\mathrm{D}$ probed is 0.21-0.41.
         }
     %\begin{ruledtabular}
-    \begin{tabular}{cccc}
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
     $L_n/\si{\micro \metre}$  & $n_\mathrm{mid}/n_\mathrm{cr}$ & $(n_\mathrm{min},n_\mathrm{max})/n_\mathrm{cr}$ &$(k\lambda_\mathrm{D_{min}},k\lambda_\mathrm{D_{max}})$\\
     \hline
     300& 0.15  & $(0.13,0.18)$ & $(0.28,0.37)$\\
@@ -34,6 +50,7 @@ test\cite{Vu2001}
     500 & 0.20 & $(0.18,0.22)$& $(0.21,0.27)$\\
     1000 & 0.15 & $(0.14,0.16)$ & $(0.31,0.32)$ \\
     \end{tabular}
+    \end{center}
     %\end{ruledtabular}
 \end{table}
 
@@ -51,6 +68,28 @@ test\cite{Vu2001}
 \end{figure}{}
 
 \subsection{Electron trapping}
+\begin{figure}[!ht]
+ \centering
+ \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
+ \caption{Time-resolved comparison of SRS-reflectivity (a,c) and electron distribution 
+ functions (b,d) for two simulations with parameters: $L_n = 500 \si{\micro\metre} $; centred
+ at $0.15n_\mathrm{cr}$; and $T_e = 4.5$\si{\kilo\electronvolt}. The distribution function of
+ electron momentum is averaged over the entire spatial domain at four times, normalised to the initial thermal momentum. Panels (a,b) have an incident laser intensity below the threshold for inflationary SRS; $I_0 = 1.13\times10^{15}$\si{W/\centi\metre^2}. Panels (c,d) have an incident laser intensity above the iSRS threshold; $I_0 = 4.83\times10^{15}$\si{W/\centi\metre^2}.}
+ \label{fig:reflAndDist}
+\end{figure}
+
+A second signature of iSRS, as reported in the literature for homogeneous plasmas, is electron-trapping in the SRS electron plasma waves, leading to a
+non-linear frequency shift and enhanced SRS-reflectivies at large $k\lambda_\mathrm{D}$ \cite{Vu2002}.
+A typical manifestation of this, for our inhomogeneous simulations, is shown in Figure \ref{fig:reflAndDist}. Figure \ref{fig:reflAndDist}
+shows the instantaneous SRS-reflectivity measured at the left boundary of the simulation domain (a,c), alongside the box-averaged electron
+distribution function at four times (b,d), for two simulations with laser intensities above and below the iSRS threshold.
+Sub-figures \ref{fig:reflAndDist} (a,b) show that, when driven below threshold, the distribution of electron momenta is Maxwellian throughout the simulation, and that the maximum instantaneous power in SRS-refle\
+cted light is consequently very low ($P \sim 10^{-3}P_0$). In sub-figures (c,d), where the incident laser intensity is well above the iSRS threshold, we see that the power in SRS-reflected light is correlated wi\
+th the growth of a non-Maxwellian tail in the distribution function, corresponding to an electron population trapped in the SRS electron plasma waves.
+There is a general trend of increasing SRS-reflected light that correlates with
+the increasing trapped electron population.
+
+
 \subsection{Nonlinear frequency shift}
 \subsection{Beam acoustic modes}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -58,6 +97,9 @@ test\cite{Vu2001}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Intensity threshold and hot electron scaling}\label{sec:paramScan}
+
+\section{Saturation}
+In all of the 
 
 \section{Conclusion}\label{sec:conclusion}
 
