@@ -16,10 +16,49 @@ This chapter is adapted, with the permission of AIP Publishing, from:
 
 
 \subsection{Homogeneous plasmas}
-The kinetic inflation of SRS has been studied in plasmas rele
+Inflationary SRS has been studied
+extensively in the low-density homogeneous plasmas relevant to indirect-drive ICF on the NIF
+\cite{Vu2002,Yin2006,Vu2007,Strozzi2007,Yin2008,Yin2012,Ellis2012}.
+In attempting to explain experimental measurements of large SRS-reflectivities at high values of $k_\mathrm{EPW}\lambda_\mathrm{D}$
+\cite{Fernandez2000,Montgomery2002}, it was suggested that some mechanism caused a reduction in the Landau damping
+rate by four to five times, compared to the damping for a Maxwellian plasma \cite{Montgomery2002}.
+Anomalously large SRS-reflectivities were recreated in simulations \cite{Vu2001,Vu2002}, and were explained by
+reference to O'Neil's 1965 model of reduced EPW  damping caused by electron-trapping \cite{ONeil1965}.
+In homogeneous plasmas, iSRS occurs when an SRS EPW grows to a point where it can trap electrons for one
+complete bounce period or longer, without them becoming de-trapped due to velocity-space diffusion or
+side-loss\cite{Vu2002}. This trapped electron population leads to modification of the distribution
+function, in the form of a locally flattened region around the EPW phase velocity.
+This translates to a modification of the dielectric properties of the plasma, resulting in a reduction in
+the EPW's associated Landau damping rate \cite{ONeil1965,Vu2002}, and increased SRS growth.
+
+ Key results of previous studies of inflationary SRS in homogeneous plasmas include: a theory for the saturation
+ of iSRS in terms of EPW bowing and the trapped-particle modulation instability \cite{Yin2008}; the derivation
+ of an inflation threshold intensity in terms of competition between trapping in the EPW and diffusion in
+ velocity space \cite{Vu2007}; and the description of iSRS in terms of a transition from convective to absolute
+ growth \cite{Wang2018}. Inflationary SRS has also been identified as an important mechanism in simulations  with ensembles of laser speckles \cite{Yin2012,Winjum2019}.
 
 \subsection{Inhomogeneous plasmas}
 
+ In the large-scale inhomogeneous plasmas associated with shock-ignition ($L_n =n_e/(dn_e/dx) \simeq 300-1000 \si{\micro\metre}$) the mechanism and effects of inflationary SRS have, so far, received little attention. The few papers which do refer to iSRS in SI inhomogeneous plasmas assume that the explanation of iSRS in a homogeneous plasma in terms of reduced Landau damping also applies to iSRS in an inhomogeneous plasma. However, iSRS in an inhomogeneous plasma actually happens by a different mechanism. In the case of a homogeneous plasma, reduced Landau damping due to electron-trapping in the EPW leads to an increase of the SRS growth rate which, if sufficiently large, can cause a transition from convective to absolute growth \cite{Wang2018}. For an inhomogeneous plasma, where the growth of SRS is always convective, the reduction in Landau damping associated with trapping in the EPW has no net effect on the convective gain.
+ 
+ While the local SRS growth rate may depend on the EPW damping rate in an inhomogeneous plasma, the region of SRS convective growth is also extended, leading to a net Rosenbluth gain\cite{Rosenbluth1972} which is independent of Landau damping \cite{Williams1991,Liu1994}. We therefore look to another non-linear effect caused by the trapped electrons in the SRS EPW, the non-linear frequency shift\cite{Morales1972}. In an inhomogeneous plasma, the frequency shift resulting from electron-trapping can compensate for the wave-number mismatch on propagating up the density gradient, thereby allowing
+ growth over a larger region - an auto-resonance \cite{Chapman2010,Chapman2012}. Chapman {\it et al.} (2012) \cite{Chapman2012},  proposed this theory for iSRS in an inhomogeneous $(L_n \lesssim 100
+ \si{\micro\metre})$ plasma close to the hohlraum wall in indirect-drive ICF. They demonstrated the auto-resonant
+ interaction\cite{Chapman2010} between the non-linear frequency shift associated with electron-trapping in EPW
+ and the wave-number mismatch caused by plasma inhomogeneity; which allows larger SRS gain\cite{Chapman2012}.
+
+
+ Inflationary SRS has been suggested as the cause of SRS from low densities
+ in simulations of LPI in shock ignition \cite{Klimo2014}. Sub-scale shock-ignition experiments have detected
+ SRS scattered light from densities $0.09 - 0.16 n_\mathrm{cr}$, where the inflationary mechanism should be important \cite{Cristoforetti2017}. Recent full-scale ($L_n > 500
+ \si{\micro\metre}$, $T_e = 5\si{\kilo \electronvolt}$) directly-driven experiments have detected significant SRS-reflected light from densities $0.15 - 0.21 n_{\mathrm{cr}}$ \cite{Rosenberg2020}. Another full-scale ($L_n = 450
+ \si{\micro\metre}$, $T_e = 4.5\si{\kilo \electronvolt}$) SI experiment measured SRS-reflected light from densities between $0.05 - 0.15 n_{\mathrm{cr}}$. Under the conditions of the experiment, $k_{\mathrm{EPW}}\lambda_D$ ranges from $0.3 - 0.6$ and the measured SRS is assumed to be inflationary in origin \cite{Baton2020}.
+ For a single laser speckle in an inhomogeneous plasma with density
+ scale-length $L_n\simeq 70 \si{\micro\metre}$, Riconda {\it et al.} (2011) \cite{Riconda2011} demonstrated
+ that iSRS  was associated
+ with electron-trapping in the EPW. By varying $a_0=eE_0/c m_e \omega_0$ from 0.03 to 0.06, i.e. an increase in
+ laser intensity from $1.0\times10^{16} \si{W/\centi\metre^2}$ to $4\times10^{16} \si{W/\centi\metre^2}$, they showed
+ a transition to iSRS.
 
 \section{Code and initial conditions}\label{sec:code&IC}
 As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \cite{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur, which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
@@ -59,7 +98,13 @@ simulation with an incoming particle with velocity consistent with a Maxwellian 
 \end{table}
 
 \section{Diagnosing iSRS in inhomogeneous plasmas}\label{sec:signatures}
+Three signatures of inflationary SRS observed in the literature for homogeneous plasmas are: a threshold intensity past which scattering of laser light is enhanced above the level predicted by fluid theory \cite{Vu2007}; electron-trapping in the SRS EPWs leading to local flattening of the distribution function at the EPW phase velocity \cite{Vu2002}; and the growth of down-shifted SRS EPWs and a continuum of beam-acoustic modes (BAMs) \cite{Yin2006}.
+In what follows we show that all of these signatures are also present for iSRS in an inhomogeneous plasma, despite the instability arising through an auto-resonance rather than a transition from convective to absolute growth.
+
 \subsection{Inflation threshold}
+We consider first the existence of  a threshold intensity past which SRS growth is enhanced, by several
+orders of magnitude, above the predictions of fluid theory; this has been seen in experiments \cite{Kline2006} and simulations \cite{Vu2002,Yin2006,Vu2007,Riconda2011}. In order to identify kinetic inflation of the SRS scattered light intensity in our PIC simulations,
+we the simple fluid model presented in Section \ref{diag:threshold} to calculate and compare the intensity of SRS scattered light in the absence of kinetic effects.
 
 \begin{figure}[ht]
     \centering
@@ -72,6 +117,8 @@ simulation with an incoming particle with velocity consistent with a Maxwellian 
 \end{figure}{}
 
 \subsection{Electron trapping}
+
+
 \begin{figure}[!ht]
  \centering
  \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
@@ -95,6 +142,9 @@ the increasing trapped electron population.
 
 
 \subsection{Nonlinear frequency shift}
+Electron-trapping in the SRS-driven EPW causes a time-dependent non-linear frequency shift of
+the EPWs \cite{Morales1972,Kline2006}, and the growth of a sequence of beam-acoustic modes \cite{Yin2006}; this is the third signature of iSRS.
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig4_4a_4b_4c_4d.pdf}
@@ -105,6 +155,28 @@ $E_x$ ($B_z$)
     The orange solid line represents the plasma frequency $\omega_{\mathrm{pe}}$ for the simulation parameters: $L_n = 500 \si{\micro\metre} $ centred at $0.15n_\mathrm{cr}$ and $I_0 = 4.83\times10^{15}$\si{W/\centi\metre^2}.}
     \label{fig:downshift}
 \end{figure}{}
+
+Figure \ref{fig:downshift} shows the spatially resolved frequency spectra of
+EPWs (a,c) and EMWs (b,d) at 0-0.7ps
+(a,b) and 1.5-1.9ps (c,d). In panels (a,b), the signal maxima sit very close to
+the white dashed line, which represents the frequencies predicted by the SRS
+matching-conditions for the original Maxwellian plasma. This means that, at
+early time, the SRS EPWs and their associated back-scattered light
+waves are excited at the frequencies matching those of the linear theory
+without trapping.
+They are slightly down-shifted from the analytical prediction, which suggests
+that the trapping
+becomes important almost immediately in our simulations.
+At later time, Figure \ref{fig:downshift} (c) shows that the EPW spectrum is
+down-shifted in frequency
+at every location in the simulation domain, including to frequencies below the
+plasma frequency for the original Maxwellian plasma (orange solid line).
+This is evidence of a large trapped particle population removing energy from
+the wave, causing the frequency of the wave
+to decrease such that energy is conserved \cite{Morales1972}. We also note that
+in Figure \ref{fig:downshift} (d) the back-scattered light spectrum is
+up-shifted in frequency space, so as to maintain frequency matching. As well as obvious up-shift of the electromagnetic spectrum, we can also see more general broadening as we move from Figure \ref{fig:downshift} (b) to (d). This could be caused by waves from a higher density propagating to smaller $x$, so that at a particular location the spectrum covers waves from a range of densities.
+
 
 
 \subsection{Beam acoustic modes}
@@ -122,12 +194,36 @@ $E_x$ ($B_z$)
     \label{fig:BAM}
 \end{figure}{}
 
+Further evidence for a large trapped particle population can be seen in the growth of a beam acoustic mode in the electrostatic $(\omega,k)$ spectrum. Figure \ref{fig:BAM} shows the electrostatic dispersion relation from a simulation; it is calculated by taking a 2D Fourier transform of the $E_x$ field over the entire spatial domain, and over two distinct time intervals. At early time, shown in Figure \ref{fig:BAM} (a), electron plasma waves are excited, from background noise, between the two white dashed curves. These
+represent the Bohm-Gross dispersion relations $\omega_\mathrm{EPW}^2 = \omega_{\mathrm{pe}}^2 + 3v_\mathrm{th}^2k_\mathrm{EPW}^2$ for the highest density in the
+domain (top line) and the lowest density (bottom line). According to fluid theory, SRS will grow where the  Stokes branch, defined by $(\omega-\omega_0)^2 = \omega_{\mathrm{pe}}^2 + c^2(k-k_0)^2$, intersects
+with this dispersion curve. This fluid-SRS signal can be seen in Figure \ref{fig:BAM} (a).
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%                              SEC: THRESHOLD AND HE                                   %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The right hand panel of Figure \ref{fig:BAM} shows the EPW dispersion relation calculated from the simulation between $1.2 - 1.9
+\si{\pico\second}$. Inspection of the distribution function in Figure \ref{fig:reflAndDist} shows that, at these times, the distribution
+function is modified from the initial Maxwellian and has a large flattened region, which acts as an effective beam population
+\cite{Yin2006}. According to  linear theory, this change in the distribution function $f$ changes the kinetic dispersion relation for the electrostatic waves in the system, defined by: $\epsilon(\omega,k) = 1 - \frac{q_e^2}{\epsilon_0m_ek}\int\frac{\partial{f}/\partial{v}}{v-\omega/k} dv = 0$.
+This change in the dielectric properties of the plasma is realised in the $(\omega,k)$ spectrum as a continuum of beam acoustic
+modes \cite{Yin2006}, this is the large spectral feature in the right hand panel of Figure \ref{fig:BAM} that sits strictly below
+the Bohm-Gross dispersion curves.
+These beam acoustic modes are frequency downshifted, recovering the result from Morales and O'Neil's non-linear analysis\cite{Morales1972}. The maximum of the BAM signal at $k \sim 1.5k_0$ is the intersection of the BAM with the Stokes
+branch, the new location of SRS growth.
+
+We can also see in Figure \ref{fig:BAM} (b) a signal at $k\sim 0.5k_0$ which sits on the intersection of the Stokes branch with the range of EPWs satisfying the Bohm-Gross dispersion relations. This represents forward-scattered SRS EPWs, which have not undergone a significant frequency shift. For all the simulations presented in this paper, when driven above threshold, the power in forward SRS scattered light is of the order $P \sim 10^{-3} P_0$ or lower, and is therefore energetically unimportant.
+
 
 \section{Intensity threshold and hot electron scaling}\label{sec:paramScan}
+Using the method developed in Section \ref{sec:signatures} for locating the inflation threshold, and the analysis of electron trapping and downshifted EPWs to ensure that the SRS observed is inflationary in origin, we investigate how iSRS depends on various plasma parameters relevant to shock-ignition. Using the PIC simulation set-up as in Section \ref{sec:code&IC} (with the same simulation domains, plasma densities, and temperatures), we varied the plasma density scale-length across the range
+of values predicted for shock-ignition $(300\si{\micro\metre} - 1000\si{\micro\metre})$ \cite{Ribeyre2009}. As well as varying the density scale-length, we also centred the density profiles at different values of density. Figure \ref{fig:paramScan} shows the result of this parameter scan.
+
+From Figure \ref{fig:paramScan} (a) we see that as the density scale-length of the SI coronal plasma decreases, the intensity threshold for iSRS increases. Vu \textit{et al.} (2007) \cite{Vu2007} derived a condition for the kinetic inflation threshold of SRS in a homogeneous plasma. They showed that the magnitude of the trapped electron potential energy in the EPW must be greater than or equal to the energy gained by a particle in one complete trapped orbit due to velocity diffusion in the
+background plasma fluctuations. This ensures that trapping remains for at least one bounce period.
+
+No such analytic threshold has been derived for an inhomogeneous plasma.
+However, when $L_n$ is smaller the inhomogenous gain is smaller and the amplitude reached by convective amplification of the SRS EPW is lower for the same intensity.
+Hence SRS in a shorter density scale length plasma is less likely to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS.
+
+Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered light in three sets of simulations with density profiles centred at $0.12,0.15,0.20 n_\mathrm{cr}$, chosen so that the density ranges do not overlap (see Table \ref{tab:densities}). As the central density decreases, the intensity threshold for iSRS increases. As for the case of varying scale-lengths changing the threshold, this can be explained in terms of the Rosenbluth gain\cite{Rosenbluth1972}. For a fixed density scale-length, as the density decreases, the Rosenbluth gain exponent also decreases. This means that the fluid gain through convective SRS is reduced. Hence SRS at a low density is less likely than that at higher density to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS. For the parameters of Figure \ref{fig:hotelectrons} (b) with $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$, the Rosenbluth gain exponent increases from $\sim1$ to $\sim25$ as the densities increase.
 
 \begin{figure}[!ht]
      \centering
@@ -140,6 +236,38 @@ $E_x$ ($B_z$)
     \label{fig:paramScan}
 \end{figure}
 
+
+As well as understanding how the density scale-length of the plasma and the
+density at which iSRS is driven affects the iSRS threshold, we would like to
+understand how these factors affect the hot electron
+population. We consider three simulations from Figure \ref{fig:paramScan} (a)
+with $I_0 = 2.98\times 10^{15} \si{W / \centi \metre^2}$, and three from Figure
+\ref{fig:paramScan} (b), with $I_0 = 6.16\times 10^{15} \si{W / \centi
+\metre^2}$. Figures \ref{fig:hotelectrons} (a,b) show the hot electron
+population in these simulations, in the form of histograms for the electron
+flux through the right boundary.
+
+Figure \ref{fig:hotelectrons} (a) shows the
+electron distribution function resulting from iSRS for three density scale-lengths. These are for a laser intensity
+above the onset threshold for iSRS but below an intensity which would lead to saturation. All results are
+for the same central density. The most prominant difference is that the peak electron energy increases with
+decreasing density scale-length. This results from the fact that the shorter density scale-length simulation
+access a higher peak density since the simulation domain size is the same for all three cases. The SRS
+matching conditions for these higher densities result in a higher phase speed of driven EPWs. Solving the
+SRS matching conditions for these densities, we find that the hot-electron energies calculated from the phase
+velocities are between $35 - 50 \si{\kilo \electronvolt}$ for all three cases.
+
+
+Figure \ref{fig:hotelectrons} (b), however, shows a clear dependence of the hot
+electrons from iSRS on density. As the density increases the maximum hot-
+electron kinetic energy also increases in line with the increase in SRS EPW
+phase velocities.
+Over the 2ps of the simulations the fraction of incident laser energy converted
+into hot-electrons with $\mathrm{energy} > 100\si{\kilo \electronvolt}$ are: 0,
+$0.002$, and $0.15$ for the $0.12,0.15,0.20 n_\mathrm{cr}$ densities. For the
+density scale-lengths $L_n=300,500,1000\si{\micro\metre}$ the fractions of
+incident laser energy converted into $> 100\si{\kilo \electronvolt}$ hot-
+electrons are: $0.005,0.001$ and $0$ respectively.
 
 \begin{figure}[ht]
    \centering

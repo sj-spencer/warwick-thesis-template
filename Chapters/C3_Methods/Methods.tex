@@ -22,8 +22,39 @@ the EPOCH paper\cite{Arber2015}
 
 
 \section{Diagnostics}
+
 \subsection{Auto-resonance diagnostic}
-\subsection{Inflation threshold diagnostic}
+
+\subsection{Inflation threshold diagnostic}\label{diag:threshold}
+According to fluid theory, the growth of a parametrically unstable mode in an inhomogeneous plasma is limited by the loss of resonance between the waves as they propagate through the plasma and experience wave-number shift \cite{Rosenbluth1972}. We can formulate this inhomogeneous growth in terms of the Rosenbluth gain exponent\cite{Rosenbluth1972}
+\begin{equation}\label{eqn:GRos}
+    G_\mathrm{Ros} = 2\pi\gamma_0^2/|v_{g,1}v_{g,2}\kappa'|,
+\end{equation}
+where $\gamma_0$ is the growth rate of the equivalent mode in a homogeneous plasma, $v_{g,1}, v_{g,2}$ are the group speeds of the scattered EM wave/EPW and $\kappa'$ is the $x$-derivative of the wave-number mismatch $\kappa(x) = k_0(x) -k_\mathrm{s}(x) -k_\mathrm{EPW}(x)$. The maximum intensity reached by a parametrically unstable wave which has grown from noise at point $x$ is then given by the expression $I_\mathrm{noise}\mathrm{exp}(G_\mathrm{Ros}(x))$. In order to calculate the intensity of scattered light due to SRS, we substitute for $k_0,k_\mathrm{s},k_\mathrm{EPW}$ using the electromagnetic and Bohm-Gross dispersion relations in one dimension, to get:
+\begin{equation}\label{eqn:kappaPrime}
+    \frac{d\kappa}{dx}= -\frac{1}{2}\frac{q_e^2}{m_e\epsilon_0}
+    \left(\frac{1}{c^2k_0}-\frac{1}{3v_\mathrm{th}^2k_\mathrm{EPW}}-\frac{1}{c^2k_\mathrm{s}}\right)\frac{dn_e}{dx}.
+\end{equation}
+Substituting this back into $G_\mathrm{Ros}$ with the growth rate for backward SRS in a homogeneous plasma\cite{kruer2003},
+\begin{equation}\label{eqn:gamma0}
+    \centering
+    \gamma_0 = \frac{k_\mathrm{EPW}v_{os}}{4}\left[\frac{\omega_{\mathrm{pe}}^2}{\omega_\mathrm{EPW}(\omega_0-\omega_\mathrm{EPW})}\right]^{1/2},
+\end{equation}
+gives an appropriate Rosenbluth gain exponent for calculating convective amplification of
+back-scattered SRS light in our simulations.
+
+
+We make several simplifying assumptions that allow us to estimate the maximal scattered light intensity at a point in our simulation domain. Firstly, we neglect the dependence of the scattered light velocity on space, and consider it to be fixed at $c$. This means that we slightly over-estimate the amount of scattered light which is able to reach the point $x$ in time $t$. We also assume that the laser achieves its maximum intensity starting at $t=0$ rather than ramping up, as it does in the simulations.
+We neglect collisional damping of the scattered EM waves and assume that the noise source $I_\mathrm{noise}$ is homogeneous in the domain. Finally, we assume that the amplification described by the Rosenbluth gain exponent occurs locally and instantaneously at the point of perfect
+matching $(\kappa=0)$, rather than across the resonance region defined by $\ell \sim 1/\sqrt{\kappa'}$. For all the simulations presented in this paper $\ell < 6\si{\micro\metre}$.
+ The scattered light intensity is then given by
+ \begin{equation}\label{eqn:fluid_model}
+     I(x) = \frac{1}{L_x}\int_x^{L_x}I_\mathrm{noise}\mathrm{exp}(G_\mathrm{Ros}(s)) ds.
+ \end{equation}
+The prefactor $1/L_x$ ensures that if $G_\mathrm{Ros}=0$, such that there is no growth, then the back-scattered signal remains
+at the the noise intensity. The steady-state intensity of SRS scattered light measured at the laser-entry boundary is then given by $\langle I_{\mathrm{SRS}} \rangle = I(0)$.
+
+Obviously this model is limited to calculating the maximum reflected light ignoring the effects of pump depletion.  It is only applicable for these intensities ... . Using the code LPSE might be more realistic, but we don't think it can do convective growth yet. In Han braodband preprint they find the trheshold by fitting some weird function, what do I think of that?
 
 %\bibliographystyle{plainnat}
 %\bibliography{Chapters/C3_Methods/Methods}
