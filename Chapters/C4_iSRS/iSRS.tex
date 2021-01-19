@@ -13,6 +13,7 @@ This chapter is adapted, with the permission of AIP Publishing, from:
 \end{itemize}
 
 \section{Motivation and literature review}
+In this chapter results of one-dimensional particle-in-cell (PIC) simulations are presented, which show that inflationary SRS (iSRS) can occur in shock-ignition plasmas and characterises its threshold intensity in terms of the density scale length of the coronal plasma. Inflationary SRS refers to the enhancement of SRS above the levels predicted by fluid theory, caused by kinetic effects. The chapter beings with a review of the previous work on inflationary SRS in homogeneous plasmas, where the effect was first identified and understood. Then the case of iSRS in large-scale inhomogenous plasmas is considered, and a description in terms of autoresonance is presented. The code and initial conditions of the simulation are described, followed by a review of the signatures of iSRS and how they manifest in an inhomogeneous plasma. Finally the dependence of the inflationary SRS threshold intensity on density scale length for shock-ignition parameters, and the saturation of the instability are explored. The conclusion discusses the applicability of these results and ways to increase the experimental relevance of the simulations.
 
 
 \subsection{Homogeneous plasmas}
@@ -26,7 +27,7 @@ Anomalously large SRS-reflectivities were recreated in simulations \cite{Vu2001,
 reference to O'Neil's 1965 model of reduced EPW  damping caused by electron-trapping \cite{ONeil1965}.
 In homogeneous plasmas, iSRS occurs when an SRS EPW grows to a point where it can trap electrons for one
 complete bounce period or longer, without them becoming de-trapped due to velocity-space diffusion or
-side-loss\cite{Vu2002}. This trapped electron population leads to modification of the distribution
+side-loss \cite{Vu2002}. This trapped electron population leads to modification of the distribution
 function, in the form of a locally flattened region around the EPW phase velocity.
 This translates to a modification of the dielectric properties of the plasma, resulting in a reduction in
 the EPW's associated Landau damping rate \cite{ONeil1965,Vu2002}, and increased SRS growth.
@@ -41,7 +42,7 @@ the EPW's associated Landau damping rate \cite{ONeil1965,Vu2002}, and increased 
 
  In the large-scale inhomogeneous plasmas associated with shock-ignition ($L_n =n_e/(dn_e/dx) \simeq 300-1000 \si{\micro\metre}$) the mechanism and effects of inflationary SRS have, so far, received little attention. The few papers which do refer to iSRS in SI inhomogeneous plasmas assume that the explanation of iSRS in a homogeneous plasma in terms of reduced Landau damping also applies to iSRS in an inhomogeneous plasma. However, iSRS in an inhomogeneous plasma actually happens by a different mechanism. In the case of a homogeneous plasma, reduced Landau damping due to electron-trapping in the EPW leads to an increase of the SRS growth rate which, if sufficiently large, can cause a transition from convective to absolute growth \cite{Wang2018}. For an inhomogeneous plasma, where the growth of SRS is always convective, the reduction in Landau damping associated with trapping in the EPW has no net effect on the convective gain.
  
- While the local SRS growth rate may depend on the EPW damping rate in an inhomogeneous plasma, the region of SRS convective growth is also extended, leading to a net Rosenbluth gain\cite{Rosenbluth1972} which is independent of Landau damping \cite{Williams1991,Liu1994}. We therefore look to another non-linear effect caused by the trapped electrons in the SRS EPW, the non-linear frequency shift\cite{Morales1972}. In an inhomogeneous plasma, the frequency shift resulting from electron-trapping can compensate for the wave-number mismatch on propagating up the density gradient, thereby allowing
+ While the local SRS growth rate may depend on the EPW damping rate in an inhomogeneous plasma, the region of SRS convective growth is also extended, leading to a net Rosenbluth gain \cite{Rosenbluth1972} which is independent of Landau damping \cite{Williams1991,Liu1994}. We therefore look to another non-linear effect caused by the trapped electrons in the SRS EPW, the non-linear frequency shift\cite{Morales1972}. In an inhomogeneous plasma, the frequency shift resulting from electron-trapping can compensate for the wave-number mismatch on propagating up the density gradient, thereby allowing
  growth over a larger region - an auto-resonance \cite{Chapman2010,Chapman2012}. Chapman {\it et al.} (2012) \cite{Chapman2012},  proposed this theory for iSRS in an inhomogeneous $(L_n \lesssim 100
  \si{\micro\metre})$ plasma close to the hohlraum wall in indirect-drive ICF. They demonstrated the auto-resonant
  interaction\cite{Chapman2010} between the non-linear frequency shift associated with electron-trapping in EPW
@@ -236,6 +237,17 @@ Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered lig
     \label{fig:paramScan}
 \end{figure}
 
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.75\columnwidth]{Chapters/C4_iSRS/fig7_7a_7b.pdf}
+    \caption{(Colour) (a) Hot electron flux through the right boundary in three simulations with parameters: $I_0 = 2.98\times 10^{15} \si{W / \centi \metre^2}$; $n_\mathrm{mid}=0.15 n_\mathrm{cr}$; $L_n=300,500\
+,1000\si{\micro\metre}$.   (b) Hot electron flux through the right boundary in three simulations with parameters:
+   $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$;  $L_n=500\si{\micro\metre}$; $n_\mathrm{mid}=0.12,0.15,0.20 n_\mathrm{cr}$ respectively. Each distribution is normalised to its maximum value. The smooth b\
+lack line corresponds to the equivalent flux for a Maxwellian
+   distribution with $T_e=4.5\si{\kilo \electronvolt}$, for comparison with the
+   bulk plasma.}
+    \label{fig:hotelectrons}
+\end{figure}{}
 
 As well as understanding how the density scale-length of the plasma and the
 density at which iSRS is driven affects the iSRS threshold, we would like to
@@ -269,23 +281,17 @@ density scale-lengths $L_n=300,500,1000\si{\micro\metre}$ the fractions of
 incident laser energy converted into $> 100\si{\kilo \electronvolt}$ hot-
 electrons are: $0.005,0.001$ and $0$ respectively.
 
-\begin{figure}[ht]
-   \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C4_iSRS/fig7_7a_7b.pdf}
-    \caption{(Colour) (a) Hot electron flux through the right boundary in three simulations with parameters: $I_0 = 2.98\times 10^{15} \si{W / \centi \metre^2}$; $n_\mathrm{mid}=0.15 n_\mathrm{cr}$; $L_n=300,500\
-,1000\si{\micro\metre}$.   (b) Hot electron flux through the right boundary in three simulations with parameters:
-   $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$;  $L_n=500\si{\micro\metre}$; $n_\mathrm{mid}=0.12,0.15,0.20 n_\mathrm{cr}$ respectively. Each distribution is normalised to its maximum value. The smooth b\
-lack line corresponds to the equivalent flux for a Maxwellian
-   distribution with $T_e=4.5\si{\kilo \electronvolt}$, for comparison with the
-   bulk plasma.}
-    \label{fig:hotelectrons}
-\end{figure}{}
+
 
 
 
 \section{Saturation}
 In all of the 
 
+\section{Discussion}
+
 \section{Conclusion}\label{sec:conclusion}
+
+This work is nowhere near finished in fact it's a bit crap
 
 %\bibliography{Chapters/C4_iSRS/iSRS}
