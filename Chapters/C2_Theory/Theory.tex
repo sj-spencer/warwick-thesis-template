@@ -22,6 +22,10 @@ about? BGK modes, B\cite{Kruer96}
 \section{Quasi-linear theory}
 %\subsection{Landau damping}
 
+Bohm-Gross waves; Beam acoustic modes, other acoustic modes.
+etc. Where are they and how do they relate? Ie the Bohm-Gross and Electron
+Acoustic modes join at klD~0.53
+
 \section{Nonlinear theory}
 \subsection{Three-wave parametric instabilities}
 \subsection{Nonlinear frequency shift}
@@ -29,11 +33,62 @@ about? BGK modes, B\cite{Kruer96}
 %non-linear basis for trapping induced SRS modes found in \cite{Rose2001}, also
  %a thing called the nonlinear dielectric function
 
+\subsection{Rosenbluth gain}
+
+Consider a three-wave parametric instability that takes place in a plasma slab with a density gradient in $x$ with a uniform pump. The density gradient leads to $x$-varying wavenumbers for the waves, so we define the `wavenumber mismatch' as $\kappa' = k_0(x) - k_1(x) - k_2(x)$, where perfect matching is defined by the condition $\kappa(x=0) = 0$ and we insist that $\kappa = \kappa' x$. The daughter waves can be described by the following pair of partial differential equations:
+
+\begin{equation}
+ \left(\frac{\partial}{\partial t} + v_1\frac{\partial}{\partial x} + \Gamma_1 \right)a_1 = \gamma_0a_2\text{exp}\left(i\int^x \kappa dx'\right)
+\end{equation}
+
+\begin{equation}
+ \left(\frac{\partial}{\partial t} + v_2\frac{\partial}{\partial x} + \Gamma_2 \right)a_2 = \gamma_0a_1\text{exp}\left(i\int^x \kappa dx'\right);
+\end{equation} 
+where $\Gamma_{1,2}$ are the damping rates; $a_{1,2}$ the action amplitudes; and $v_{1,2}$ the group velocities of the two waves. 
+
+WHAT ARE WE TRYING TO DO, WHAT MOTIVATES THIS TRANSFORM?
+
+Recalling the definition of the Laplace transform of a function $f(t)$: $L\{f(t)\}= F(p) = \int_0^\infty e^{-pt} f(t) dt$ we take the Laplace transform of these equations to get
+
+\begin{equation}\label{eqn:rosenbluth_laplace}
+a_1(0,x) + pA_1(p,x) + \Gamma_1 A_1(p,x) + v_1\frac{\partial}{\partial x}A_1(p,x) = \gamma_0 A_2(p,x)\text{exp}\left(i\int^x \kappa dx'\right)
+\end{equation}
+
+\begin{equation}\label{eqn:rosenbluth_laplace_EPW}
+a_2(0,x) + pA_2(p,x) + \Gamma_2 A_2(p,x) + v_2\frac{\partial}{\partial x}A_2(p,x) = \gamma_0 A_1(p,x)\text{exp}\left(i\int^x \kappa dx'\right).
+\end{equation}
+
+Re-writing $A_1,A_2$ to allow us to do a little trick where the exponential term on the RHS of the coupled equations disappears:  
+
+\begin{equation}
+ A_1(p,x) = \tilde{a_1}(p,x)\text{exp}\left(i\int_0^x \kappa/2 dx'\right),
+\end{equation}
+
+\begin{equation}\label{eqn:rosenbluth_solveable_EPW}
+ A_2(p,x) = \tilde{a_2}(p,x)\text{exp}\left(-i\int_0^x \kappa/2 dx'\right),
+\end{equation}
+
+ we can re-write Equations \ref{eqn:rosenbluth_laplace} and \ref{eqn:rosenbluth_laplace_EPW} as:
+
+\begin{equation}
+	\left(p + \Gamma_1 + i\frac{\kappa}{2}v_1 + v_1\frac{\partial}{\partial x}\right)\tilde{a_1} = \gamma_0 \tilde{a_2} + \tilde{a_1}(0)
+\end{equation}  
+
+We now consider the case where one of the two daughter waves is strongly damped and slowly convecting (in SRS this would be the EPW), in terms of the variables we have, this condition is written as $|\Gamma_2| \gg |v_2\partial / \partial x|$. We neglect the source term for $a_2$, as it is sufficient to have a source term for $a_1$ to get growth of both waves, and set p=0 (VALIDITY???). Now equation \ref{eqn:rosenbluth_solveable_EPW} allows us to write $\tilde{a_2}$ in terms of $\tilde{a_1}$ as
+
+\begin{equation}
+	a_2 = \frac{\gamma_0a_1}{\Gamma_2 - i v_2 \kappa/2}
+\end{equation}
 
 
-Bohm-Gross waves; Beam acoustic modes, other acoustic modes.
-etc. Where are they and how do they relate? Ie the Bohm-Gross and Electron
-Acoustic modes join at klD~0.53
+
+Since the instability we are concerned with is convective, we would like to understand what the maximum wave amplitude is for the daughter waves, according to the linear theory, in order to determine how SRS will grow in the fluid regime.
+
+Following \cite{Williams1991}, the net growth of the daughter wave with action amplitude $a_1$ through the interaction region is given by 
+
+\begin{equation}
+ F = \underset{L}{\text{max}} |a_1(L)/a_1(-L)|
+\end{equation}
 
 \section{Autoresonance}
 
