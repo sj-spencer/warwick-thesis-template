@@ -92,15 +92,22 @@ We now consider the case where one of the two daughter waves is strongly damped 
 
 \begin{equation}
 	\tilde{a}_2 = \frac{\gamma_0}{\Gamma_2 - i v_2 \kappa/2}\tilde{a}_1.
-\end{equation} We then subsititue this into Equation \ref{eqn:rosenbluth_solveable_EMW} and set the source for $\tilde{a_1}(0,0) = I\delta(x-x_0)/p$
+\end{equation} We then subsititue this into Equation \ref{eqn:rosenbluth_solveable_EMW} and set the source for $\tilde{a_1}(0,0) = I\delta(x-x_0)/p$ to get the following PDE describing $\tilde{a_1}$ in terms of $x$:
 
-
-
-
+\begin{equation}
+	\left(p + \Gamma_1 + i\frac{\kappa}{2}v_1 + v_1\frac{\partial}{\partial x}\right)\tilde{a_1} = \frac{\gamma_0^2}{\Gamma_2 - i v_2 \kappa/2}\tilde{a}_1 + I\delta(x-x_0)/p
+\end{equation}
 
 
 
 \section{Autoresonance}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Chapters/C2_Theory/AR_diagnostic.pdf}
+    \caption{It's chapman but crap}
+    \label{fig:AR_diagnostic}
+\end{figure}{}
 
 %\bibliographystyle{plainnat}
 %\bibliography{Chapters/C2_Theory/Theory}
