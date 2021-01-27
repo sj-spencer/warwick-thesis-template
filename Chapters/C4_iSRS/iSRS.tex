@@ -62,22 +62,6 @@ the EPW's associated Landau damping rate \cite{ONeil1965,Vu2002}, and increased 
  a transition to iSRS.
 
 \section{Code and initial conditions}\label{sec:code&IC}
-As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \cite{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur, which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
-with 2048
-particles per cell (PPC) for the electron species.
-We treat the ions as a neutralising background population since we simulate only a two pico-second interval of SRS
-development, during which ion dynamics will not become important \cite{Rousseaux2006}.
-For the plasma parameters laid out above, electron-ion collisions occur on a characteristic timescale of approximately
-$7 \si{\pico\second}$ at the highest density probed, $0.22n_\mathrm{cr}$. Since the inflationary Raman process we
-are investigating takes place
-on a sub-picosecond timescale, we do not include collisions in our simulations.
-The plasma density profiles are given by the expression $n(x) = n_\mathrm{min}\mathrm{exp}(x/L_n)$ and can be seen in Table
-\ref{tab:densities}.
-
-We simulate a frequency-tripled Nd:glass laser with vacuum wavelength $\lambda_0 = 351\si{\nano\metre}$, polarised in the $y$-direction. The laser intensity was varied in 20 logarithmically evenly-spaced increme\
-nts between $10^{14}$\si{W/\centi\metre^2} and $10^{16}$\si{W/\centi\metre^2}, with a half-Gaussian temporal profile followed by a flat top, and a rise-time of 50 laser periods.
-We use absorbing boundaries for the fields and thermal for the particles; these replace any particle leaving the
-simulation with an incoming particle with velocity consistent with a Maxwellian plasma based on the initial temperature of $4.5$\si{keV}.
 
 \begin{table}[ht]
     \caption{\label{tab:densities}
@@ -98,18 +82,72 @@ simulation with an incoming particle with velocity consistent with a Maxwellian 
     %\end{ruledtabular}
 \end{table}
 
+As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \cite{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur, which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
+with 2048
+particles per cell (PPC) for the electron species.
+We treat the ions as a neutralising background population since we simulate only a two pico-second interval of SRS
+development, during which ion dynamics will not become important \cite{Rousseaux2006}.
+For the plasma parameters laid out above, electron-ion collisions occur on a characteristic timescale of approximately
+$7 \si{\pico\second}$ at the highest density probed, $0.22n_\mathrm{cr}$. Since the inflationary Raman process we
+are investigating takes place
+on a sub-picosecond timescale, we do not include collisions in our simulations.
+The plasma density profiles are given by the expression $n(x) = n_\mathrm{min}\mathrm{exp}(x/L_n)$ and can be seen in Table
+\ref{tab:densities}.
+
+We simulate a frequency-tripled Nd:glass laser with vacuum wavelength $\lambda_0 = 351\si{\nano\metre}$, polarised in the $y$-direction. The laser intensity was varied in 20 logarithmically evenly-spaced increme\
+nts between $10^{14}$\si{W/\centi\metre^2} and $10^{16}$\si{W/\centi\metre^2}, with a half-Gaussian temporal profile followed by a flat top, and a rise-time of 50 laser periods.
+We use absorbing boundaries for the fields and thermal for the particles; these replace any particle leaving the
+simulation with an incoming particle with velocity consistent with a Maxwellian plasma based on the initial temperature of $4.5$\si{keV}.
+
+
+
+EPOCH uses a pseudorandom number generator (PRNG) to generate the initial particle distribution.
+Each simulation was repeated 10 times with a different PRNG seed, allowing us to determine the sensitivity of
+SRS to plasma fluctuations.
+This allowed us to calculate both the mean and standard deviation of the intensity of the light scattered through SRS.
+
+\begin{figure}[ht]
+ \centering
+ \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig1.pdf}
+ \caption{Time-averaged intensity of SRS scattered light for a homogeneous simulation ($n_e=0.15n_\mathrm{cr}$, $T_e = 4.5$\si{\kilo \electronvolt}) with different numbers of particles
+ per cell. Relative errors are given by one standard deviation of the SRS scattered light intensity as calculated from ten simulations.} \label{fig:convergence}
+\end{figure}
+
+SRS amplifies fluctuations in the plasma, and so is sensitive to number of particles per cell used in the simulation, as can be seen in Figure \ref{fig:convergence}.
+In this figure, the intensity of SRS back-scattered light (denoted in this paper by $\langle I_{\mathrm{SRS}}\rangle$) is plotted against the incoming laser intensity $I_0$ ranging between
+$0.4 - 4.0 \times 10^{15}$\si{W/\centi\metre^2} for a homogeneous plasma with $n_e=0.15n_\mathrm{cr}, T_e = 4.5$\si{\kilo \electronvolt}, for different numbers of
+particles per cell.
+At low incident intensity, $\langle I_{\mathrm{SRS}}\rangle$ is inversely proportional to the number of PPC used. This is as we
+would expect for the case of simple convective amplification \cite{Rosenbluth1972} of the product of two quantities ($E_y,B_z$) which vary as background PIC noise, which is proportional to $1/\sqrt{\mathrm{PPC}}$.
+The upper saturated level of  $\langle I_{\mathrm{SRS}}\rangle$ is robust to the number of PPC for $\mathrm{PPC} > 100$.
+The transition between these two levels represents the change from standard convective amplification of SRS to enhanced
+growth of SRS due to trapping (inflationary SRS), hence we call this the inflation threshold.
+The existence of an inflation threshold is also robust to the number of particles per cell for $\mathrm{PPC} > 100$.
+
+In the region containing the inflation threshold, the error associated with the intensity of SRS scattered light is largest. This suggests that inflationary SRS is very sensitive to the initial distribution of particles in the simulation domain, and that a statistical analysis of the mean and standard deviation of intensity across different random seeds will be important if we are to determine the iSRS threshold intensity accurately.
+
+
 \section{Diagnosing iSRS in inhomogeneous plasmas}\label{sec:signatures}
 Three signatures of inflationary SRS observed in the literature for homogeneous plasmas are: a threshold intensity past which scattering of laser light is enhanced above the level predicted by fluid theory \cite{Vu2007}; electron-trapping in the SRS EPWs leading to local flattening of the distribution function at the EPW phase velocity \cite{Vu2002}; and the growth of down-shifted SRS EPWs and a continuum of beam-acoustic modes (BAMs) \cite{Yin2006}.
 In what follows we show that all of these signatures are also present for iSRS in an inhomogeneous plasma, despite the instability arising through an auto-resonance rather than a transition from convective to absolute growth.
 
 \subsection{Inflation threshold}
 We consider first the existence of  a threshold intensity past which SRS growth is enhanced, by several
-orders of magnitude, above the predictions of fluid theory; this has been seen in experiments \cite{Kline2006} and simulations \cite{Vu2002,Yin2006,Vu2007,Riconda2011}. In order to identify kinetic inflation of the SRS scattered light intensity in our PIC simulations,
+orders of magnitude, above the predictions of fluid theory; this has been seen in experiments \cite{Kline2006} and simulations \cite{Vu2002,Yin2006,Vu2007,Riconda2011}.
+
+In order to identify kinetic inflation of the SRS scattered light intensity in our PIC simulations,
 we the simple fluid model presented in Section \ref{diag:threshold} to calculate and compare the intensity of SRS scattered light in the absence of kinetic effects.
+
+The red circular markers in Figure \ref{fig:kineticVsfluid} show the results of applying this method to the case of a $500\si{\micro\metre} $ density scale-length plasma, with the density profile centred at $0.15n_\mathrm{cr}$, for incident laser intensities ranging from $10^{14} - 10^{16}$\si{W/\centi\metre^2}. The blue triangular markers show the intensity of SRS scattered light calculated from the equivalent kinetic EPOCH simulations. The relationship between the kinetic and fluid results changes as the incident laser intensity increases. At low intensities the fluid and kinetic models are well matched, but not identical, suggesting that there is always some kinetic element to the SRS behaviour in these simulations.
+
+Continuing this analysis to intensities $<10^{13}$\si{W/\centi\metre^2} (well below those relevant to shock-ignition) shows that the two methods converge for low intensities, where the behaviour is purely fluid. Once the incident laser intensity exceeds  $I_\mathrm{threshold} \sim 1.4\times10^{15}$\si{W/\centi\metre^2}, the intensity of SRS scattered light measured in the kinetic simulations exceeds the fluid prediction by between one and three orders of magnitude, until the intensity reaches $I_0 = 10^{16}$\si{W/\centi\metre^2}, where it appears to saturate. In the fluid model, $\langle I_{\mathrm{SRS}}\rangle$ is a smooth function of incident laser intensity and we cannot define such a threshold intensity. This implies that kinetic effects in our simulations are responsible for the increase in $\langle I_{\mathrm{SRS}} \rangle$ and that we have observed iSRS. The fluid estimate shows no sign of saturating at high intensities, since the Rosenbluth gain formula used is based on unbounded linear SRS growth over the resonance region $\ell$ and the model does not include pump depletion.
+
+By constructing plots such as these, which show the fully kinetic PIC results alongside results from our simple fluid model, we are able to identify the iSRS threshold as the point past which the kinetic and fluid models differ by at least one order of magnitude.
+
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig2.pdf}
+    \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig2.pdf}
     \caption{
         Blue triangular markers show the intensity of SRS scattered light calculated using the fully-kinetic EPOCH code for parameters: $L_n = 500 \si{\micro\metre} $ and $n_{\mathrm{mid}} = 0.15n_\mathrm{cr}$.
         Red circular markers show the intensity of SRS scattered light calculated, for the same plasma parameters, from the fluid model presented above.
@@ -122,7 +160,7 @@ we the simple fluid model presented in Section \ref{diag:threshold} to calculate
 
 \begin{figure}[!ht]
  \centering
- \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
+ \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
  \caption{Time-resolved comparison of SRS-reflectivity (a,c) and electron distribution 
  functions (b,d) for two simulations with parameters: $L_n = 500 \si{\micro\metre} $; centred
  at $0.15n_\mathrm{cr}$; and $T_e = 4.5$\si{\kilo\electronvolt}. The distribution function of
@@ -148,7 +186,7 @@ the EPWs \cite{Morales1972,Kline2006}, and the growth of a sequence of beam-acou
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig4_4a_4b_4c_4d.pdf}
+    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig4_4a_4b_4c_4d.pdf}
     \caption{Top panels show the spectra of electrostatic (a) and electromagnetic (b) waves over the period $0-0.7\si{\pico\second}$.
     The white (orange) dashed lines represent the linear predictions for the spectra of backward (forward) SRS. The bottom panels show the same spectra calculated over the period $1.5-1.9\si{\pico\second}$. The \
 $E_x$ ($B_z$)
@@ -183,8 +221,8 @@ up-shifted in frequency space, so as to maintain frequency matching. As well as 
 \subsection{Beam acoustic modes}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig5_5a_5b.pdf}
-    \caption{(Colour) (a) 2D FFT of $E_x$ over the period $ 0 - 0.8 \si{\pico\second}$. (b) 2D FFT of $E_x$ over the period $1.2 - 1.9                                                                              
+    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig5_5a_5b.pdf}
+    \caption{(a) 2D FFT of $E_x$ over the period $ 0 - 0.8 \si{\pico\second}$. (b) 2D FFT of $E_x$ over the period $1.2 - 1.9                                                                              
     \si{\pico\second}$.
     The white dashed lines represent the analytical dispersion relations corresponding to the minimum (bottom line) and maximum (top line) plasma densities,
     assuming a Maxwellian electron distribution.
@@ -228,9 +266,9 @@ Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered lig
 
 \begin{figure}[!ht]
      \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C4_iSRS/fig6_6a_6b.pdf}
+    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig6_6a_6b.pdf}
     \caption{
-    (Colour) (a)  Relationship between incident laser intensity and the intensity of SRS scattered light for three different density scale-lengths, with plasma density profiles centred at $0.15n_\mathrm{cr}$.
+    (a)  Relationship between incident laser intensity and the intensity of SRS scattered light for three different density scale-lengths, with plasma density profiles centred at $0.15n_\mathrm{cr}$.
     (b) Relationship between incident laser intensity and the intensity of SRS scattered light for three simulations with $L_n=500\si{\micro\metre}$ centred at three different densities.
     Each coloured dashed line represents the prediction of the fluid model presented in Section \ref{sec:signatures} for the same parameters as the solid line of the same colour.
     }
