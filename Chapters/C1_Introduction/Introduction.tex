@@ -4,15 +4,21 @@
 The material presented in this thesis represents kinetic simulations of laser-plasma interactions (\acrshort{LPI}) relevant to direct-drive inertial confinement fusion (\acrshort{ICF}). In this introductory chapter, an overview of the goals of, and approaches to, inertial confinement fusion is given; including specific details of the `shock-ignition' (\acrshort{SI}) ICF scheme. We then review the previous work concerning laser-plasma interactions in direct-drive ICF, and motivate the use of kinetic modelling throughout this thesis. Finally, we offer an outline of the rest of the thesis.
 
 \section{Inertial Confinement Fusion}
-The basic concept of inertial confinement fusion (\acrshort{ICF}) is based on the Ulam-Teller design for a thermonuclear weapon (H-bomb), which uses radiation to compress thermonuclear fuel to the point where it undergoes nuclear fusion \citep{SpanishHistoryOfICF}.  Nuclear fusion is the process by which two light atomic nuclei combine to form a new, heavier, nucleus and release energy proportional to the mass gap as kinetic energy of the fusion products. The reaction of choice in the thermonuclear weapon, and in most modern ICF designs is deuterium-tritium fusion. Equation \ref{eq:DTfusion} shows the reaction first in the most commonly-used formula, and then explicitly in terms of the ions and their neutron (superscript) and proton (subscript) numbers.
+The basic concept of inertial confinement fusion (\acrshort{ICF}) is based on the Ulam-Teller design for a thermonuclear weapon (H-bomb), which uses radiation to compress thermonuclear fuel to the point where it undergoes nuclear fusion \citep{SpanishHistoryOfICF}.  Nuclear fusion is the process by which two light atomic nuclei combine to form a new, heavier, nucleus and release energy proportional to the mass gap as kinetic energy of the fusion products. The reaction of choice in the thermonuclear weapon, and in most modern ICF designs, is deuterium-tritium (\acrshort{DT}) fusion. Equation \ref{eq:DTfusion} shows the reaction first in the most commonly-presented formula, and then explicitly in terms of the ions and their neutron (superscript) and proton (subscript) numbers.
 
 \begin{equation}\label{eq:DTfusion}
 \begin{aligned}
-	\text{D} + \text{T} &\longrightarrow \text{He}^4 + \text{n} \\
-	\text{H}^2_1 + \text{H}^3_1 &\longrightarrow \text{He}^4_2 + \text{n}^1_0.
+	\text{D} + \text{T} &\longrightarrow \text{He}^4 + \text{n} + 17.6 \si{\mega\electronvolt}\\
+	\text{H}^2_1 + \text{H}^3_1 &\longrightarrow \text{He}^4_2 (3.5\si{\mega\electronvolt}) + \text{n}^1_0 (14.1\si{\mega\electronvolt}).
 \end{aligned}
 \end{equation}
-This reaction 
+In order for a fusion reaction to be usable on earth, we require that it satisfies certain criteria: uses the lightest possible elements; reaction occurs at `reasonable' temperatures (on the order of $10 \si{\kilo\eV}$); reactants (fuel) are obtainable. Figure \ref{fig:crossSection} shows that the \acrshort{DT} reaction has the largest cross section / highest thermal reactivity of the several reactions which satisfy the above conditions.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.7\columnwidth]{Chapters/C1_Introduction/crossSection.png}
+ \caption{source: Dstrozzi, CC BY 2.5, via Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Fusion_rxnrate.svg}} \label{fig:crossSection}
+\end{figure}
 
 \subsection{Radiation implosion}
 In the thermonuclear weapon, the radiation source is a fission bomb, which detonates and reaches very high temperatures, producing thermal x-rays which are channelled to compress the thermonuclear fuel.
