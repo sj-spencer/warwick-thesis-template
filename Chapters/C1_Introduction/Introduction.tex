@@ -4,12 +4,12 @@
 The material presented in this thesis represents kinetic simulations of laser-plasma interactions (\acrshort{LPI}) relevant to direct-drive inertial confinement fusion (\acrshort{ICF}). In this introductory chapter, an overview of the goals of, and approaches to, inertial confinement fusion is given; including specific details of the `shock-ignition' (\acrshort{SI}) ICF scheme. We then review the previous work concerning laser-plasma interactions in direct-drive ICF, and motivate the use of kinetic modelling throughout this thesis. Finally, we offer an outline of the rest of the thesis.
 
 \section{Inertial Confinement Fusion}
-The basic concept of inertial confinement fusion (\acrshort{ICF}) is based on the Ulam-Teller design for a thermonuclear weapon (H-bomb), which uses radiation to compress thermonuclear fuel to the point where it undergoes nuclear fusion \citep{SpanishHistoryOfICF}.  Nuclear fusion is the process by which two light atomic nuclei combine to form a new, heavier, nucleus and release energy proportional to the mass gap as kinetic energy of the fusion products. The reaction of choice in the thermonuclear weapon, and in most modern ICF designs, is deuterium-tritium (\acrshort{DT}) fusion. Equation \ref{eq:DTfusion} shows the reaction first in the most commonly-presented formula, and then explicitly in terms of the ions and their neutron (superscript) and proton (subscript) numbers.
+The basic concept of inertial confinement fusion (\acrshort{ICF}) is based on the Ulam-Teller design for a thermonuclear weapon (H-bomb), which uses radiation to compress thermonuclear fuel to the point where it undergoes nuclear fusion \citep{SpanishHistoryOfICF}.  Nuclear fusion is the process by which two light atomic nuclei overcome to electric repulsion between them and combine to form a new, heavier, nucleus and release energy proportional to the mass gap as kinetic energy of the fusion products. The reaction of choice in the thermonuclear weapon, and in most modern ICF designs, is deuterium-tritium (\acrshort{DT}) fusion. Equation \ref{eq:DTfusion} shows the \acrshort{DT}  reaction; first in the most commonly-presented formula, and then explicitly in terms of the ions and their neutron (superscript) and proton (subscript) numbers.
 
 \begin{equation}\label{eq:DTfusion}
 \begin{aligned}
 	\text{D} + \text{T} &\longrightarrow \text{He}^4 + \text{n} + 17.6 \si{\mega\electronvolt}\\
-	\text{H}^2_1 + \text{H}^3_1 &\longrightarrow \text{He}^4_2 (3.5\si{\mega\electronvolt}) + \text{n}^1_0 (14.1\si{\mega\electronvolt}).
+	{}^2_1\text{H} + {}^3_1\text{H} &\longrightarrow {}^4_2\text{He} (3.5\si{\mega\electronvolt}) + {}^1_0\text{n} (14.1\si{\mega\electronvolt}).
 \end{aligned}
 \end{equation}
 In order for a fusion reaction to be usable on earth, we require that it satisfies certain criteria: uses the lightest possible elements; reaction occurs at `reasonable' temperatures (on the order of $10 \si{\kilo\eV}$); reactants (fuel) are obtainable. Figure \ref{fig:crossSection} shows that the \acrshort{DT} reaction has the largest cross section / highest thermal reactivity of the several reactions which satisfy the above conditions.
@@ -17,11 +17,13 @@ In order for a fusion reaction to be usable on earth, we require that it satisfi
 \begin{figure}
  \centering
  \includegraphics[width=0.7\columnwidth]{Chapters/C1_Introduction/crossSection.png}
- \caption{source: Dstrozzi, CC BY 2.5, via Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Fusion_rxnrate.svg}} \label{fig:crossSection}
+ \caption{Thermal reactivity (product of interaction cross-section and velocity averaged over a Maxwellian) as a function of temperature: for deuterium-tritium, deuterium-deuterium (both interaction branches), and deuterium-helium nuclear reactions. Re-printed from \url{https://commons.wikimedia.org/wiki/File:Fusion_rxnrate.svg} under a Creative Commons 2.5 license, via Wikimedia Commons.} \label{fig:crossSection}
 \end{figure}
 
-\subsection{Radiation implosion}
-In the thermonuclear weapon, the radiation source is a fission bomb, which detonates and reaches very high temperatures, producing thermal x-rays which are channelled to compress the thermonuclear fuel.
+In a thermonuclear weapon the radiation source is a fission bomb (also known as an `atom bomb' or `A-bomb'), which detonates and reaches very high temperatures, producing thermal x-rays which are channelled to compress the thermonuclear fuel. The fusion reaction which results from the high density and temperature conditions created in the compressed fuel is, obviously, unconfined. When lasers were proposed and realised, by \citet{Maser1958} and \citet{Maiman1960} respectively, scientists at Lawrence Livermore National Laboratory realised that lasers had the potential to ignite fusion explosions without using an atomic bomb. In 1972, \citet{Nuckolls1972} published a paper in Nature in which they used the LASNIX computer code to show that high-energy lasers could be used to compress hydrogen to super-high densities. Combined with small target pellets of fusion fuel, which will undergo burn before exploding (due to their inertia), the basic idea of inertial-confinement fusion was born.
+
+\subsection{Direct and indirect drive ICF}
+Developments on the basic ICF scheme can be categorised by how the laser is used to perform the radiation compression of the fuel. In laser indirect-drive \acrshort{LID} models, fusion fuel is held inside a hollow chamber made of a high atomic number material. This structure is known as the hohlraum, from the German for `hollow space'. Lasers are then used to heat the inside walls of the hohlraum until they emit a bath of X-rays which heat the outer layer of the fuel capsule, causing the outer layer of the capsule to ablate and a rocket-effect-like implosion of the inner fuel. It is clear that this process is very similar to the indirect approach used to drive the thermonuclear explosion in the Ulam-Teller design.
 
 \subsection{Aims of ICF research}
 
@@ -29,10 +31,17 @@ The aims of ICF research programmes have changed throughout history.
 
 A recent paper by \citet{Nicholas2021} suggests that fusion energy (whether through ICF or magnetically confined fusion) will not be ready in time to act as a replacement for fossil fuels, which must be removed from the energy mix by BLAH if we are to avoid the worst impacts of catastrophic climate change. They assume that, by the second half of the 21st century, renewable energies such as wind and solar will pwoer most of the grid. However, the intermittent nature of these mechanisms will leave a gap in the energy market for a carbon-free source of baseload energy \citep{Nicholas2021}. In order for fusion energy to be a good choice for filling this gap it must be able to demonstrate its superiority over traditional nuclear fission power generation. This may include showing its better performance in terms of: waste production; ease of proliferation; and resource supply. In light of this analysis, the work presented in this thesis may never directly contribute to usable, or desirable, ICF energy-generation schemes.
 
-\subsection{Direct and indirect drive ICF}
+
 
 \subsection{Shock-ignition}
 Having covered the differences between \acrshort{LDD} and  \citep{Ribeyre2009} we come to the ignition scheme considered in this thesis, shock ignition. This is a directly-driven central ignition scheme boosted by a strong shock.
+
+\begin{figure}
+ \centering
+ \includegraphics[width=0.8\columnwidth]{Chapters/C1_Introduction/SI_profile.png}
+ \caption{Shock-ignition design for the National Ingition Facility (NIF) Reprinted with permission from \citep{Perkins2009}. (all licenses are in Appendices)} \label{fig:SI_laser}
+\end{figure}
+
 
 \section{Previous work}
 \subsection{Laser-plasma interactions in shock-ignition}
@@ -46,7 +55,26 @@ Basically it's interesting that you can put some of these effects into a fluid m
 Question: doesn't PIC suck for predicting experimental observables? 
 
 \section{Thesis Outline}
-Gonna write these things
+In the next five chapters, the wokr h uhuihuh uhi 
+
+\begin{description}
+	\item[Chapter 2] We present in Chapter \ref{chp:theory} the theory of laser-plasma interactions relevant to this thesis. We derive,... blah is introduced ... We describe ... 
+	\item[Chapter 3] MEthods innit
+	\item[Chapter 4] In this work, we use one-dimensional particle-in-cell 		
+		simulations to show that there is a non-linear frequency shift caused  
+		by kinetic effects, resulting in the growth of SRS in an inhomogeneous 
+		plasma far exceeding the predictions of fluid theory, so-called 
+		inflationary SRS or iSRS. We find that iSRS occurs over a wide range of 
+		density scale-lengths relevant to shock-ignition and other directly-
+		driven inertial confinement fusion schemes. Here we quantify the 
+		intensity threshold for the onset of iSRS for shock-ignition relevant 
+		parameters.
+	\item[Chapter 5] Broadband laser systems are under development . We 	
+		describe the results of simulations in which inflationary SRS is 	
+		something by a broadband laser.
+	\item[Chapter 6] Here we present 
+\end{description}
+
 
 %\bibliographystyle{plainnat}
 %\bibliography{Chapters/C1_Introduction/Introduction}
