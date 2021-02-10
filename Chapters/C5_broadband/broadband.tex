@@ -67,17 +67,19 @@ shift).
 
 
 
-\subsection{SSD-type bandwidth}
- Han Wen in Feb 2019 was working on SSD-type bandwidth defined like so:
- $$E_{pump} = 0.5E_0\left(exp[i(\omega_0t-kx+\sum_MA_Msin(\omega_Mt))]\right)$$.
+\subsection{Continuous bandwidth}
+We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver,
 
-Considering all of these results together, it is not at all clear how a
-broadband laser driver will affect inflationary SRS in a long scale-length
-inhomogeneous plasma relevant to SI.
+\begin{equation}
+ 	 E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right),
+\end{equation} with $\phi(x,t)$ is given by
+
+\begin{equation}
+	\phi(x,t) = \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}	 	 \left(\omega_mt - \frac{\omega_m}{c}x\right).
+\end{equation}
 
 \section{1D simulations and threshold}
-The first step of this work was to design a perfect example of SRS due to
-autoresonance
+
 
 \subsection{Base case: seeded iSRS at a single frequency}
 
