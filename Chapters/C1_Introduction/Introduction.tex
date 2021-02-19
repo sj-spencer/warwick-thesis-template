@@ -20,21 +20,22 @@ In order for a fusion reaction to be usable on earth, we require that it satisfi
  \caption{Thermal reactivity (product of interaction cross-section and velocity averaged over a Maxwellian) as a function of temperature: for deuterium-tritium, deuterium-deuterium (both interaction branches), and deuterium-helium nuclear reactions. Re-printed from \url{https://commons.wikimedia.org/wiki/File:Fusion_rxnrate.svg} under a Creative Commons 2.5 license, via Wikimedia Commons.} \label{fig:crossSection}
 \end{figure}
 
-In a thermonuclear weapon the radiation source is a fission bomb (also known as an `atom bomb' or `A-bomb'), which detonates and reaches very high temperatures, producing thermal x-rays which are channelled to compress the thermonuclear fuel. The fusion reaction which results from the high density and temperature conditions created in the compressed fuel is, obviously, unconfined. When lasers were proposed and realised, by \citet{Maser1958} and \citet{Maiman1960} respectively, scientists at Lawrence Livermore National Laboratory realised that lasers had the potential to ignite fusion explosions without using an atomic bomb. In 1972, \citet{Nuckolls1972} published a paper in Nature in which they used the LASNIX computer code to show that high-energy lasers could be used to compress hydrogen to super-high densities. Combined with small target pellets of fusion fuel, which will undergo burn before exploding (due to their inertia), the basic idea of inertial-confinement fusion was born.
+In a thermonuclear weapon the radiation source is a fission bomb (also known as an `atom bomb' or `A-bomb'), which detonates and reaches very high temperatures, producing thermal x-rays which are channelled to compress the thermonuclear fuel. The fusion reaction which results from the high density and temperature conditions created in the compressed fuel is unconfined and, therefore, unsuited for energy generation. When lasers were proposed and realised, by \citet{Maser1958} and \citet{Maiman1960} respectively, scientists at Lawrence Livermore National Laboratory realised that lasers had the potential to ignite fusion explosions without using an atomic bomb. In 1972, \citet{Nuckolls1972} published a paper in Nature in which they used the LASNIX computer code to show that high-energy lasers could be used to compress hydrogen to super-high densities. Combined with small target pellets of fusion fuel, which will undergo burn before exploding (due to their inertia), the basic idea of inertial-confinement fusion was born. We now know that ICF was demonstrated successfully in underground nuclear tests, just ten years after Nuckolls proposed it, but with a fission bomb as the driver, rather than a laser \citep{Evans2010}.
+
+
+
 
 \subsection{Direct and indirect drive ICF}
-Developments on the basic ICF scheme can be categorised by how the laser is used to perform the radiation compression of the fuel. In laser indirect-drive \acrshort{LID} models, fusion fuel is held inside a hollow chamber made of a high atomic number material. This structure is known as the hohlraum, from the German for `hollow space'. Lasers are then used to heat the inside walls of the hohlraum until they emit a bath of X-rays which heat the outer layer of the fuel capsule, causing the outer layer of the capsule to ablate and a rocket-effect-like implosion of the inner fuel. It is clear that this process is very similar to the indirect approach used to drive the thermonuclear explosion in the Ulam-Teller design.
+Developments on the basic ICF scheme can be categorised by how the laser is used to perform the radiation compression of the fuel. In laser indirect-drive (\acrshort{LID}) models, fusion fuel is held inside a hollow chamber made of a high atomic number material. This structure is known as the hohlraum, from the German for `hollow space'. Lasers are then used to heat the inside walls of the hohlraum until they emit a bath of X-rays which heat the outer layer of the fuel capsule, causing the outer layer of the capsule to ablate and a rocket-effect-like implosion of the inner fuel. It is clear that this process is very similar to the indirect approach used to drive the thermonuclear explosion in the Ulam-Teller design. As such, the National Ignition Facility (\acrshort{NIF}) (US) and Laser M\'{e}gajoule (\acrshort{LMJ}) (France) are set-up for indirect-drive ICF, in order to support their respective country's nuclear weapons research programmes. An advantage of the indirect-drive technique is that the absorption and re-emission of laser energy by the hohlraum smooths the radiation which will drive the implosion.
 
-\subsection{Aims of ICF research}
+Improvements in laser smoothing technology have made this advantage of \acrshort{LID} less obvious, and much research now focuses on laser direct-drive (\acrshort{LDD}). In laser direct-drive the laser beams are aimed at the target directly. Go through the steps: ablation; shocks; shocks; ignition. One limit to the success of any direct-drive scheme is the direct interaction of the laser with the coronal plasma. 
 
-The aims of ICF research programmes have changed throughout history.
 
-A recent paper by \citet{Nicholas2021} suggests that fusion energy (whether through ICF or magnetically confined fusion) will not be ready in time to act as a replacement for fossil fuels, which must be removed from the energy mix by BLAH if we are to avoid the worst impacts of catastrophic climate change. They assume that, by the second half of the 21st century, renewable energies such as wind and solar will pwoer most of the grid. However, the intermittent nature of these mechanisms will leave a gap in the energy market for a carbon-free source of baseload energy \citep{Nicholas2021}. In order for fusion energy to be a good choice for filling this gap it must be able to demonstrate its superiority over traditional nuclear fission power generation. This may include showing its better performance in terms of: waste production; ease of proliferation; and resource supply. In light of this analysis, the work presented in this thesis may never directly contribute to usable, or desirable, ICF energy-generation schemes.
 
 
 
 \subsection{Shock-ignition}
-Having covered the differences between \acrshort{LDD} and  \citep{Ribeyre2009} we come to the ignition scheme considered in this thesis, shock ignition. This is a directly-driven central ignition scheme boosted by a strong shock.
+ This is a directly-driven central ignition scheme boosted by a strong shock.
 
 \begin{figure}
  \centering
@@ -58,8 +59,10 @@ Question: doesn't PIC suck for predicting experimental observables?
 In the next five chapters, the wokr h uhuihuh uhi 
 
 \begin{description}
-	\item[Chapter 2] We present in Chapter \ref{chp:theory} the theory of laser-plasma interactions relevant to this thesis. We derive,... blah is introduced ... We describe ... 
-	\item[Chapter 3] MEthods innit
+	\item[Chapter 2] We present in Chapter \ref{chp:theory} the theory of laser-plasma interactions relevant to this thesis. We derive,... blah is introduced ... We describe the basic linear, quasi-linear, and non-linear theory required to understand normal modes; wave-particle interactions; and wave-wave instabilities, respectively, which are relevant to the coronal plasmas in direct-drive ICF.
+	
+	\item[Chapter 3] Here we present the EPOCH particle-in-cell (\acrshort{PIC}) code, which is used to perform all the simulations presented in this thesis, alongside a review of the PIC method for kinetic plasma simulations. Basic benchmarking of the code to the theory presented in Chapter \ref{chp:theory} is performed, and we introduce several key diagnostics which are used throughout the thesis.
+	 
 	\item[Chapter 4] In this work, we use one-dimensional particle-in-cell 		
 		simulations to show that there is a non-linear frequency shift caused  
 		by kinetic effects, resulting in the growth of SRS in an inhomogeneous 
