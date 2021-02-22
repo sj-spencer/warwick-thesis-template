@@ -103,7 +103,6 @@ We use absorbing boundaries for the fields and thermal for the particles; these 
 simulation with an incoming particle with velocity consistent with a Maxwellian plasma based on the initial temperature of $4.5$\si{keV}.
 
 
-
 EPOCH uses a pseudorandom number generator (PRNG) to generate the initial particle distribution.
 Each simulation was repeated 10 times with a different PRNG seed, allowing us to determine the sensitivity of
 SRS to plasma fluctuations.
@@ -111,7 +110,7 @@ This allowed us to calculate both the mean and standard deviation of the intensi
 
 \begin{figure}[ht]
  \centering
- \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig1.pdf}
+ \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig1.pdf}
  \caption{Time-averaged intensity of SRS scattered light for a homogeneous simulation ($n_e=0.15n_\mathrm{cr}$, $T_e = 4.5$\si{\kilo \electronvolt}) with different numbers of particles
  per cell. Relative errors are given by one standard deviation of the SRS scattered light intensity as calculated from ten simulations.} \label{fig:convergence}
 \end{figure}
@@ -292,8 +291,6 @@ Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered lig
 
 
 
-
-
 As well as understanding how the density scale-length of the plasma and the
 density at which iSRS is driven affects the iSRS threshold, we would like to
 understand how these factors affect the hot electron
@@ -307,7 +304,7 @@ flux through the right boundary.
 Figure \ref{fig:hotelectrons} (a) shows the
 electron distribution function resulting from iSRS for three density scale-lengths. These are for a laser intensity
 above the onset threshold for iSRS but below an intensity which would lead to saturation. All results are
-for the same central density. The most prominant difference is that the peak electron energy increases with
+for the same central density. The most prominent difference is that the peak electron energy increases with
 decreasing density scale-length. This results from the fact that the shorter density scale-length simulation
 access a higher peak density since the simulation domain size is the same for all three cases. The SRS
 matching conditions for these higher densities result in a higher phase speed of driven EPWs. Solving the
@@ -332,11 +329,6 @@ electrons are: $0.005,0.001$ and $0$ respectively.
 
 \section{Saturation}
 
-Several saturation mechanisms for iSRS in PIC simulations have been proposed, depending on the physical mechanisms present in the simulation. For simulations in 1D with immobile ions, there are three possible saturation mechanisms for SRS undergoing autoresonance: wave-breaking of the plasma wave; pump depletion of the laser driver; and frequency shift such that the autoresonance condition is no longer satisfied. In simulations with mobile ions and in higher dimensions, additional saturation mechanisms have been identified for iSRS in a homogeneous plasma. These additional saturation mechanisms are: Langmuir decay instability (\acrshort{LDI}); wavefront bowing of the EPW; the trapped particle modulation instability (\acrshort{TPMI}); and self-focusing \citep{Yin2007}.
-
-We can eliminate EPW wave-breaking as the saturation mechanisms in our simulations as the maximum normalised EPW energy well below the wave-breaking limit in all cases. Take, for example, the simylation corresponding to $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$ on the red curve of Figure \ref{fig:paramScan} (a). We can calculate the wave-breaking limit across the density range to be $E_{\text{WB}} e/m_ec\omega_0 = 0.024 - 3.52 $; but the maximum EPW energy in the simulation is $E_{\text{EPW}} e/m_ec\omega_0 = 0.0056$, well below the limit.
-Figure \ref{fig:pumpdepletion} shows the Poynting flux of the scattered light (a) and incident laser (b) for a simulation with intensity in the saturated regime ($I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$). We can see complete depletion of the pump correlated with the maximum intensity of scattered light first at approximately $x=45\si{\micro\metre}$, $t=0.8\si{\pico\second}$
-
 \begin{figure}[ht]
    \centering
     \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/783e15_pump_depletion.pdf}
@@ -344,6 +336,15 @@ Figure \ref{fig:pumpdepletion} shows the Poynting flux of the scattered light (a
     and $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$. }
     \label{fig:pumpdepletion}
 \end{figure}{}
+
+
+Several saturation mechanisms for iSRS in PIC simulations have been proposed, depending on the physical mechanisms present in the simulation. For simulations in 1D with immobile ions, there are three possible saturation mechanisms for SRS undergoing autoresonance: wave-breaking of the plasma wave; pump depletion of the laser driver; and frequency shift such that the autoresonance condition is no longer satisfied. In simulations with mobile ions and in higher dimensions, additional saturation mechanisms have been identified for iSRS in a homogeneous plasma. These additional saturation mechanisms are: Langmuir decay instability (\acrshort{LDI}); wavefront bowing of the EPW; the trapped particle modulation instability (\acrshort{TPMI}); and self-focusing \citep{Yin2007}.
+
+We can eliminate EPW wave-breaking as the saturation mechanisms in our simulations as the maximum normalised EPW energy well below the wave-breaking limit in all cases. Take, for example, the simylation corresponding to $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$ on the red curve of Figure \ref{fig:paramScan} (a). We can calculate the wave-breaking limit across the density range to be $E_{\text{WB}} e/m_ec\omega_0 = 0.024 - 3.52 $; but the maximum EPW energy in the simulation is $E_{\text{EPW}} e/m_ec\omega_0 = 0.0056$, well below the limit.
+Figure \ref{fig:pumpdepletion} shows the Poynting flux of the scattered light (a) and incident laser (b) for a simulation with intensity in the saturated regime ($I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$). We can see complete depletion of the pump correlated with the maximum intensity of scattered light first at approximately $x=45\si{\micro\metre}$, $t=0.8\si{\pico\second}$. It is interesting to note that iSRS at low densities is depleting the pump before it can reach higher densities, where the growth of SRS would be even greater. 
+
+Finally, we consider saturation due to the non-linear frequency shift which destabilises the auto-resonance.
+
 
 \section{Conclusion}\label{sec:conclusion}
 Inflationary SRS has been detected in PIC simulations of a inhomogeneous plasmas
@@ -381,6 +382,8 @@ in the kinetic regime of iSRS.
 All of these refinements to iSRS simulations will require considerably more
 computing resources but are none-the-less needed for a comprehensive treatment of LPI relevant
 to shock-ignition.
+
+Talk more and cite about how things change as you move to higher dimensions
 
 This work is nowhere near finished in fact it's a bit crap
 
