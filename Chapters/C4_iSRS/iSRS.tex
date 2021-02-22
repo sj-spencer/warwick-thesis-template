@@ -13,7 +13,7 @@ This chapter is adapted, with the permission of AIP Publishing, from:
 \end{itemize}
 
 \section{Motivation and literature review}
-In this chapter results of one-dimensional particle-in-cell (PIC) simulations are presented, which show that inflationary SRS (iSRS) can occur in shock-ignition plasmas and characterises its threshold intensity in terms of the density scale length of the coronal plasma. Inflationary SRS refers to the enhancement of SRS above the levels predicted by fluid theory, caused by kinetic effects. The chapter beings with a review of the previous work on inflationary SRS in homogeneous plasmas, where the effect was first identified and understood. Then the case of iSRS in large-scale inhomogenous plasmas is considered, and a description in terms of autoresonance is presented. The code and initial conditions of the simulation are described, followed by a review of the signatures of iSRS and how they manifest in an inhomogeneous plasma. Finally the dependence of the inflationary SRS threshold intensity on density scale length for shock-ignition parameters, and the saturation of the instability are explored. The conclusion discusses the applicability of these results and ways to increase the experimental relevance of the simulations.
+In this chapter, results of one-dimensional (1D) particle-in-cell (PIC) simulations are presented, which show that inflationary SRS (iSRS) can occur in shock-ignition plasmas and which characterise its threshold intensity in terms of the density scale length of the coronal plasma. Inflationary SRS refers to the enhancement of SRS above the levels predicted by fluid theory, caused by kinetic effects. The chapter begins with a review of the previous work on inflationary SRS in homogeneous plasmas, where the effect was first identified and understood. Then the case of iSRS in large-scale inhomogenous plasmas is considered, and a description in terms of autoresonance is presented. The code and initial conditions of the simulation are described, followed by a review of the signatures of iSRS and how they manifest in an inhomogeneous plasma. Finally the dependence of the inflationary SRS threshold intensity on density scale length for shock-ignition parameters, and the saturation of the instability are explored. The conclusion discusses the applicability of these results and ways to increase the experimental relevance of the simulations.
 
 
 \subsection{Homogeneous plasmas}
@@ -40,9 +40,9 @@ the EPW's associated Landau damping rate \citep{ONeil1965,Vu2002}, and increased
 
 \subsection{Inhomogeneous plasmas}
 
- In the large-scale inhomogeneous plasmas associated with shock-ignition ($L_n =n_e/(dn_e/dx) \simeq 300-1000 \si{\micro\metre}$) the mechanism and effects of inflationary SRS have, so far, received little attention. The few papers which do refer to iSRS in SI inhomogeneous plasmas assume that the explanation of iSRS in a homogeneous plasma in terms of reduced Landau damping also applies to iSRS in an inhomogeneous plasma. However, iSRS in an inhomogeneous plasma actually happens by a different mechanism. In the case of a homogeneous plasma, reduced Landau damping due to electron-trapping in the EPW leads to an increase of the SRS growth rate which, if sufficiently large, can cause a transition from convective to absolute growth \citep{Wang2018}. For an inhomogeneous plasma, where the growth of SRS is always convective, the reduction in Landau damping associated with trapping in the EPW has no net effect on the convective gain.
+ In the large-scale inhomogeneous plasmas associated with shock-ignition ($L_n \simeq 300-1000 \si{\micro\metre}$) the mechanism and effects of inflationary SRS have received much less attention. The few papers which do refer to iSRS in SI inhomogeneous plasmas assume that the explanation of iSRS in a homogeneous plasma in terms of reduced Landau damping also applies to iSRS in an inhomogeneous plasma. However, iSRS in an inhomogeneous plasma actually happens by a different mechanism. In the case of a homogeneous plasma, reduced Landau damping due to electron-trapping in the EPW leads to an increase of the SRS growth rate which, if sufficiently large, can cause a transition from convective to absolute growth \citep{Wang2018}. For an inhomogeneous plasma, where the growth of SRS is always convective, the reduction in Landau damping associated with trapping in the EPW has no net effect on the convective gain \citep{Williams1991}.
  
- While the local SRS growth rate may depend on the EPW damping rate in an inhomogeneous plasma, the region of SRS convective growth is also extended, leading to a net Rosenbluth gain \citep{Rosenbluth1972} which is independent of Landau damping \citep{Williams1991,Liu1994}. We therefore look to another non-linear effect caused by the trapped electrons in the SRS EPW, the non-linear frequency shift\citep{Morales1972}. In an inhomogeneous plasma, the frequency shift resulting from electron-trapping can compensate for the wave-number mismatch on propagating up the density gradient, thereby allowing
+ While the local SRS growth rate may depend on the EPW damping rate in an inhomogeneous plasma, the region of SRS convective growth is also extended, leading to a net Rosenbluth gain \citep{Rosenbluth1972} which is independent of Landau damping \citep{Williams1991,Liu1994}. We therefore look to another non-linear effect caused by the trapped electrons in the SRS EPW, the non-linear frequency shift \citep{Morales1972}. In an inhomogeneous plasma, the frequency shift resulting from electron-trapping can compensate for the wave-number mismatch on propagating up the density gradient, thereby allowing
  growth over a larger region - an auto-resonance \citep{Chapman2010,Chapman2012}. \citet{Chapman2012} proposed this theory for iSRS in an inhomogeneous $(L_n \lesssim 100
  \si{\micro\metre})$ plasma close to the hohlraum wall in indirect-drive ICF. They demonstrated the auto-resonant
  interaction \cite{Chapman2010} between the non-linear frequency shift associated with electron-trapping in EPW
@@ -63,29 +63,11 @@ the EPW's associated Landau damping rate \citep{ONeil1965,Vu2002}, and increased
 
 \section{Code and initial conditions}\label{sec:code&IC}
 
-\begin{table}[ht]
-    \caption{\label{tab:densities}
-        Summary of density profiles and $k_{EPW}\lambda_\mathrm{D}$ values in each simulation. $L_n=n_e/(dn_e/dx)$ evaluated at $n_\mathrm{mid}$. For all but the case centred at $0.2n_\mathrm{cr}$, $k_\mathrm{EPW}\lambda_\mathrm{D} > 0.28$ and we are in the strongly kinetic regime. The total range of $k_\mathrm{EPW}\lambda_\mathrm{D}$ probed is 0.21-0.41.
-        }
-    %\begin{ruledtabular}
-    \begin{center}
-    \begin{tabular}{|c|c|c|c|}
-    $L_n/\si{\micro \metre}$  & $n_\mathrm{mid}/n_\mathrm{cr}$ & $(n_\mathrm{min},n_\mathrm{max})/n_\mathrm{cr}$ &$(k\lambda_\mathrm{D_{min}},k\lambda_\mathrm{D_{max}})$\\
-    \hline
-    300& 0.15  & $(0.13,0.18)$ & $(0.28,0.37)$\\
-    500 & 0.12 &$(0.11,0.13)$ & $(0.37,0.41)$\\
-    500 & 0.15 & $(0.14,0.17)$& $(0.29,0.35)$ \\
-    500 & 0.20 & $(0.18,0.22)$& $(0.21,0.27)$\\
-    1000 & 0.15 & $(0.14,0.16)$ & $(0.31,0.32)$ \\
-    \end{tabular}
-    \end{center}
-    %\end{ruledtabular}
-\end{table}
 
-As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \citep{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur, which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
+As described in Chapter \ref{chp:methods}, all simulations are performed using the EPOCH \citep{Arber2015} particle-in-cell code. The simulation parameters are chosen to achieve our primary aim of identifying plasma parameters where iSRS may occur; which does not require large simulations of the entire LPI system. The simulations all used a domain size of $L_x = 100\si{\micro\metre} $ and ran to $T_\mathrm{end} = 2\si{\pico\second}$
 with 2048
 particles per cell (PPC) for the electron species.
-We treat the ions as a neutralising background population since we simulate only a two pico-second interval of SRS
+We treat the ions as a neutralising background population, since we simulate only a two pico-second interval of SRS
 development, during which ion dynamics will not become important \citep{Rousseaux2006}.
 For the plasma parameters laid out above, electron-ion collisions occur on a characteristic timescale of approximately
 $7 \si{\pico\second}$ at the highest density probed, $0.22n_\mathrm{cr}$. Since the inflationary Raman process we
@@ -94,8 +76,29 @@ on a sub-picosecond timescale, we do not include collisions in our simulations.
 The plasma density profiles are given by the expression $n(x) = n_\mathrm{min}\mathrm{exp}(x/L_n)$ and can be seen in Table
 \ref{tab:densities}.
 
-We simulate a frequency-tripled Nd:glass laser with vacuum wavelength $\lambda_0 = 351\si{\nano\metre}$, polarised in the $y$-direction. The laser intensity was varied in 20 logarithmically evenly-spaced increme\
-nts between $10^{14}$\si{W/\centi\metre^2} and $10^{16}$\si{W/\centi\metre^2}, with a half-Gaussian temporal profile followed by a flat top, and a rise-time of 50 laser periods.
+\begin{table}[ht]
+    %\begin{ruledtabular}
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline 
+    $L_n/\si{\micro \metre}$  & $n_\mathrm{mid}/n_\mathrm{cr}$ & $(n_\mathrm{min},n_\mathrm{max})/n_\mathrm{cr}$ &$(k\lambda_\mathrm{D_{min}},k\lambda_\mathrm{D_{max}})$\\
+    \hline \hline
+    300& 0.15  & $(0.13,0.18)$ & $(0.28,0.37)$\\
+    500 & 0.12 &$(0.11,0.13)$ & $(0.37,0.41)$\\
+    500 & 0.15 & $(0.14,0.17)$& $(0.29,0.35)$ \\
+    500 & 0.20 & $(0.18,0.22)$& $(0.21,0.27)$\\
+    1000 & 0.15 & $(0.14,0.16)$ & $(0.31,0.32)$ \\
+    \hline
+    \end{tabular}
+    \end{center}
+    %\end{ruledtabular}
+        \caption{\label{tab:densities}
+        Summary of density profiles and $k_{EPW}\lambda_\mathrm{D}$ values in each simulation. $L_n=n_e/(dn_e/dx)$ evaluated at $n_\mathrm{mid}$. For all but the case centred at $0.2n_\mathrm{cr}$, $k_\mathrm{EPW}\lambda_\mathrm{D} > 0.28$ and we are in the strongly kinetic regime. The total range of $k_\mathrm{EPW}\lambda_\mathrm{D}$ probed is 0.21-0.41.
+        }
+\end{table}
+
+
+We simulate a frequency-tripled Nd:glass laser with vacuum wavelength $\lambda_0 = 351\si{\nano\metre}$, polarised in the $y$-direction. The laser intensity was varied in 20 logarithmically evenly-spaced increments between $10^{14}$\si{W/\centi\metre^2} and $10^{16}$\si{W/\centi\metre^2}, with a half-Gaussian temporal profile followed by a flat top, and a rise-time of 50 laser periods.
 We use absorbing boundaries for the fields and thermal for the particles; these replace any particle leaving the
 simulation with an incoming particle with velocity consistent with a Maxwellian plasma based on the initial temperature of $4.5$\si{keV}.
 
@@ -136,7 +139,7 @@ We consider first the existence of  a threshold intensity past which SRS growth 
 orders of magnitude, above the predictions of fluid theory; this has been seen in experiments \citep{Kline2006} and simulations \citep{Vu2002,Yin2006,Vu2007,Riconda2011}.
 
 In order to identify kinetic inflation of the SRS scattered light intensity in our PIC simulations,
-we the simple fluid model presented in Section \ref{diag:threshold} to calculate and compare the intensity of SRS scattered light in the absence of kinetic effects.
+we use the simple fluid model presented in Section \ref{diag:threshold} to calculate and compare the intensity of SRS scattered light in the absence of kinetic effects.
 
 The red circular markers in Figure \ref{fig:kineticVsfluid} show the results of applying this method to the case of a $500\si{\micro\metre} $ density scale-length plasma, with the density profile centred at $0.15n_\mathrm{cr}$, for incident laser intensities ranging from $10^{14} - 10^{16}$\si{W/\centi\metre^2}. The blue triangular markers show the intensity of SRS scattered light calculated from the equivalent kinetic EPOCH simulations. The relationship between the kinetic and fluid results changes as the incident laser intensity increases. At low intensities the fluid and kinetic models are well matched, but not identical, suggesting that there is always some kinetic element to the SRS behaviour in these simulations.
 
@@ -147,7 +150,7 @@ By constructing plots such as these, which show the fully kinetic PIC results al
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig2.pdf}
+    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig2.pdf}
     \caption{
         Blue triangular markers show the intensity of SRS scattered light calculated using the fully-kinetic EPOCH code for parameters: $L_n = 500 \si{\micro\metre} $ and $n_{\mathrm{mid}} = 0.15n_\mathrm{cr}$.
         Red circular markers show the intensity of SRS scattered light calculated, for the same plasma parameters, from the fluid model presented above.
@@ -160,7 +163,7 @@ By constructing plots such as these, which show the fully kinetic PIC results al
 
 \begin{figure}[!ht]
  \centering
- \includegraphics[width=0.9\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
+ \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig3_3a_3b_3c_3d.pdf}
  \caption{Time-resolved comparison of SRS-reflectivity (a,c) and electron distribution 
  functions (b,d) for two simulations with parameters: $L_n = 500 \si{\micro\metre} $; centred
  at $0.15n_\mathrm{cr}$; and $T_e = 4.5$\si{\kilo\electronvolt}. The distribution function of
@@ -186,7 +189,7 @@ the EPWs \citep{Morales1972,Kline2006}, and the growth of a sequence of beam-aco
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig4_4a_4b_4c_4d.pdf}
+    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig4_4a_4b_4c_4d.pdf}
     \caption{Top panels show the spectra of electrostatic (a) and electromagnetic (b) waves over the period $0-0.7\si{\pico\second}$.
     The white (orange) dashed lines represent the linear predictions for the spectra of backward (forward) SRS. The bottom panels show the same spectra calculated over the period $1.5-1.9\si{\pico\second}$. The \
 $E_x$ ($B_z$)
@@ -221,7 +224,7 @@ up-shifted in frequency space, so as to maintain frequency matching. As well as 
 \subsection{Beam acoustic modes}
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/fig5_5a_5b.pdf}
+    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig5_5a_5b.pdf}
     \caption{(a) 2D FFT of $E_x$ over the period $ 0 - 0.8 \si{\pico\second}$. (b) 2D FFT of $E_x$ over the period $1.2 - 1.9                                                                              
     \si{\pico\second}$.
     The white dashed lines represent the analytical dispersion relations corresponding to the minimum (bottom line) and maximum (top line) plasma densities,
@@ -255,18 +258,9 @@ We can also see in Figure \ref{fig:BAM} (b) a signal at $k\sim 0.5k_0$ which sit
 Using the method developed in Section \ref{sec:signatures} for locating the inflation threshold, and the analysis of electron trapping and downshifted EPWs to ensure that the SRS observed is inflationary in origin, we investigate how iSRS depends on various plasma parameters relevant to shock-ignition. Using the PIC simulation set-up as in Section \ref{sec:code&IC} (with the same simulation domains, plasma densities, and temperatures), we varied the plasma density scale-length across the range
 of values predicted for shock-ignition $(300\si{\micro\metre} - 1000\si{\micro\metre})$ \citep{Ribeyre2009}. As well as varying the density scale-length, we also centred the density profiles at different values of density. Figure \ref{fig:paramScan} shows the result of this parameter scan.
 
-From Figure \ref{fig:paramScan} (a) we see that as the density scale-length of the SI coronal plasma decreases, the intensity threshold for iSRS increases. Vu \textit{et al.} (2007) \citep{Vu2007} derived a condition for the kinetic inflation threshold of SRS in a homogeneous plasma. They showed that the magnitude of the trapped electron potential energy in the EPW must be greater than or equal to the energy gained by a particle in one complete trapped orbit due to velocity diffusion in the
-background plasma fluctuations. This ensures that trapping remains for at least one bounce period.
-
-No such analytic threshold has been derived for an inhomogeneous plasma.
-However, when $L_n$ is smaller the inhomogenous gain is smaller and the amplitude reached by convective amplification of the SRS EPW is lower for the same intensity.
-Hence SRS in a shorter density scale length plasma is less likely to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS.
-
-Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered light in three sets of simulations with density profiles centred at $0.12,0.15,0.20 n_\mathrm{cr}$, chosen so that the density ranges do not overlap (see Table \ref{tab:densities}). As the central density decreases, the intensity threshold for iSRS increases. As for the case of varying scale-lengths changing the threshold, this can be explained in terms of the Rosenbluth gain \citep{Rosenbluth1972}. For a fixed density scale-length, as the density decreases, the Rosenbluth gain exponent also decreases. This means that the fluid gain through convective SRS is reduced. Hence SRS at a low density is less likely than that at higher density to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS. For the parameters of Figure \ref{fig:hotelectrons} (b) with $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$, the Rosenbluth gain exponent increases from $\sim1$ to $\sim25$ as the densities increase.
-
 \begin{figure}[!ht]
      \centering
-    \includegraphics[width=0.8\columnwidth]{Chapters/C4_iSRS/fig6_6a_6b.pdf}
+    \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig6_6a_6b.pdf}
     \caption{
     (a)  Relationship between incident laser intensity and the intensity of SRS scattered light for three different density scale-lengths, with plasma density profiles centred at $0.15n_\mathrm{cr}$.
     (b) Relationship between incident laser intensity and the intensity of SRS scattered light for three simulations with $L_n=500\si{\micro\metre}$ centred at three different densities.
@@ -277,7 +271,7 @@ Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered lig
 
 \begin{figure}[ht]
    \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C4_iSRS/fig7_7a_7b.pdf}
+    \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig7_7a_7b.pdf}
     \caption{(a) Hot electron flux through the right boundary in three simulations with parameters: $I_0 = 2.98\times 10^{15} \si{W / \centi \metre^2}$; $n_\mathrm{mid}=0.15 n_\mathrm{cr}$; $L_n=300,500\
 ,1000\si{\micro\metre}$.   (b) Hot electron flux through the right boundary in three simulations with parameters:
    $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$;  $L_n=500\si{\micro\metre}$; $n_\mathrm{mid}=0.12,0.15,0.20 n_\mathrm{cr}$ respectively. Each distribution is normalised to its maximum value. The smooth b\
@@ -286,6 +280,19 @@ lack line corresponds to the equivalent flux for a Maxwellian
    bulk plasma.}
     \label{fig:hotelectrons}
 \end{figure}{}
+
+From Figure \ref{fig:paramScan} (a) we see that as the density scale-length of the SI coronal plasma decreases, the intensity threshold for iSRS increases. Vu \textit{et al.} (2007) \citep{Vu2007} derived a condition for the kinetic inflation threshold of SRS in a homogeneous plasma. They showed that the magnitude of the trapped electron potential energy in the EPW must be greater than or equal to the energy gained by a particle in one complete trapped orbit due to velocity diffusion in the
+background plasma fluctuations. This ensures that trapping remains for at least one bounce period.
+
+No such analytic threshold has been derived for an inhomogeneous plasma.
+However, when $L_n$ is smaller the inhomogenous gain is smaller and the amplitude reached by convective amplification of the SRS EPW is lower for the same intensity.
+Hence SRS in a shorter density scale length plasma is less likely to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS.
+
+Figure \ref{fig:paramScan} (b) shows the measured intensity of SRS scattered light in three sets of simulations with density profiles centred at $0.12,0.15,0.20 n_\mathrm{cr}$, chosen so that the density ranges do not overlap (see Table \ref{tab:densities}). As the central density decreases, the intensity threshold for iSRS increases. As for the case of varying scale-lengths changing the threshold, this can be explained in terms of the Rosenbluth gain \citep{Rosenbluth1972}. For a fixed density scale-length, as the density decreases, the Rosenbluth gain exponent also decreases. This means that the fluid gain through convective SRS is reduced. Hence SRS at a low density is less likely than that at higher density to generate EPWs with sufficient amplitude for electron trapping effects to trigger the transition to iSRS. For the parameters of Figure \ref{fig:hotelectrons} (b) with $I_0 = 6.16\times 10^{15} \si{W / \centi \metre^2}$, the Rosenbluth gain exponent increases from $\sim1$ to $\sim25$ as the densities increase.
+
+
+
+
 
 As well as understanding how the density scale-length of the plasma and the
 density at which iSRS is driven affects the iSRS threshold, we would like to
@@ -325,7 +332,10 @@ electrons are: $0.005,0.001$ and $0$ respectively.
 
 \section{Saturation}
 
-It saturates by pump depletion, honest
+Several saturation mechanisms for iSRS in PIC simulations have been proposed, depending on the physical mechanisms present in the simulation. For simulations in 1D with immobile ions, there are three possible saturation mechanisms for SRS undergoing autoresonance: wave-breaking of the plasma wave; pump depletion of the laser driver; and frequency shift such that the autoresonance condition is no longer satisfied. In simulations with mobile ions and in higher dimensions, additional saturation mechanisms have been identified for iSRS in a homogeneous plasma. These additional saturation mechanisms are: Langmuir decay instability (\acrshort{LDI}); wavefront bowing of the EPW; the trapped particle modulation instability (\acrshort{TPMI}); and self-focusing \citep{Yin2007}.
+
+We can eliminate EPW wave-breaking as the saturation mechanisms in our simulations as the maximum normalised EPW energy well below the wave-breaking limit in all cases. Take, for example, the simylation corresponding to $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$ on the red curve of Figure \ref{fig:paramScan} (a). We can calculate the wave-breaking limit across the density range to be $E_{\text{WB}} e/m_ec\omega_0 = 0.024 - 3.52 $; but the maximum EPW energy in the simulation is $E_{\text{EPW}} e/m_ec\omega_0 = 0.0056$, well below the limit.
+Figure \ref{fig:pumpdepletion} shows the Poynting flux of the scattered light (a) and incident laser (b) for a simulation with intensity in the saturated regime ($I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$). We can see complete depletion of the pump correlated with the maximum intensity of scattered light first at approximately $x=45\si{\micro\metre}$, $t=0.8\si{\pico\second}$
 
 \begin{figure}[ht]
    \centering
@@ -336,6 +346,41 @@ It saturates by pump depletion, honest
 \end{figure}{}
 
 \section{Conclusion}\label{sec:conclusion}
+Inflationary SRS has been detected in PIC simulations of a inhomogeneous plasmas
+with parameters relevant to the shock-ignition model of ICF.
+This study demonstrates an iSRS threshold
+ $I_\mathrm{threshold} \lesssim 5\times 10^{15} \si{W/\centi\metre^2}$ across the whole range of parameters tested
+ and that the location of this threshold depends on the density scale-length $L_n$. For the case with
+$L_n=500 \si{\micro\metre}$ and $I_0 =4.83\times10^{15} \si{W/\centi\metre^2}$ significant iSRS  would occur
+at $0.15 n_{\mathrm{cr}}$ generating hot-electrons with mostly $< 100 \si{\kilo \electronvolt}$ energies and
+depleting the laser drive available at higher densities. This is potentially beneficial to
+shock-ignition in that these electrons are likely to enhance the ignitor shock and prevent significant SRS at higher densities,
+potentially absolute at $0.25 n_\mathrm{cr}$. SRS at higher densities is likely to
+generate electron distributions with a higher percentage of
+$> 100 \si{\kilo \electronvolt}$ electrons than that from iSRS at lower densities.
+These results suggest that a potential route to use iSRS to the advantage of shock-ignition,
+assuming all SRS cannot be removed by other means,
+would be for the shock ignitor pulse to have the largest possible amplitude. This would ensure significant iSRS at lower
+densities and generate only hot-electrons with energies below $100 \si{\kilo \electronvolt}$. This in turn would pump deplete the laser
+reducing SRS at higher densities which could generate hot-electrons with energy above  $100 \si{\kilo \electronvolt}$. These conclusions are however only valid for the restricted 1D, collisionless simulations
+presented in this paper and more detailed simulations, as outlined below, would be needed to fully assess the hot-electron
+distribution and its impact on SI schemes.
+
+The simulations presented in this paper highlight the importance of a thorough investigation of iSRS for any shock-ignition
+plans. These results are however a first study of the plasmas parameters where iSRS may occur. A full theoretical
+investigation of the potential impact of iSRS on shock-ignition will require significantly larger scale simulations. Of
+particular importance are multi-dimensional effects and laser speckle profiles. These would allow the competition between
+SRS and TPD as sources of hot-electrons to be assessed in two and three dimensions. The transverse non-uniformity associated with
+multi-dimensional effects is likely to affect iSRS through trapped electron side losses and a broader spectrum of EPWs
+resulting from side-scatter and TPD.
+Furthermore, the auto-resonance responsible for iSRS in these simulations may not be
+possible when a full speckle profile is included; since the extension of the resonance region may take the
+resonant waves outside of an individual speckle. The use of broadband
+laser systems to mitigate LPI will also need to be assessed
+in the kinetic regime of iSRS.
+All of these refinements to iSRS simulations will require considerably more
+computing resources but are none-the-less needed for a comprehensive treatment of LPI relevant
+to shock-ignition.
 
 This work is nowhere near finished in fact it's a bit crap
 
