@@ -4,21 +4,29 @@
 
 \section{Motivation and literature review}
 
-\subsection{Original idea that bropadband might control LPI}
 Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973};  
 
+In the 1990s, \cite{Guzdar1991} said that the convective gain of non-inflationart SRS is not sensitive to bandwisth. However there are additional effects determining the gain of convective SRS which \emph{can} be mitigated by broadband. Wen et al suggests that the threshold for inflationar SRS can be changed by a laser with SSD-type bandwidth.
 
-We expect broadband to affect absolute SRS at $0.25n_{\text{cr}}$ in this way. \citet{Follet_2019} use LPSE to treshodl for absolute SRS in ICF, and find that they can be increased for a continuous broadband spectrum with random spectral phases, as correlation time of the pump increase
+In the case of absolute SRS in inhomogeneous plasma, the absolute instability threshold can be increased by using bandwidth.
 
-\subsection{Different models of broadband}
-\subsection{Smoothing by spectral dispersion}
 
-SSD,ISI,SRRS,whater Gudzar did
+Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwith $\sim 1.6\%$ \citep{Follett2021}.
 
-\subsection{Stimulated rotational Raman scattering}
-Here \citep{Eimerl1993} and here \citep{Weaver2017} (theoretical model for SRRS)
 
-\subsubsection{Decoupled broadband lasers}
+Wen et al. this result was a preprint when we started, so we wanted to replicate/confirm the results for ourselves 
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/bandwidth_no_dependence_Wen.png}
+    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}\text{exp}(x/L_n);\text{PPC=16,000}. $}
+    \label{fig:Wenreplication}
+\end{figure}{}
+
+
+\section{Decoupled broadband lasers}
+The first approach we considered was using a decoupled broadband laser, as presented by Zhao. This work was presented at APS 2020
+
 In \cite{zhao_suppression_2019} they consider the suppression of parametric
 instabilities in a homogeneous plasma by decoupled broadband lasers
 (\acrshort{DBL}). A
@@ -39,7 +47,7 @@ SRS. An important result of their one-dimensional PIC simulations is that iSRS
 instability can grow to a high level if the beamlets satifsy this coupling
 condition, even if the total bandwidth is very large.
 
-\subsubsection{Strongly kinetic regime}
+
 In Ref \cite{zhou_kinetic_2018} Zhou \textit{et al.} consider the case of SRS
 driven by a broadband laser for a homogeneous plasma, with NIF-relevant plasma
 density and temperature such that $\kld > 0.3$. The result most relevant to our
@@ -47,7 +55,7 @@ work is that the bandwidth can interact with the nonlinear frequency shift assoc
 with electron trapping in the SRS EPW to \emph{enhance} SRS rather than suppress it.
 
 
-\subsection{Decoupled broadband lasers}
+
 Zhao \textit{et al.} \cite{zhao_effective_2017} consider the case of an
 inhomgeneous plasma density profile relevant to indirect-drive ICF. The results
 are similar to those described in the homogeneous case, and they find a
@@ -77,7 +85,10 @@ shift).
 
 
 
-\subsection{Continuous bandwidth}
+
+
+\section{Realistic laser bandwidth}
+\subsection{SSD-type bandwidth}
 We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver,
 
 \begin{equation}
@@ -87,30 +98,40 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 \begin{equation}
 	\phi(x,t) = \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}	 	 \left(\omega_mt - \frac{\omega_m}{c}x\right).
 \end{equation}
+\subsection{Other}
 
-\section{Evidence of effect on SRS}
-The intro of this basically tells me everything I need to know \citep{Follett2021}
+\subsection{Laser and plasma parameters}
+\begin{table}[]
 
-In the case of absolute SRS in inhomogeneous plasma, the absolute instability threshold can be increased by using bandwidth.
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Num. beamlets \\ \end{tabular} 
+& \begin{tabular}[c]{@{}l@{}}Modulation \\ frequency / THz \end{tabular}\\ \hline 
+&&&\\[-1em]
+193   & $4\times 10^{15}$   & 0,5,8,10  & 3,50 & n.a. \\ \hline
+&&&\\[-1em]
+351   & 3                   & 0,1,fromWen  & n.a. & fromWen \\ \hline
+\end{tabular}
 
-\citet{Guzdar1991} says that the convective gain of SRSis not senstivie to bandwidth. However there are a range of additional effect which can determine the gain of convective SRS which can be mitigated by broadband. These include: increasing the threshold for inflationary SRS driven by a laser with SSD-type bandwidth; mitigating speckle self-focussing.
-
-Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwith $\sim 1.6\%$ \citep{Follett2021}.
-
-\section{1D simulations and threshold}
-We begand this study by replicating the results of WEN PREPRINT which claims that 
-
-
-\begin{figure}[ht]
-   \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/bandwidth_no_dependence_Wen.png}
-    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}\text{exp}(x/L_n);\text{PPC=16,000}. $}
-    \label{fig:pumpdepletion}
-\end{figure}{}
+\caption{Table shows laser parameters for this investigation}
+\end{table}
 
 
-\section{2D simulations}
 
+\section{Result 1: Nd : glass and SSD}
+
+\subsection{Base case}
+
+\subsection{Parameter scan}
+
+
+\section{Result 2: KrF with }
+
+
+\subsection{Base case}
+\subsection{Parameter scan}
+
+\section{Conclusion}
 
 
 %\bibliographystyle{plainnat}
