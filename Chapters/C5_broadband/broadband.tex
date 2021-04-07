@@ -88,6 +88,10 @@ shift).
 
 
 \section{Realistic laser bandwidth}
+
+This section concerns the results of our investigation into broadband suppression of inflationary SRS on different broadband laser systems. The particular form of the broadband may not seem like an important factor to us, but to the EPWs it can be very important.
+We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; ArF lasers; and KrF lasers. Each laser has a different frequency and native bandwidth. For the so-called excimer lasers (ArF and KrF) 
+
 \subsection{SSD-type bandwidth}
 We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver,
 
@@ -100,8 +104,8 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 \end{equation}
 \subsection{Other}
 
-\subsection{Laser and plasma parameters}
-\begin{table}[]
+\subsection{Laser and plasma parameters}\label{sec:params}
+\begin{table}[h]\label{tab:laser}
 
 \begin{tabular}{|l|l|l|l|l|}
 \hline
@@ -116,11 +120,12 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 \caption{Table shows laser parameters for this investigation}
 \end{table}
 
-
+$\kld$ is between 0.3 and 0.45
 
 \section{Result 1: Nd : glass and SSD}
 
 \subsection{Base case}
+As stated in section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
 
 \subsection{Parameter scan}
 
