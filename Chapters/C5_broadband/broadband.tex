@@ -4,11 +4,11 @@
 
 \section{Motivation and literature review}
 
-One subtle thing is that broadband takes various functional forms, and the plasma might care about that.
+In this chapter, results of one-dimensional PIC simulations are presented, which represent the first investigation into the practical possibility of using broadband to suppress inflationary SRS in shock-ignition.
 
-Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973};  
+The chapter begins with a review of the literature discussing suppression of SRS by broadband lasers. We then show that for a decoupled broadband laser, the non-linear frequency shift must be taken into account when calculating the condition for suppression of iSRS. Next we consider the case of realistic shock-ignition schemes on three laser systems: frequency-tripled ND : glass; Krypton Fluoride (KrF); and Argon Fluoride (ArF). In each of these cases we model the predicted maximum realistic bandwidth in its physically-correct functional form. The chapter concludes with a discussion of the limitations of the modelling done so far, and suggestions for future work.
 
-In the 1990s, \cite{Guzdar1991} said that the convective gain of non-inflationart SRS is not sensitive to bandwisth. However there are additional effects determining the gain of convective SRS which \emph{can} be mitigated by broadband. Wen et al suggests that the threshold for inflationar SRS can be changed by a laser with SSD-type bandwidth.
+Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; and inflationary. The effects of different forms of bandwidth are discussed within these subheadings.
 
 \subsection{Absolute SRS}
 In the case of absolute SRS in inhomogeneous plasma, the absolute instability threshold can be increased by using bandwidth.
@@ -16,7 +16,7 @@ In the case of absolute SRS in inhomogeneous plasma, the absolute instability th
 Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwith $\sim 1.6\%$ \citep{Follett2021}.
 
 \subsection{Fluid convective SRS}
-
+These anlytical results are based on random
 Bandwidth weakens coupling but increases the length of the resonance region, cancelling out when laser bandwidth greater than homogeneous growth rate \citep{Guzdar1991}.
 
 \subsection{Inflationary SRS}
@@ -24,23 +24,24 @@ Bandwidth weakens coupling but increases the length of the resonance region, can
 
 \begin{equation}\label{eqn:maxGainCondition}
  \Delta\omega\omega_m = \omega_{pe}c / 2L_n,
-\end{equation} and is verified through PIC simulations in the kinetic and fluid regimes. The left-hand side of Eq. \ref{eqn:maxGainCondition} represents the maximum chirp ($|\partial_t\omega_0(x,t)|$) of the laser, and the right-hand side gives an expression for the spatial detuning due to density inhomogeneity. Several simplifying assumptions are made by the authors which allow them to derive this expression. Most importantly for our work, they omit the contribution of the non-linear frequency shift in their calulcation of the velocity of the resonance point. 
+\end{equation} and is verified through PIC simulations in the kinetic and fluid regimes. The left-hand side of Eq. \ref{eqn:maxGainCondition} represents the maximum chirp ($|\partial_t\omega_0(x,t)|$) of the laser, and the right-hand side gives an expression for the spatial detuning due to density inhomogeneity. Several simplifying assumptions are made by the authors which allow them to derive this expression for the spatial detuning. Most importantly for our work, they omit the contribution of the non-linear frequency shift in their calculation of the velocity of the resonance point. \todo{Estimate size of this contribution in my cases and hope it is ignorable}
 
-A key result of this work is that the iSRS threshold is independent of the bandwidth or frequency modulation alone, rather it depends on their product. Figure \ref{fig:Wenreplication} shows results from our investigations into the 
+A key result of this work is that the threshold for iSRS driven by a sinusoidally frequency-modulated laser is independent of the bandwidth or frequency modulation alone, rather it depends on their product. Figure \ref{fig:Wenreplication} shows results from our benchmarking of Wen's work. In this benchmarking study we recovered the results of their Osiris study using our own PIC code, EPOCH. We ran several simulations with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. We find that the inflation threshold has a weak dependence on the bandwith alone. From this preliminary investigation, we were confident in our laser set-up and in the use of EPOCH for this project.
 
-
- 
 
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/bandwidth_no_dependence_Wen.png}
-    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}\text{exp}(x/L_n);\text{PPC=16,000}. $}
+    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}; \text{exp}(x/L_n);\text{PPC=16,000}. $}
     \label{fig:Wenreplication}
 \end{figure}{}
 
 
 \section{Decoupled broadband lasers}
-The first approach we considered was using a decoupled broadband laser, as presented by Zhao. This work was presented at APS 2020
+
+The work in this section was presented at the 62nd annual meeting of the American Physical Society Division of Plasma Physics in November 2020.
+ 
+The first approach we considered was using a decoupled broadband laser, as presented by Zhao. 
 
 In \cite{zhao_suppression_2019} they consider the suppression of parametric
 instabilities in a homogeneous plasma by decoupled broadband lasers
@@ -129,15 +130,27 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 &&&\\[-1em]
 193   & $4\times 10^{15}$   & 0,5,8,10  & 3,50 & n.a. \\ \hline
 &&&\\[-1em]
-351   & 3                   & 0,1,fromWen  & n.a. & fromWen \\ \hline
+351   & 3                   & 0,1,fromWen  & n.a. & 0,800,0.001 \\ \hline
 \end{tabular}
 
-\caption{Table shows laser parameters for this investigation}
+\caption{Laser parameters for this investigation. Where multiple values are presented in a list, each represents a different simulation. For the 351nm laser, the bandwidth and modulation frequencies are ordered pairs corresponding to: the zero bandwidth case; maximum predicted bandwidth from literature, and the corresponding required modulation frequency calculated from \citet{Wen2021}; the bandwidth calculated from \citet{Wen2021} such that the iSRS is suppressed with a realistic SSD modulation frequency from literature.}
 \end{table}
 
-\missingfigure{Plasma temperature and density profiles at t=start of spike from NRL}
+\begin{table}[h]\label{tab:plasma}
 
-$\kld$ is between 0.3 and 0.45
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & $L_n$ / $\si{\micro\metre}$
+\\ \hline 
+193 & ?   & ?   & ?               & ? \\ \hline
+351 & 270 & 5.4 & $[0.105,0.175]$ & $[420,590]$ \\ \hline
+\end{tabular}
+
+\caption{Table shows plasma parameters from simulations performed at the NRL, chosen such that $\kld$ is between 0.3 and 0.45. The temperature given is the maximum temperature of the particles initialised at $t=0$, as there is, in reality, a slight temperature gradient in the electron profile.}
+\end{table}
+
+
+
 
 \section{Result 1: Nd : glass and SSD}
 
