@@ -4,17 +4,32 @@
 
 \section{Motivation and literature review}
 
+One subtle thing is that broadband takes various functional forms, and the plasma might care about that.
+
 Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973};  
 
 In the 1990s, \cite{Guzdar1991} said that the convective gain of non-inflationart SRS is not sensitive to bandwisth. However there are additional effects determining the gain of convective SRS which \emph{can} be mitigated by broadband. Wen et al suggests that the threshold for inflationar SRS can be changed by a laser with SSD-type bandwidth.
 
+\subsection{Absolute SRS}
 In the case of absolute SRS in inhomogeneous plasma, the absolute instability threshold can be increased by using bandwidth.
-
 
 Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwith $\sim 1.6\%$ \citep{Follett2021}.
 
+\subsection{Fluid convective SRS}
 
-Wen et al. this result was a preprint when we started, so we wanted to replicate/confirm the results for ourselves 
+Bandwidth weakens coupling but increases the length of the resonance region, cancelling out when laser bandwidth greater than homogeneous growth rate \citep{Guzdar1991}.
+
+\subsection{Inflationary SRS}
+\citet{Wen2021} derive a condition for the maximum gain of SRS driven by a sinusoidally frequency-modulated broadband laser, when the velocity of the resonance point is equal to the group velocity of the back-scattered light for as long as possible. By tuning the plasma parameters and/or laser parameters away from this condition, they can increase the threshold for kinetic SRS \citep{Wen2021}. The maximum gain criteria is given by the expression:
+
+\begin{equation}\label{eqn:maxGainCondition}
+ \Delta\omega\omega_m = \omega_{pe}c / 2L_n,
+\end{equation} and is verified through PIC simulations in the kinetic and fluid regimes. The left-hand side of Eq. \ref{eqn:maxGainCondition} represents the maximum chirp ($|\partial_t\omega_0(x,t)|$) of the laser, and the right-hand side gives an expression for the spatial detuning due to density inhomogeneity. Several simplifying assumptions are made by the authors which allow them to derive this expression. Most importantly for our work, they omit the contribution of the non-linear frequency shift in their calulcation of the velocity of the resonance point. 
+
+A key result of this work is that the iSRS threshold is independent of the bandwidth or frequency modulation alone, rather it depends on their product. Figure \ref{fig:Wenreplication} shows results from our investigations into the 
+
+
+ 
 
 \begin{figure}[ht]
    \centering
@@ -119,6 +134,8 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 
 \caption{Table shows laser parameters for this investigation}
 \end{table}
+
+\missingfigure{Plasma temperature and density profiles at t=start of spike from NRL}
 
 $\kld$ is between 0.3 and 0.45
 
