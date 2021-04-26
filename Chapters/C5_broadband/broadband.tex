@@ -108,8 +108,50 @@ shift).
 This section concerns the results of our investigation into broadband suppression of inflationary SRS on different broadband laser systems. The particular form of the broadband may not seem like an important factor to us, but to the EPWs it can be very important.
 We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; ArF lasers; and KrF lasers. Each laser has a different frequency and native bandwidth. For the so-called excimer lasers (ArF and KrF) 
 
-\subsection{SSD-type bandwidth}
-We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver,
+\subsection{Laser and plasma parameters}\label{sec:params}
+\begin{table}[h]\label{tab:laser}
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}$\lambda_0$ /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Num. \\ beamlets \end{tabular} 
+& \begin{tabular}[c]{@{}l@{}}Modulation \\ frequency / THz \end{tabular}\\ \hline 
+&&&\\[-1em]
+193   & $4\times 10^{15}$   & 0,5,8,10  & 0,0.05,0.08,0.10  & 3, 50 & n.a. \\ \hline
+&&&\\[-1em]
+248   &    & 0,3,6  &   &  &  \\ \hline
+&&&\\[-1em]
+351   & $3\times 10^{15}$   & 0,1,fromWen  & 0, 0.02,  & n.a. & 0,800,0.001 \\ \hline
+\end{tabular}
+
+\caption{Laser parameters for this investigation. Where multiple values are presented in a list, each represents a different simulation. For the 351nm laser, the bandwidth and modulation frequencies are ordered pairs corresponding to: the zero bandwidth case; maximum predicted bandwidth from literature, and the corresponding required modulation frequency calculated from \citet{Wen2021}; the bandwidth calculated from \citet{Wen2021} such that the iSRS is suppressed with a realistic SSD modulation frequency from literature.}
+\end{table}
+
+\begin{table}[h]
+
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & $\omega_{pe}$ / $\omega_0$ & $L_n$ / $\si{\micro\metre}$
+\\ \hline 
+193 & ? & ?  & ?   & ?               & ? \\ \hline
+351 & 270 & 5.4 & $[0.105,0.175]$ & $[0.33,0.42]$ &  $[420,590]$ \\ \hline
+\end{tabular}
+
+\caption{Table shows plasma parameters from simulations performed at the NRL, chosen such that $\kld$ is between 0.3 and 0.45. The temperature given is the maximum temperature of the particles initialised at $t=0$, as there is, in reality, a slight temperature gradient in the electron profile.}
+\label{tab:plasma}
+\end{table}
+
+
+
+
+\section{351nm Nd : glass laser}
+
+\subsection{Base case: $\Delta\omega=0$}
+As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
+
+\subsection{SSD-type bandwidth: $\Delta\omega=1\si{THz}$}
+1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$.
+
+We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver: E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right).
 
 \begin{equation}
  	 E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right),
@@ -118,53 +160,18 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 \begin{equation}
 	\phi(x,t) = \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}	 	 \left(\omega_mt - \frac{\omega_m}{c}x\right).
 \end{equation}
-\subsection{Other}
 
-\subsection{Laser and plasma parameters}\label{sec:params}
-\begin{table}[h]\label{tab:laser}
 
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-\begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Num. beamlets \\ \end{tabular} 
-& \begin{tabular}[c]{@{}l@{}}Modulation \\ frequency / THz \end{tabular}\\ \hline 
-&&&\\[-1em]
-193   & $4\times 10^{15}$   & 0,5,8,10  & 3,50 & n.a. \\ \hline
-&&&\\[-1em]
-351   & 3                   & 0,1,fromWen  & n.a. & 0,800,0.001 \\ \hline
-\end{tabular}
-
-\caption{Laser parameters for this investigation. Where multiple values are presented in a list, each represents a different simulation. For the 351nm laser, the bandwidth and modulation frequencies are ordered pairs corresponding to: the zero bandwidth case; maximum predicted bandwidth from literature, and the corresponding required modulation frequency calculated from \citet{Wen2021}; the bandwidth calculated from \citet{Wen2021} such that the iSRS is suppressed with a realistic SSD modulation frequency from literature.}
-\end{table}
-
-\begin{table}[h]\label{tab:plasma}
-
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & $L_n$ / $\si{\micro\metre}$
-\\ \hline 
-193 & ?   & ?   & ?               & ? \\ \hline
-351 & 270 & 5.4 & $[0.105,0.175]$ & $[420,590]$ \\ \hline
-\end{tabular}
-
-\caption{Table shows plasma parameters from simulations performed at the NRL, chosen such that $\kld$ is between 0.3 and 0.45. The temperature given is the maximum temperature of the particles initialised at $t=0$, as there is, in reality, a slight temperature gradient in the electron profile.}
-\end{table}
+\subsection{}
 
 
 
+\section{193nm argon fluoride}
+This is an excimer laser under development which is predicted to have native bandwidths up to 10THz. We will model these
 
-\section{Result 1: Nd : glass and SSD}
+\subsection{Base case: $\Delta\omega=0$}
 
-\subsection{Base case}
-As stated in section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
-
-\subsection{Parameter scan}
-
-
-\section{Result 2: KrF with }
-
-
-\subsection{Base case}
-\subsection{Parameter scan}
+\subsection{Intrinsic bandwidth: $\Delta\omega=5,8,10$ $\si{THz}$}
 
 \section{Conclusion}
 
