@@ -2,11 +2,9 @@
 \chapter{Effects of laser bandwidth on inflationary stimulated Raman scattering}
 \label{chp:broadbandSRS}
 
+In this chapter, results of one-dimensional PIC simulations are presented, which represent the first investigation into the practical possibility of using broadband to suppress inflationary SRS in shock-ignition. The chapter begins with a review of the literature discussing suppression of SRS by broadband lasers. We then show that for a decoupled broadband laser, the non-linear frequency shift must be taken into account when calculating the condition for suppression of iSRS. Next we consider the case of realistic shock-ignition schemes on three laser systems: frequency-tripled ND : glass; Krypton Fluoride (KrF); and Argon Fluoride (ArF). In each of these cases we model the predicted maximum realistic bandwidth in its physically-correct functional form. The chapter concludes with a discussion of the limitations of the modelling done so far, and suggestions for future work.
+
 \section{Motivation and literature review}
-
-In this chapter, results of one-dimensional PIC simulations are presented, which represent the first investigation into the practical possibility of using broadband to suppress inflationary SRS in shock-ignition.
-
-The chapter begins with a review of the literature discussing suppression of SRS by broadband lasers. We then show that for a decoupled broadband laser, the non-linear frequency shift must be taken into account when calculating the condition for suppression of iSRS. Next we consider the case of realistic shock-ignition schemes on three laser systems: frequency-tripled ND : glass; Krypton Fluoride (KrF); and Argon Fluoride (ArF). In each of these cases we model the predicted maximum realistic bandwidth in its physically-correct functional form. The chapter concludes with a discussion of the limitations of the modelling done so far, and suggestions for future work.
 
 Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; and inflationary. The effects of different forms of bandwidth are discussed within these subheadings.
 
@@ -100,42 +98,49 @@ frequencies excited by SRS in the plasma (not including nonlinear frequency
 shift).
 
 
+\subsection{Conclusions}
+In conclusion, we decided not to pursue out investigation of DBL-type bandwidth any futher since a) there are no plans to impliment it on lasers of interest and b) 
 
 
-
-\section{Realistic laser bandwidth}
+\section{Realistic laser bandwidth}\label{sec:params}
 
 This section concerns the results of our investigation into broadband suppression of inflationary SRS on different broadband laser systems. The particular form of the broadband may not seem like an important factor to us, but to the EPWs it can be very important.
-We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; ArF lasers; and KrF lasers. Each laser has a different frequency and native bandwidth. For the so-called excimer lasers (ArF and KrF) 
+We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; KrF lasers; and ArF lasers. Each laser has a different frequency and native bandwidth. For the so-called excimer lasers (KrF and ArF) 
 
-\subsection{Laser and plasma parameters}\label{sec:params}
+For all the simulations presented in this section, the following EPOCH parameters are constant: $\Delta x = \mathrm{min}_x(\lambda_D)$; $\mathrm{PPC} = 2000$; $T_{\mathrm{end}}=6\si{ps}$; thermal boundaries for particles; field boundaries are laser ($x_{\mathrm{min}}$), and absorbing boundaries ($x_{\mathrm{max}}$). We treat the ions as a neutralising background population to allow us to pinpoint the effect of bandwidth on inflationary SRS only. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
+
 \begin{table}[h]\label{tab:laser}
+\begin{center}
 
-\begin{tabular}{|l|l|l|l|l|l|}
+
+\begin{tabular}{|l|l|l|l|}
 \hline
-\begin{tabular}[c]{@{}l@{}}$\lambda_0$ /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Num. \\ beamlets \end{tabular} 
-& \begin{tabular}[c]{@{}l@{}}Modulation \\ frequency / THz \end{tabular}\\ \hline 
+\begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} \\ \hline 
 &&&\\[-1em]
-193   & $4\times 10^{15}$   & 0,5,8,10  & 0,0.05,0.08,0.10  & 3, 50 & n.a. \\ \hline
+351   & $3\times 10^{15}$  &  0, 1, 10 &  0, 0.02, 0.20 \\ \hline
 &&&\\[-1em]
-248   &    & 0,3,6  &   &  &  \\ \hline
+248   &    & 0, 3, 6  &     \\ \hline
 &&&\\[-1em]
-351   & $3\times 10^{15}$   & 0,1,fromWen  & 0, 0.02,  & n.a. & 0,800,0.001 \\ \hline
+193   & $4\times 10^{15}$   & 0, 5, 8, 10  & 0, 0.05, 0.08, 0.10  \\ \hline
 \end{tabular}
-
-\caption{Laser parameters for this investigation. Where multiple values are presented in a list, each represents a different simulation. For the 351nm laser, the bandwidth and modulation frequencies are ordered pairs corresponding to: the zero bandwidth case; maximum predicted bandwidth from literature, and the corresponding required modulation frequency calculated from \citet{Wen2021}; the bandwidth calculated from \citet{Wen2021} such that the iSRS is suppressed with a realistic SSD modulation frequency from literature.}
+\end{center}
+\caption{Laser parameters for this investigation. Where multiple values are presented in a list, each represents a different simulation. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The choice of bandwidths and their implementations in EPOCH are explained and referenced in Sections \ref{sec:351}, \ref{sec:248}, \ref{sec:193}, for the 351, 248, 193 nm cases respectively.}
 \end{table}
 
 \begin{table}[h]
+\begin{center}
 
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
 Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & $\omega_{pe}$ / $\omega_0$ & $L_n$ / $\si{\micro\metre}$
 \\ \hline 
-193 & ? & ?  & ?   & ?               & ? \\ \hline
 351 & 270 & 5.4 & $[0.105,0.175]$ & $[0.33,0.42]$ &  $[420,590]$ \\ \hline
+248 & ? & ? & ? & ? &  ? \\ \hline
+193 & ? & ?  & ?   & ?               & ? \\ \hline
+
 \end{tabular}
 
+\end{center}
 \caption{Table shows plasma parameters from simulations performed at the NRL, chosen such that $\kld$ is between 0.3 and 0.45. The temperature given is the maximum temperature of the particles initialised at $t=0$, as there is, in reality, a slight temperature gradient in the electron profile.}
 \label{tab:plasma}
 \end{table}
@@ -143,35 +148,49 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 
 
 
-\section{351nm Nd : glass laser}
+\section{351nm Nd : glass laser}\label{sec:351}
 
 \subsection{Base case: $\Delta\omega=0$}
-As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
+As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
 
 \subsection{SSD-type bandwidth: $\Delta\omega=1\si{THz}$}
-1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$.
+1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Kelly2013}.
 
-We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver: E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right).
-
-\begin{equation}
- 	 E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right),
-\end{equation} with $\phi(x,t)$ is given by
+We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver: $E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right)$; with $\phi(x,t)$ given by:
 
 \begin{equation}
 	\phi(x,t) = \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}	 	 \left(\omega_mt - \frac{\omega_m}{c}x\right).
 \end{equation}
 
 
-\subsection{}
+\subsection{Optical parametric amplification: $\Delta\omega=10\si{THz}$}
 
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/ndglass_placeholder.jpeg}
+    \caption{placeholder figure for Nd glass sim results}
+    \label{fig:NdGlass}
+\end{figure}{}
 
+\section{248nm krypton fluoride}\label{sec:248}
 
-\section{193nm argon fluoride}
-This is an excimer laser under development which is predicted to have native bandwidths up to 10THz. We will model these
+\subsection{Base case: $\Delta\omega=0$}
+
+\section{193nm argon fluoride}\label{sec:193}
+Excimer lasers have a broad amplification spectrum in the UV when compared to Nd: glass lasers. In this section we consider the argon fluoride (ArF) laser under development at the NRL, which is predicted to have native bandwidth up to 10THz \citep{Obenschain2020}.
 
 \subsection{Base case: $\Delta\omega=0$}
 
 \subsection{Intrinsic bandwidth: $\Delta\omega=5,8,10$ $\si{THz}$}
+In this section, we perform a series of simulations at different bandwidths which are considered realistic for ArF laser systems currently under development \citep{Obenschain2020}.
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/arf_placeholder.jpeg}
+    \caption{placeholder figure for ArF sim results}
+    \label{fig:ArF}
+\end{figure}{}
+
 
 \section{Conclusion}
 
