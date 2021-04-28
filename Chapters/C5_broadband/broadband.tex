@@ -154,16 +154,20 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
 
 \subsection{SSD-type bandwidth: $\Delta\omega=1\si{THz}$}
-1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Kelly2013}.
+1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
 
-We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver: $E(x,t) = E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right)$; with $\phi(x,t)$ given by:
+We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver like so:
 
 \begin{equation}
-	\phi(x,t) = \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}	 	 \left(\omega_mt - \frac{\omega_m}{c}x\right).
+\begin{aligned}
+   E(x,t) &= E_0\text{sin}\left(\omega_0 t - \phi(x,t)\right) \\
+   \phi(x,t) &= \frac{1}{2}\frac{\Delta\omega}{\omega_m}\text{sin}\left(\omega_mt - \frac{\omega_m}{c}x\right).
+\end{aligned}
 \end{equation}
 
-
 \subsection{Optical parametric amplification: $\Delta\omega=10\si{THz}$}
+According to \citet{Lehmberg2020} ``Parametric amplification may allow bandwidths up to 10 THz from 351 nm glass systems...".
+
 
 \begin{figure}[ht]
    \centering
@@ -176,13 +180,30 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 
 \subsection{Base case: $\Delta\omega=0$}
 
+\subsection{Intrinsic bandwidth: $\Delta\omega=1,2,3$ $\si{THz}$}
+Intrinsic bandwidth of KrF laser such as Nike is predicted to be 3Thz \citep{Obenschain15}
+
+\subsection{Self phase modulation: $\Delta\omega=4,5,6$ $\si{THz}$}
+
+According to this paper: "Stimulated rotational Raman scattering of arbitrarily polarized broadband light" \citep{Lehmberg2020} the SPM bandwidth of KrF limited to 6THz cos of physics.
+
 \section{193nm argon fluoride}\label{sec:193}
 Excimer lasers have a broad amplification spectrum in the UV when compared to Nd: glass lasers. In this section we consider the argon fluoride (ArF) laser under development at the NRL, which is predicted to have native bandwidth up to 10THz \citep{Obenschain2020}.
 
 \subsection{Base case: $\Delta\omega=0$}
 
 \subsection{Intrinsic bandwidth: $\Delta\omega=5,8,10$ $\si{THz}$}
-In this section, we perform a series of simulations at different bandwidths which are considered realistic for ArF laser systems currently under development \citep{Obenschain2020}.
+In this section, we perform a series of simulations at different bandwidths which are considered realistic for ArF laser systems currently under development \citep{Obenschain2020}. To model the continuous laser spectrum, we follow the method presented in \citet{Bates2020} and distribute 50 beamlets of different frequencies around the central frequency. The intensities of the lines follow a Gaussian distribution whose FWHM is given by the laser bandwidth. \citet{Follett2019} says 50 is enough for a gaussian beam up to 10 percent. Each beamlet has a random phase so the total driven laser field looks like this:
+
+
+
+\begin{equation}
+\begin{aligned}
+	E(x,t) &= \sum_{i=1}^{50} E_i \mathrm{sin}(\omega_i t + \phi_i) \\
+	\phi_i & \in  [0,2\pi] \\
+	\omega_i & \in [\omega_0 - \Delta\omega / 2, \omega_0 + \Delta\omega / 2]
+\end{aligned}
+\end{equation}
 
 \begin{figure}[ht]
    \centering
