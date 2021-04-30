@@ -105,7 +105,9 @@ In conclusion, we decided not to pursue out investigation of DBL-type bandwidth 
 \section{Realistic laser bandwidth}\label{sec:params}
 
 This section concerns the results of our investigation into broadband suppression of inflationary SRS on different broadband laser systems. The particular form of the broadband may not seem like an important factor to us, but to the EPWs it can be very important.
-We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; KrF lasers; and ArF lasers. Each laser has a different frequency and native bandwidth. For the so-called excimer lasers (KrF and ArF) 
+We consider shock-ignition driven by three different laser systems: frequency-tripled Nd : glass lasers, such as the NIF and LMJ; KrF lasers; and ArF lasers. Each laser has a different frequency and native bandwidth. 
+
+NRL provided us with density, temperatyre and intensity lineouts in 1D from simulations of shock-ignition on these these three laser systems. We selected a single time slice, just before the interaction pulse enters the under-dense plasma created by the assembly pulse. Their simulations were performed using the rad-hydro code \todo{Email and ask what code they used}
 
 For all the simulations presented in this section, the following EPOCH parameters are constant: $\Delta x = \mathrm{min}_x(\lambda_D)$; $\mathrm{PPC} = 2000$; $T_{\mathrm{end}}=6\si{ps}$; thermal boundaries for particles; field boundaries are laser ($x_{\mathrm{min}}$), and absorbing boundaries ($x_{\mathrm{max}}$). We treat the ions as a neutralising background population to allow us to pinpoint the effect of bandwidth on inflationary SRS only. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
 
@@ -134,8 +136,8 @@ For all the simulations presented in this section, the following EPOCH parameter
 \hline
 Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & $\omega_{pe}$ / $\omega_0$ & $L_n$ / $\si{\micro\metre}$
 \\ \hline 
-351 & 270 & 5.4 & $[0.105,0.175]$ & $[0.33,0.42]$ &  $[420,590]$ \\ \hline
-248 & ? & ? & ? & ? &  ? \\ \hline
+351 & 270 & 5.4 & $[0.105,0.175]$ & $[0.33,0.42]$ & $[420,590]$ \\ \hline
+248 & 270 & 3.4 & $[0.078,0.137]$ & $[0.27,0.38]$ & $[400,550]$ \\ \hline
 193 & 275 & 3.5 & $[0.071,0.140]$ & $[0.26,0.37]$ & $[330,470]$ \\ \hline
 
 \end{tabular}
