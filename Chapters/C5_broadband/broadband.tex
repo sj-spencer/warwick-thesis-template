@@ -4,15 +4,19 @@
 
 In this chapter, results of one-dimensional PIC simulations are presented, which represent the first investigation into the practical possibility of using broadband to suppress inflationary SRS in shock-ignition. The chapter begins with a review of the literature discussing suppression of SRS by broadband lasers. We then show that for a decoupled broadband laser, the non-linear frequency shift must be taken into account when calculating the condition for suppression of iSRS. Next we consider the case of realistic shock-ignition schemes on three laser systems: frequency-tripled ND : glass; Krypton Fluoride (KrF); and Argon Fluoride (ArF). In each of these cases we model the predicted maximum realistic bandwidth in its physically-correct functional form. The chapter concludes with a discussion of the limitations of the modelling done so far, and suggestions for future work.
 
+N.B. In this chapter, bandwidths are given in units of tera-Hertz (THz) since this is standard in the literature. This can be converted to radians per second through the relation $\Delta \omega = 2\pi \Delta f$. 
+
 \section{Motivation and literature review}
 
-Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; and inflationary. 
+Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; inflationary; and multi-beam. 
 
 \subsection{Absolute SRS}
 PIC modelling of absolute SRS at low density and temperature ($n_e=0.08n_{cr}$, $T_e=100\si{eV}$)
 \todo{what is kld in this case?} performed by \citet{Zhao2015} demonstrates the suppression of the SRS growth rate by frequency-modulated SSD-type bandwidth. They find that the suppression effect is increased by increasing the bandwidth; and that for a fixed bandwidth, the suppression depends on the modulation frequency. They also note that the bandwidth has no effect on the saturated level of SRS, only the growth rate. In their conclusion they stress the importance of considering the temporal structure of the laser field in each bandwidth investigation. In a follow-up paper published in 2017, \citet{Zhao2017a} consider SRS driven by incoherent light which is composed of a large number of beamlets each with different frequency and phase. For very large bandwidths (on the order of $10\%\omega_0$) they find that the growth rate of backward SRS is reduced compared to the frequency-modulated light with the same bandwidth, but that the scattered light still saturates at the same level as with no bandwidth.
 
-Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwidth $\sim 1.6\%$ \citep{Follett2021}.
+The work of \citet{Zhou2018} develops the theory of absolute-SRS suppression by many-beamlet bandwidth by considering the ``highly nonlinear", kinetic case where $\kld=0.3$. As well as confirming the suppression of the growth rate measured in \citep{Zhao2015,Zhao2017a}, they find that bandwidth in the range $2.25\%$ to $3.0\%$ acts to enhance SRS in the so-called ``deep nonlinear stage" by increasing the resonant range in line with the non-linear frequency shift. The authors conclude that a broadband laser light is not an appropriate choice for suppression of absolute SRS on a several picosecond time-scale. 
+
+
 
 \subsection{Fluid convective SRS}
 These anlytical results are based on random
@@ -32,10 +36,13 @@ A key result of this work is that the threshold for iSRS driven by a sinusoidall
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/bandwidth_no_dependence_Wen.png}
-    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}; \text{exp}(x/L_n);\text{PPC=16,000}. $}
+    \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}\text{exp}(x/L_n);\text{PPC=16,000}. $}
     \label{fig:Wenreplication}
 \end{figure}{}
 
+
+\subsection{Multi-beam SRS}
+Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwidth $\sim 1.6\%$ \citep{Follett2021}.
 
 \section{Decoupled broadband lasers}
 
@@ -46,7 +53,7 @@ The first approach we considered was using a decoupled broadband laser, as prese
 In \cite{zhao_suppression_2019} they consider the suppression of parametric
 instabilities in a homogeneous plasma by decoupled broadband lasers
 (\acrshort{DBL}). A
-decoupled broadband laser is defined in Ref \cite{zhao_effective_2017} as
+decoupled broadband laser is defined in Ref \cite{Zhao2017b} as
 
 \begin{equation}\label{eqn:DBL}
   a_{\mathrm{DBL}} = \sum_{i=1}^{N} a_i \mathrm{cos}(\omega_it + \phi_i),
@@ -121,7 +128,7 @@ For all the simulations presented in this section, the following EPOCH parameter
 \hline
 \begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ W$\text{cm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} \\ \hline 
 &&&\\[-1em]
-351   & $3\times 10^{15}$  &  0, 1, 10 &  0, 0.02, 0.20 \\ \hline
+351   & $3\times 10^{15}$  &  0, 1, 10 &  0, 0.12, 1.2 \\ \hline
 &&&\\[-1em]
 248   &    & 0, 3, 6  &     \\ \hline
 &&&\\[-1em]
@@ -154,11 +161,11 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 
 \section{351nm Nd : glass laser}\label{sec:351}
 
-\subsection{Base case: $\Delta\omega=0$}
+\subsection{Base case: $\Delta f=0$}
 As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
 
-\subsection{SSD-type bandwidth: $\Delta\omega=1\si{THz}$}
-1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 800 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
+\subsection{SSD-type bandwidth: $\Delta f=1\si{THz}$}
+1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 128 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
 
 We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver like so:
 
@@ -169,7 +176,7 @@ We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using
 \end{aligned}
 \end{equation}
 
-\subsection{Optical parametric amplification: $\Delta\omega=10\si{THz}$}
+\subsection{Optical parametric amplification: $\Delta f=10\si{THz}$}
 According to \citet{Lehmberg2020} ``Parametric amplification may allow bandwidths up to 10 THz from 351 nm glass systems...".
 
 
@@ -182,21 +189,21 @@ According to \citet{Lehmberg2020} ``Parametric amplification may allow bandwidth
 
 \section{248nm krypton fluoride}\label{sec:248}
 
-\subsection{Base case: $\Delta\omega=0$}
+\subsection{Base case: $\Delta f=0$}
 
-\subsection{Intrinsic bandwidth: $\Delta\omega=1,2,3$ $\si{THz}$}
+\subsection{Intrinsic bandwidth: $\Delta f=1,2,3$ $\si{THz}$}
 Intrinsic bandwidth of KrF laser such as Nike is predicted to be 3Thz \citep{Obenschain15}
 
-\subsection{Self phase modulation: $\Delta\omega=4,5,6$ $\si{THz}$}
+\subsection{Self phase modulation: $\Delta f=4,5,6$ $\si{THz}$}
 
 According to this paper: "Stimulated rotational Raman scattering of arbitrarily polarized broadband light" \citep{Lehmberg2020} the SPM bandwidth of KrF limited to 6THz cos of physics.
 
 \section{193nm argon fluoride}\label{sec:193}
 Excimer lasers have a broad amplification spectrum in the UV when compared to Nd: glass lasers. In this section we consider the argon fluoride (ArF) laser under development at the NRL, which is predicted to have native bandwidth up to 10THz \citep{Obenschain2020}.
 
-\subsection{Base case: $\Delta\omega=0$}
+\subsection{Base case: $\Delta f=0$}
 
-\subsection{Intrinsic bandwidth: $\Delta\omega=5,8,10$ $\si{THz}$}
+\subsection{Intrinsic bandwidth: $\Delta f =5,8,10$ $\si{THz}$}
 In this section, we perform a series of simulations at different bandwidths which are considered realistic for ArF laser systems currently under development \citep{Obenschain2020}. To model the continuous laser spectrum, we follow the method presented in \citet{Bates2020} and distribute 50 beamlets of different frequencies around the central frequency. The intensities of the lines follow a Gaussian distribution whose FWHM is given by the laser bandwidth. \citet{Follett2019} says 50 is enough for a gaussian beam up to 10 percent. Each beamlet has a random phase so the total driven laser field looks like this:
 
 
