@@ -6,18 +6,20 @@ In this chapter, results of one-dimensional PIC simulations are presented, which
 
 \section{Motivation and literature review}
 
-Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; and inflationary. The effects of different forms of bandwidth are discussed within these subheadings.
+Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; and inflationary. 
 
 \subsection{Absolute SRS}
-In the case of absolute SRS in inhomogeneous plasma, the absolute instability threshold can be increased by using bandwidth.
+PIC modelling of absolute SRS at low density and temperature ($n_e=0.08n_{cr}$, $T_e=100\si{eV}$)
+\todo{what is kld in this case?} performed by \citet{Zhao2015} demonstrates the suppression of the SRS growth rate by frequency-modulated SSD-type bandwidth. They find that the suppression effect is increased by increasing the bandwidth; and that for a fixed bandwidth, the suppression depends on the modulation frequency. They also note that the bandwidth has no effect on the saturated level of SRS, only the growth rate. In their conclusion they stress the importance of considering the temporal structure of the laser field in each bandwidth investigation. In a follow-up paper published in 2017, \citet{Zhao2017a} consider SRS driven by incoherent light which is composed of a large number of beamlets each with different frequency and phase. For very large bandwidths (on the order of $10\%\omega_0$) they find that the growth rate of backward SRS is reduced compared to the frequency-modulated light with the same bandwidth, but that the scattered light still saturates at the same level as with no bandwidth.
 
-Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwith $\sim 1.6\%$ \citep{Follett2021}.
+Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwidth $\sim 1.6\%$ \citep{Follett2021}.
 
 \subsection{Fluid convective SRS}
 These anlytical results are based on random
 Bandwidth weakens coupling but increases the length of the resonance region, cancelling out when laser bandwidth greater than homogeneous growth rate \citep{Guzdar1991}.
 
 \subsection{Inflationary SRS}
+
 \citet{Wen2021} derive a condition for the maximum gain of SRS driven by a sinusoidally frequency-modulated broadband laser, when the velocity of the resonance point is equal to the group velocity of the back-scattered light for as long as possible. By tuning the plasma parameters and/or laser parameters away from this condition, they can increase the threshold for kinetic SRS \citep{Wen2021}. The maximum gain criteria is given by the expression:
 
 \begin{equation}\label{eqn:maxGainCondition}
