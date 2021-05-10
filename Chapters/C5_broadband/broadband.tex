@@ -35,7 +35,7 @@ A key result of this work is that the threshold for iSRS driven by a sinusoidall
 
 \begin{figure}[ht]
    \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/bandwidth_no_dependence_Wen.png}
+    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/fig51_thesis.png}
     \caption{Intensity of light scattered by SRS, averaged over the last three picoseconds of each simulation, for three laser set-ups with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. The simulation parameters common to all data-points are: $T_e = 4\si{\kilo eV}; L_n = 400\si{\micro\metre}; n_e(x) = 0.11n_{\text{cr}}\text{exp}(x/L_n);\text{PPC=16,000}. $}
     \label{fig:Wenreplication}
 \end{figure}{}
@@ -165,7 +165,7 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
 
 \subsection{SSD-type bandwidth: $\Delta f=1\si{THz}$}
-1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to suppress iSRS with the parameters taken from our base case, we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 128 \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
+1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to increase the iSRS threshold we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 128  \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
 
 We can implement a continuous-bandwidth frequency-modulated laser in EPOCH using the standard EPOCH laser-driver like so:
 
