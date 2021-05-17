@@ -11,16 +11,49 @@ N.B. In this chapter, bandwidths are given in units of tera-Hertz (THz) since th
 Early results in the 1970s suggested that finite-bandwidth laser drivers could change the behaviour of parametric instabilities. These studies considered a variety of parametric instabilities, including: the parametric decay instability \citep{Thomson1974}; stimulated Brillouin scattering \citep{Kruer1973}; and stimulated Raman scattering \citep{raymer_theory_1979}. Recently, broadband has become a fashionable topic of discussion. There are various ways that broadband can be introduced into a laser system, including: induced spatial incoherence (\acrshort{ISI}) \citep{Lehmberg198327}; smoothing by spectral dispersion (\acrshort{SSD}) \citep{Skupsky1989}; stimulated rotational Raman scattering (SRRS);  In what follows, we divide the literature review by the type of SRS considered: absolute; convective-fluid; inflationary; and multi-beam. 
 
 \subsection{Absolute SRS}
-PIC modelling of absolute SRS at low density and temperature ($n_e=0.08n_{cr}$, $T_e=100\si{eV}$)
-\todo{what is kld in this case?} performed by \citet{Zhao2015} demonstrates the suppression of the SRS growth rate by frequency-modulated SSD-type bandwidth. They find that the suppression effect is increased by increasing the bandwidth; and that for a fixed bandwidth, the suppression depends on the modulation frequency. They also note that the bandwidth has no effect on the saturated level of SRS, only the growth rate. In their conclusion they stress the importance of considering the temporal structure of the laser field in each bandwidth investigation. In a follow-up paper published in 2017, \citet{Zhao2017a} consider SRS driven by incoherent light which is composed of a large number of beamlets each with different frequency and phase. For very large bandwidths (on the order of $10\%\omega_0$) they find that the growth rate of backward SRS is reduced compared to the frequency-modulated light with the same bandwidth, but that the scattered light still saturates at the same level as with no bandwidth.
+PIC modelling of absolute SRS at low density and temperature ($n_e=0.08n_{cr}$, $T_e=100\si{eV}$, corresponding to $\kld\sim 0.08$)
+performed by \citet{Zhao2015} demonstrates the suppression of the SRS growth rate by frequency-modulated SSD-type bandwidth. They find that the suppression effect is increased by increasing the bandwidth; and that for a fixed bandwidth, the suppression depends on the modulation frequency. They also note that the bandwidth has no effect on the saturated level of SRS, only the growth rate. In their conclusion they stress the importance of considering the temporal structure of the laser field in each bandwidth investigation. In a follow-up paper \citet{Zhao2017July} consider SRS driven by incoherent light which is composed of a large number of beamlets each with different frequency and phase (called a decoupled broadband laser (DBL)).  For very large bandwidths (on the order of $10\%\omega_0$) they find that the growth rate of backward SRS is reduced compared to the frequency-modulated light with the same bandwidth, but that the scattered light still saturates at the same level as with no bandwidth.  
 
-The work of \citet{Zhou2018} develops the theory of absolute-SRS suppression by many-beamlet bandwidth by considering the ``highly nonlinear", kinetic case where $\kld=0.3$. As well as confirming the suppression of the growth rate measured in \citep{Zhao2015,Zhao2017a}, they find that bandwidth in the range $2.25\%$ to $3.0\%$ acts to enhance SRS in the so-called ``deep nonlinear stage" by increasing the resonant range in line with the non-linear frequency shift. The authors conclude that a broadband laser light is not an appropriate choice for suppression of absolute SRS on a several picosecond time-scale. 
+The work of \citet{Zhou2018} develops the theory of absolute-SRS suppression by many-beamlet bandwidth by considering the ``highly nonlinear", kinetic case where $\kld=0.3$. As well as confirming the suppression of the growth rate measured in \citep{Zhao2015,Zhao2017July}, they find that bandwidth in the range $2.25\%$ to $3.0\%$ acts to enhance SRS in the so-called ``deep nonlinear stage" by increasing the resonant range in line with the non-linear frequency shift. The authors conclude that a broadband laser light is not an appropriate choice for suppression of absolute SRS on a several picosecond time-scale. 
 
 
 
 \subsection{Fluid convective SRS}
 These anlytical results are based on random
-Bandwidth weakens coupling but increases the length of the resonance region, cancelling out when laser bandwidth greater than homogeneous growth rate \citep{Guzdar1991}.
+Bandwidth weakens coupling but increases the length of the resonance region, cancelling out when laser bandwidth greater than homogeneous growth rate \citep{Guzdar1991}. 
+
+\citet{Zhao2017July} apply  their theory of absolute SRS suppression in a homogeneous plasma by DBLs, to the case of convective SRS in an inhomogeneous plasma. For a plasma with a linear density profile and constant temperature such that $\kld \ll 0.25$ throughout, they compare the electrostatic energy present in the simulation in the cases $\Delta\omega_0=0, \Delta\omega_0=15\%$. They find that for the $15\%$ bandwidth case, the electrostatic energy is reduced compared to with zero bandwidth and conclude that the linear convective SRS has been suppressed \citep{Zhao2017July}. In a second paper the same year, \citet{Zhao2017October} consider the case of an inhomogeneous plasma density profile relevant to indirect-drive ICF. 
+
+Finally, the 2019 paper \citet{Zhao2019} finds that SRS can be well controlled for a laser
+beam structure of multiple frequency components and total bandwidth of a few
+percent. By considering the frequency difference between any two beamlets, they find that
+there is a critical frequency difference below which the SRS instability regions
+for the beamlets overlap to form a single instability region. In this case, the
+two beamlets can be coupled with one EPW, leading to a higher growth rate for
+SRS. An important result of their one-dimensional PIC simulations is that iSRS
+instability can grow to a high level if the beamlets satisfy this coupling
+condition, even if the total bandwidth is very large. They derive a gain exponent for standard convective SRS driven by two
+beamlets of different frequencies, and find that two beamlets are independent
+when
+\begin{equation}\label{DLB_threshold_inhomo}
+\delta \omega_{0} \geq \frac{\pi n_{0} c\left(\omega_{0}^{2}-\omega_{p
+e}^{2}\right)^{3 / 2}}{8 L \omega_{0} \omega_{L}^{2} \nu_{p}^{2}}.
+\end{equation}
+Importantly, this condition is independent of the amplitude of the incident
+laser. In theory, this condition would allow us to construct a DBL to suppress
+SRS in a large-scale inhomogeneous plasma, however, secondary amplification of
+back-scattered light by one of the beamlets is a possibility. We must therefore
+consider another threshold for this secondary amplification: $\delta\omega_0 >
+\omega_{L1}-\omega_{L2}$ where $[\omega_{L1},\omega_{L2}]$ is the range of EPW
+frequencies excited by SRS in the plasma (not including nonlinear frequency
+shift).
+
+
+
+The parameters considered in this study are
+$\lambda_0=0.33\si{\micro\metre}$,
+$T_e=2\si{\kilo\electronvolt}$, $n_e = [0.08,0.12]n_c$, giving $\kld \sim
+[0.26,0.35]$, well within the kinetic regime for SRS.
 
 \subsection{Inflationary SRS}
 
@@ -48,12 +81,10 @@ Studies have also been performed using the code LPSE which show that, at ignitio
 
 The work in this section was presented at the 62nd annual meeting of the American Physical Society Division of Plasma Physics in November 2020.
  
-The first approach we considered was using a decoupled broadband laser, as presented by Zhao. 
+To begin our investigation of the effect of broadband on inflationary SRS, we focussed on the most relevant papers in the literature at the time (\citep{Zhao_2019}) This body of work concerns convective SRS in an inhomogeneous plasma, driven by a decoupled broadband laser.
 
-In \cite{zhao_suppression_2019} they consider the suppression of parametric
-instabilities in a homogeneous plasma by decoupled broadband lasers
-(\acrshort{DBL}). A
-decoupled broadband laser is defined in Ref \cite{Zhao2017b} as
+
+A decoupled broadband laser is defined in Ref \cite{Zhao2017July} as
 
 \begin{equation}\label{eqn:DBL}
   a_{\mathrm{DBL}} = \sum_{i=1}^{N} a_i \mathrm{cos}(\omega_it + \phi_i),
@@ -62,50 +93,10 @@ where $a_i,\omega_i,\phi_i$ are the amplitude, carrier frequency, and phase of
 each of the $N$ beamlets. The central frequency and wavelength of the laser is
 $(\omega_0,k_0)$ and the total frequency spectrum bandwidth is
 $\Delta\omega_0$.
-Considering the frequency difference between any two beamlets, they find that
-there is a critical frequency difference below which the SRS instability regions
-for the beamlets overlap to form a single instability region. In this case, the
-two beamlets can be coupled with one EPW, leading to a higher growth rate for
-SRS. An important result of their one-dimensional PIC simulations is that iSRS
-instability can grow to a high level if the beamlets satifsy this coupling
-condition, even if the total bandwidth is very large.
 
-
-In Ref \cite{zhou_kinetic_2018} Zhou \textit{et al.} consider the case of SRS
-driven by a broadband laser for a homogeneous plasma, with NIF-relevant plasma
-density and temperature such that $\kld > 0.3$. The result most relevant to our
-work is that the bandwidth can interact with the nonlinear frequency shift associated
-with electron trapping in the SRS EPW to \emph{enhance} SRS rather than suppress it.
-
-
-
-Zhao \textit{et al.} \cite{zhao_effective_2017} consider the case of an
-inhomgeneous plasma density profile relevant to indirect-drive ICF. The results
-are similar to those described in the homogeneous case, and they find a
-condition for the complete suppression of SRS. The follow-up paper
-\cite{zhao_suppression_2019} finds that SRS can be well controlled for a laser
-beam structure of multiple frequency components and total bandwidth of a few
-percent. The parameters considered in this study are
-$\lambda_0=0.33\si{\micro\metre}$,
-$T_e=2\si{\kilo\electronvolt}$, $n_e = [0.08,0.12]n_c$, giving $\kld \sim
-[0.26,0.35]$, well within the kinetic regime for SRS.
-
-They derive a gain exponent for standard convective SRS driven by two
-beamlets of different frequencies, and find that two beamlets are independent
-when
-\begin{equation}\label{DLB_threshold_inhomo}
-\delta \omega_{0} \geq \frac{\pi n_{0} c\left(\omega_{0}^{2}-\omega_{p
-e}^{2}\right)^{3 / 2}}{8 L \omega_{0} \omega_{L}^{2} \nu_{p}^{2}}.
-\end{equation}
-Importantly, this condition is independent of the amplitude of the incident
-laser. In theory, this condition would allow us to construct a DBL to suppress
-SRS in a large-scale inhomogeneous plasma, however, secondary amplification of
-back-scattered light by one of the beamlets is a possibility. We must therefore
-consider another threshold for this secondary amplification: $\delta\omega_0 >
-\omega_{L1}-\omega_{L2}$ where $[\omega_{L1},\omega_{L2}]$ is the range of EPW
-frequencies excited by SRS in the plasma (not including nonlinear frequency
-shift).
-
+In \cite{Zhao_2019} they consider the suppression of parametric
+instabilities in a homogeneous plasma by decoupled broadband lasers
+(\acrshort{DBL}). 
 
 \subsection{Conclusions}
 In conclusion, we decided not to pursue out investigation of DBL-type bandwidth any futher since a) there are no plans to impliment it on lasers of interest and b) 
