@@ -1,5 +1,5 @@
 % !TeX root = ../../Thesis.tex
-\chapter{Effects of an External Magnetic Field on Stimulated Raman Scattering in homogeneous plasmas}
+\chapter{Effects of an External Magnetic Field on Stimulated Raman Scattering}
 \label{chp:magSRS}
 
 In this chapter, we present work performed while employed as a Junior Specialist at the University of California, San Diego between January and April 2020. The project was supervised by Professor Farhat Beg, and lead by Dr Adam Higginson (now at University of Boulder). The work presented (including data generated and data analysis) was carried out by the author, except in the cases outline below:
@@ -29,19 +29,24 @@ Suppress SRS to reduce harmful electrons and reflectivity, or enhance if it actu
 \subsection{Experimental results}
 \begin{figure}[ht]
    \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C6_magSRS/SRS_LULI.png}
+    \includegraphics[width=0.8\columnwidth]{Chapters/C6_magSRS/SRS_LULI.png}
     \caption{MAthieu made this}
     \label{fig:SRS_LULI}
 \end{figure}{}
 
 
 \subsection{Simulation results}
-
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/LULI_sims_v3.png}
+    \caption{MAthieu made this}
+    \label{fig:LULI_sims_v3}
+\end{figure}{}
 
 \section{Magnetic field effect varies with plasma debye length}
 \subsection{Fixed ions: vary $\kld$}
 
-Plasma parameters chosen to be relevant to LULI experiment (ish). $\lambda_0 = 1056 \si{\nano\metre}$; $L_x = 1000 \si{\micro\metre}$; $T_e = 1 \si{\kilo\electronvolt}$; $I_0 = 1\times 10^{15}\si{W/\cm^2}$; $T_{\mathrm{end}}=10 \si{ps}$; 1000 PPC (from convergence testing on $\left< I_{\mathrm{SRS}} \right>_{t>0}$.
+Plasma parameters chosen to be relevant to LULI experiment (ish). $\lambda_0 = 1053 \si{\nano\metre}$; $L_x = 1000 \si{\micro\metre}$; $T_e = 1 \si{\kilo\electronvolt}$; $I_0 = 1\times 10^{15}\si{W/\cm^2}$; $T_{\mathrm{end}}=10 \si{ps}$; 1000 PPC (from convergence testing on $\left< I_{\mathrm{SRS}} \right>_{t>0}$).
 
 \begin{table}[h]
 \begin{center}
@@ -64,7 +69,7 @@ $n_e$ / $n_{\mathrm{cr}}$ & $\kld$ & regime & predicted behaviour\\ \hline \hlin
 
 \begin{figure}[ht]
    \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C6_magSRS/kld_scan_SRS_scaling.png}
+    \includegraphics[width=0.9\columnwidth]{Chapters/C6_magSRS/kld_scan_SRS_scaling.png}
     \caption{I made this. Parameters constant to all sims: 
  $\lambda_0 = 1056 \si{\nano\metre}$; $L_x = 1000 \si{\micro\metre}$; $T_e = 1 \si{\kilo\electronvolt}$; $I_0 = 1\times 10^{15}\si{W/\cm^2}$; $T_{\mathrm{end}}=10 \si{ps}$; 1000 PPC.}
     \label{fig:SRS_EPOCH}
