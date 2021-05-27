@@ -119,11 +119,11 @@ For all the simulations presented in this section, the following EPOCH parameter
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Frequency \\ / THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ $10^{15}\text{Wcm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} \\ \hline 
-&&&\\[-1em]
+
 351   &  854 &  0.4 to 4.0  &  0, 1, 10 &  0, 0.12, 1.2 \\ \hline
-&&&\\[-1em]
+
 248   & 1209 &   & 0, 3, 6  &  0, 0.25, 0.50   \\ \hline
-&&&\\[-1em]
+
 193   & 1553 & $4\times 10^{15}$   & 0, 5, 8, 10  & 0, 0.32, 0.52, 0.64  \\ \hline
 \end{tabular}
 \end{center}
@@ -155,6 +155,17 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 
 \subsection{Base case: $\Delta f=0$}
 As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
+
+Sorry this is a horrible way to write this, but this is the detailed plasma set-up: $T_e(x) = \sum^3_{i=0} T_i x^i$, $n_e(x) = n_{\mathrm{cr}}\sum^3_{i=0} n_i x^i $;
+$\{T\}_i  = \{3.01, 1.47\times10^3,1.31\times10^6,-2.27\times10^9\}$;
+$\{n\}_i  = \{0.07, 165, 3.95\times10^4, 1.01\times10^9\}$. 
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/351nm_threshold.png}
+    \caption{placeholder figure for Nd glass sim results}
+    \label{fig:351nm_base_threshold}
+\end{figure}{}
 
 \subsection{SSD-type bandwidth: $\Delta f=1\si{THz}$}
 1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to increase the iSRS threshold we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 128  \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
@@ -194,6 +205,11 @@ According to this paper: "Stimulated rotational Raman scattering of arbitrarily 
 Excimer lasers have a broad amplification spectrum in the UV when compared to Nd: glass lasers. In this section we consider the argon fluoride (ArF) laser under development at the NRL, which is predicted to have native bandwidth up to 10THz \citep{Obenschain2020}.
 
 \subsection{Base case: $\Delta f=0$}
+Sorry this is a horrible way to write this, but this is the detailed plasma set-up: $T_e(x) = \sum^3_{i=0} T_i x^i$, $n_e(x) = n_{\mathrm{cr}}\sum^3_{i=0} n_i x^i $;
+$\{T\}_i  = \{3.01, 1.47\times10^3,1.31\times10^6,-2.27\times10^9\}$;
+$\{n\}_i  = \{0.07, 165, 3.95\times10^4, 1.01\times10^9\}$.
+
+
 
 \subsection{Intrinsic bandwidth: $\Delta f =5,8,10$ $\si{THz}$}
 In this section, we perform a series of simulations at different bandwidths which are considered realistic for ArF laser systems currently under development \citep{Obenschain2020}. To model the continuous laser spectrum, we follow the method presented in \citet{Bates2020} and distribute 50 beamlets of different frequencies around the central frequency. The intensities of the lines follow a Gaussian distribution whose FWHM is given by the laser bandwidth. \citet{Follett2019} says 50 is enough for a gaussian beam up to 10 percent. Each beamlet has a random phase so the total driven laser field looks like this:
