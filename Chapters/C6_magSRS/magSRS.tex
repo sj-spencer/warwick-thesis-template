@@ -35,18 +35,43 @@ Suppress SRS to reduce harmful electrons and reflectivity, or enhance if it actu
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.8\columnwidth]{Chapters/C6_magSRS/SRS_LULI.png}
-    \caption{MAthieu made this}
+    \caption{Experimentally-measured SRS energy at different gas jet pressures, with and without magnetic fields. The solid-coloured markers represent shots with the laser  horizontally polarised with respect to the applied magnetic field, so that the laser magnetic field and applied magnetic field are parallel. The un-filled markers represent vertical polarisation of the laser.}
     \label{fig:SRS_LULI}
 \end{figure}{}
 
 
 \subsection{Simulation results}
+
+Plasma density and temperature profiles at the centre of the gas jet were simulated using the FLASH code by Adam Higginson. 
+
+\begin{table}[h]
+\begin{center}
+
+\begin{tabular}{|l|l|l|l|}
+\hline
+$n_e$ / $n_{\mathrm{cr}}$ & $T_e$ / eV & bSRS $\kld$ & fSRS $\kld$\\ \hline \hline
+0.01 & 180 & 0.36 & 0.02 \\ \hline
+0.025& 450 & 0.34 & 0.03 \\ \hline
+0.05 & 600 & 0.27 & 0.04 \\ \hline
+0.10 & 900 & 0.21 &  0.05\\ \hline
+0.15 & 1100 & 0.18 & 0.06 \\ \hline
+
+\end{tabular}
+
+\end{center}
+\caption{$T_i$ is $T_e/3$ in all cases}
+\label{tab:LULI_setup}
+\end{table}
+
+
 \begin{figure}[ht]
    \centering
     \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/LULI_sims_v3.png}
     \caption{MAthieu made this}
     \label{fig:LULI_sims_v3}
 \end{figure}{}
+
+
 
 \section{Magnetic field effect varies with plasma debye length}
 
