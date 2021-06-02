@@ -5,7 +5,7 @@
 
 
 \section{The particle-in-cell method}
-The core components of a PIC code are: a fixed spatial grid; a solver that moves charged particles according to the Lorentz force law and calculates currents due to this motion (the particle pusher); and a solver which uses the calculated currents to solve Maxwell's equations on the grid (the field solver) \cite{PICreview}. There are three fundamental features of a PIC code which make it ontologically different from a true plasma: firstly, time is discrete rather than continuous; secondly, electromagnetic fields only take well-defined values on a discrete spatial grid; and thirdly, simulation pseudo-particles have a non-zero size and shape. These are computational limitations, but also practical considerations which make the mathematics behind the simulation more tractable (as we will see in Section \ref{solver}).
+The core components of a PIC code are: a fixed spatial grid; a solver that moves charged particles according to the Lorentz force law and calculates currents due to this motion (the particle pusher); and a solver which uses the calculated currents to solve Maxwell's equations on the grid (the field solver) \citep{Arber2015}. There are three fundamental features of a PIC code which make it ontologically different from a true plasma: firstly, time is discrete rather than continuous; secondly, electromagnetic fields only take well-defined values on a discrete spatial grid; and thirdly, simulation pseudo-particles have a non-zero size and shape. These are computational limitations, but also practical considerations which make the mathematics behind the simulation more tractable.
 
 
 \subsection{Field solver}
@@ -21,7 +21,7 @@ The key point of a PIC simulation is that the system evolves \emph{self-consiste
 \end{equation} where $\rho$ and $\mathbf{j}$ are the charge and current densities respectively, which have been calculated as part of the particle pusher. These are differential equations, which means we can solve them by some sort of finite-difference method, in which the full and partial differentials are replaced by difference equations (we saw this already in the construction of the particle pusher). The system can be simplified by realising that, since we will be solving at a discrete time step, $\partial \mathbf{B}/\partial t = \partial \mathbf{E}/\partial t =0$. This reduces the system to be solved to a single equation: 
 \begin{equation}\label{Poisson}
     \bm{\nabla}^2 \phi = - \frac{\rho}{\epsilon_0}
-\end{equation} which is then solved by taking Fourier transforms of $\rho$ and $\phi$. The Fourier transform is a generalisation of the complex Fourier series when the length of the function domain tends to infinity.\cite{wolfram} The Fourier transform is often thought of as a transformation between a function in the space-domain and the same function in the frequency-domain. As such, it can be defined by the functor $\mathcal{F}_x$ defined by
+\end{equation} which is then solved by taking Fourier transforms of $\rho$ and $\phi$. The Fourier transform is a generalisation of the complex Fourier series when the length of the function domain tends to infinity \citep{wolfram}. The Fourier transform is often thought of as a transformation between a function in the space-domain and the same function in the frequency-domain. As such, it can be defined by the functor $\mathcal{F}_x$ defined by
 \begin{equation}\label{FT}
 \begin{aligned}
     F(k)&=\mathcal{F}_x\left[f(x)\right](k)\\
@@ -30,7 +30,7 @@ The key point of a PIC simulation is that the system evolves \emph{self-consiste
 \end{equation} The Fourier transform transforms $\bm{\nabla}^2$ to $k^2$, which makes Equation \ref{Poisson}
 \begin{equation}
     \phi(k)=\frac{\rho (k)}{\epsilon_0 k^2},
-\end{equation} this is an explicit expression for $\phi(k)$ in terms of known quantities. We can now use the inverse Fourier transform to calculate $\phi(x)$ and $\mathbf{E}(x)$ like so\cite{B&L}:
+\end{equation} this is an explicit expression for $\phi(k)$ in terms of known quantities. We can now use the inverse Fourier transform to calculate $\phi(x)$ and $\mathbf{E}(x)$ like so \citep{Birdsall}:
 \begin{equation*}
     \rho(x)\xrightarrow[\text{FFT}]{}\rho(k)\xrightarrow[{k^2}]{}\phi(k)\xrightarrow[\text{IFFT}]{}\phi(x)\xrightarrow[{\nabla\phi}]{}\mathbf{E}(x)
 \end{equation*}
@@ -45,10 +45,10 @@ The basic particle pusher acts to integrate the equations of motion for the char
 \begin{equation} \label{lorentz}
 m \frac{d\mathbf{v}}{dt} = q \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
 \end{equation}
-In EPOCH the particle pusher actually solves the full relativistic Lorentz force law, but we will consider the non-relativistic case here for simplicity. Equation \ref{lorentz} can be solved by solving the three simultaneous equations which come from time-centering the magnetic term \cite{B&L} like so 
+In EPOCH the particle pusher actually solves the full relativistic Lorentz force law, but we will consider the non-relativistic case here for simplicity. Equation \ref{lorentz} can be solved by solving the three simultaneous equations which come from time-centering the magnetic term \citep{Birdsall} like so 
 \begin{eqnarray*} \label{timecentred}
 \frac{\mathbf{v}_{t+\Delta t/2}-\mathbf{v}_{t-\Delta t/2}}{\Delta t}=\frac{q}{m}\left[\mathbf{E}_t+\frac{\mathbf{v}_{t+\Delta t/2}+\mathbf{v}_{t-\Delta t/2}}{2} \times \mathbf{B}_t\right]
-\end{eqnarray*} A more elegant solution is to separate solving the magnetic and electric effects on the motion by using the Boris substitution\cite{B&L}
+\end{eqnarray*} A more elegant solution is to separate solving the magnetic and electric effects on the motion by using the Boris substitution \citep{Birdsall}
 \begin{equation}
 \mathbf{v}_{t+\Delta t/2} = \mathbf{v}^{+}+\frac{q\mathbf{E}_t}{m}\frac{\Delta t}{2}
 \label{eqhalfE}
@@ -67,12 +67,13 @@ which gives:
 \begin{equation}
     \frac{\mathbf{x}_{t+1}-\mathbf{x}_t}{\Delta t} =\mathbf{v}_{t+\Delta t/2}.
 \label{dxdt}
-\end{equation} Equations \ref{eq:c2.2} and \ref{dxdt} together form a second order leapfrog integrator; conventionally understood to be the integrator with the best balance between accuracy, stability and efficiency\cite{Spitkovsky}. The final step of the particle pusher is interpolating from the new particle positions and velocities to new values of the current and charge densities on the grid, as we can see in Figure \ref{PIC}.
+\end{equation} Equations \ref{eq:c2.2} and \ref{dxdt} together form a second order leapfrog integrator; conventionally understood to be the integrator with the best balance between accuracy, stability and efficiency. The final step of the particle pusher is interpolating from the new particle positions and velocities to new values of the current and charge densities on the grid.
 \subsection{Interpolation to the grid}
 \subsection{EPOCH}
-EPOCH is a collisionless plasma physics simulation code that uses the Particle in Cell (PIC) method to move particles in self-consistently evolving electric and magnetic fields. EPOCH is an ``MPI parallelised, explicit, second-order, relativistic PIC code" \cite{EPOCH} which is controlled through a customisable input deck. 
-the EPOCH paper\cite{Arber2015}
+EPOCH is a collisionless plasma physics simulation code that uses the Particle in Cell (PIC) method to move particles in self-consistently evolving electric and magnetic fields. EPOCH is an MPI parallelised, explicit, second-order, relativistic PIC code which is controlled through a customisable input deck \cite{Arber2015}.
  The interaction of the user with the EPOCH code is limited to the creation of an input deck for each simulation experiment. This document contains the key simulation parameters, such as: the charge and density of various particle species; background electric and magnetic fields; and the duration of the simulation. The input deck also requires you to choose the sizes of your spatial grid and time step, this is very important as you need to be able to resolve the effect you are studying.
+ 
+``EPOCH (Extendable PIC Open Collaboration) project. EPOCH is a Birdsall and Langdon (with Villasenor and Buneman charge conservation) type Particle in Cell (PIC) code in 1, 2 and 3D that has been developed at the University of Warwick as the basis for a standard, extendable PIC code. It has been designed for both ease of use and ease of extension with both new physics and new user interface elements. EPOCH is written using standard Fortran95 and MPI and is open source enabling it to be easily modified for specic use cases. The code has seen widespread adoption with several hundred registered users and has become one of the standard PIC codes used by the plasma physics research community." Keith's website
 
 
 
