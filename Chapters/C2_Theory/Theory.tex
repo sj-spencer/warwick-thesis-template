@@ -12,15 +12,59 @@ This chapter aims to equip the reader with the tools they need to read, and to e
 
 
 \section{Pre-requisites}
-This section assumes background knowledge of some commonly-taught UG and PG physics courses; including basic plasma physics concepts. A non-exclusive list of ideas you might want to be comfortable with is: Maxwell's equations; harmonic assumption and linearisation procedures
+This section provides a minimal set of pre-requisites I will be assuming in this chapter. First up, we have Maxwell's equations in differential form:
+
+
+
+\begin{equation}
+\nabla \times \vec{E}=-\frac{\partial \vec{B}}{\partial t} \text{\,\,\,\,\,\,\,\,\,(Faraday-Lenz Law)}
+\end{equation}
+
+\begin{equation}
+\nabla \times \vec{B}=\mu_{0} \vec{j}+\frac{1}{c^{2}} \frac{\partial \vec{E}}{\partial t}
+\text{\,\,\,\,\,\,\,\,\,(Ampere-Maxwell Law)}
+\end{equation}
+
+\begin{equation}
+\nabla \cdot \vec{B}=0 \text{\,\,\,\,\,\,\,\,\,(No Magnetic Monopoles)}
+\end{equation}
+
+\begin{equation}
+\nabla \cdot \vec{E}=\frac{\rho}{\epsilon_{0}} \text{\,\,\,\,\,\,\,\,\,(Gauss's Law)}.
+\end{equation}
+
+
+These describe the evolution of the vector fields $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$ using the mathematical notation $\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z} \right)$ to denote the scalar function divergence $(\nabla \cdot)$ and the vector function curl $(\nabla \times)$. The charge density $\rho$ and current density $\vec{j}$ are calculated by taking moments of the plasma distribution function like so:
+
+\begin{equation}
+\rho= q \int d \vec{v} f
+\end{equation}
+
+\begin{equation}
+\vec{j} = q \int d \vec{v} \vec{v} f.
+\end{equation}
+
+Another important variable we can calculate from  the plasma distribution function is the thermal velocity of the plasma. 
+
+
+Next we have two of the characteristic features of a hot plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
+
+\begin{equation}
+	\omega_{pe} = \sqrt{\frac{n_e e^2}{m_e \epsilon_0}}.
+\end{equation}
+
+This fundamental time-scale allows us to define a fundamental length-scale based on how far a particle with thermal velocity $v_{\text{th}}$ can travel in one oscillation period.
 
 \begin{equation}
 	\lambda_D \equiv \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}
 \end{equation}\label{eqn:debye}
 
 \section{The basics: three-wave parametric instabilities}
+Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory of
 
 \subsection{Dispersion curves and linear modes}
+
+A non-magnetised plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode.
 
 \subsection{Landau damping}
 
