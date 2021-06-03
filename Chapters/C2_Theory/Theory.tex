@@ -45,7 +45,7 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 
 \begin{equation}
  	\frac{\partial f}{\partial t}+\vec{v} \cdot {\nabla} f+\frac{q}{m}\left(\vec{E}+\frac{\vec{v} \times \vec{B}}{c}\right) \cdot \frac{\partial f}{\partial \vec{v}}=0
-\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma: 
+\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of a fluid of electrons: 
 \begin{equation}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}(n u)=0 \text{\,\,\,\,\,\,\,\,\,(0th moment: Continuity equation)}
 \end{equation}
@@ -54,19 +54,11 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)=-\frac{\partial P}{\partial x}+q E_{x} n \text{\,\,\,\,\,\,\,\,\,(1st moment: Momentum equation)}.
 \end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure.
 
-
-
-
-Another important variable we can calculate from  the plasma distribution function is the thermal velocity of the plasma. 
-
-
 Next we have two of the characteristic features of a hot plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
 
 \begin{equation}
 	\omega_{pe} = \sqrt{\frac{n_e e^2}{m_e \epsilon_0}}.
-\end{equation}
-
-This fundamental time-scale allows us to define a fundamental length-scale based on how far a particle with thermal velocity $v_{\text{th}}$ can travel in one oscillation period.
+\end{equation} This fundamental time-scale allows us to define a fundamental length-scale based on how far a particle with thermal velocity $v_{\text{th}}$ can travel in one oscillation period.
 
 \begin{equation}
 	\lambda_D \equiv \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}
@@ -78,6 +70,10 @@ Equipped with this brief revision of the fundamental relationships which describ
 \subsection{Dispersion curves and linear modes}
 
 A non-magnetised two-species plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode.
+
+\begin{equation}
+	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2}
+\end{equation}
 
 \subsection{Landau damping}
 
