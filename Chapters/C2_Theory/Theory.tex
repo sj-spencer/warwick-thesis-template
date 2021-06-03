@@ -31,18 +31,31 @@ This section provides a minimal set of pre-requisites I will be assuming in this
 
 \begin{equation}
 \nabla \cdot \vec{E}=\frac{\rho}{\epsilon_{0}} \text{\,\,\,\,\,\,\,\,\,(Gauss's Law)}.
-\end{equation}
-
-
-These describe the evolution of the vector fields $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$ using the mathematical notation $\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z} \right)$ to denote the scalar function divergence $(\nabla \cdot)$ and the vector function curl $(\nabla \times)$. The charge density $\rho$ and current density $\vec{j}$ are calculated by taking moments of the plasma distribution function like so:
+\end{equation} These describe the evolution of the vector fields $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$ using the mathematical notation $\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z} \right)$ to denote the scalar function divergence $(\nabla \cdot)$ and the vector function curl $(\nabla \times)$. The charge density $\rho$ and current density $\vec{j}$ are most properly calculated by summing the contributions of the exact phase-space coordinates of every particle in the plasma. However, we can make an approximation and assume that that the phase space is continuous and take an average to get the distribution function $f(\vec{x},\vec{v},t)$. We can now define $\rho$ and $\vec{j}$ in terms of the distribution function like so:
 
 \begin{equation}
-\rho= q \int d \vec{v} f
+\rho= q \int d \vec{v} f(\vec{x},\vec{v},t)
 \end{equation}
 
 \begin{equation}
-\vec{j} = q \int d \vec{v} \vec{v} f.
+\vec{j} = q \int d \vec{v} \vec{v} f(\vec{x},\vec{v},t).
 \end{equation}
+
+In order to close the Maxwell equations, we need an equation which tells us how the distribution function evolves in terms of $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$. An entire two weeks of kinetic theory lectures later, we end up with the Vlasov equation for a collisionless plasma:
+
+\begin{equation}
+ 	\frac{\partial f}{\partial t}+\vec{v} \cdot {\nabla} f+\frac{q}{m}\left(\vec{E}+\frac{\vec{v} \times \vec{B}}{c}\right) \cdot \frac{\partial f}{\partial \vec{v}}=0
+\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma: 
+\begin{equation}
+\frac{\partial n}{\partial t}+\frac{\partial}{\partial x}(n u)=0 \text{\,\,\,\,\,\,\,\,\,(0th moment: Continuity equation)}
+\end{equation}
+
+\begin{equation}
+m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)=-\frac{\partial P}{\partial x}+q E_{x} n \text{\,\,\,\,\,\,\,\,\,(1st moment: Momentum equation)}.
+\end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure.
+
+
+
 
 Another important variable we can calculate from  the plasma distribution function is the thermal velocity of the plasma. 
 
@@ -64,24 +77,13 @@ Equipped with this brief revision of the fundamental relationships which describ
 
 \subsection{Dispersion curves and linear modes}
 
-A non-magnetised plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode.
+A non-magnetised two-species plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode.
 
 \subsection{Landau damping}
 
 \subsection{Stimulated Raman scattering}
 
-
-\section{Non-linear effects}
-A key aspect of quasilinear theory is its identification of the distinction between reso-
-nant and non-resonant particles, scattering and diffusion \citep{Sagdeev2018}.
-
-\subsection{Nonlinear frequency shift}
-non-linear basis for trapping induced SRS modes found in \cite{Rose2001}
-\subsection{Nonlinear Landau damping}
-
-
-
-\subsection{Rosenbluth gain for SRS}
+\subsubsection{Rosenbluth gain}
 
 Since the instability we are concerned with is convective, we would like to understand what the maximum wave amplitude is for the daughter waves, according to the linear theory, in order to determine how SRS will grow in the fluid regime.
 
@@ -111,6 +113,21 @@ WHAT ARE WE TRYING TO DO, WHAT MOTIVATES THIS TRANSFORM?
 
 Recalling the definition of the Laplace transform of a function $f(t)$: $L\{f(t)\}= F(p) = \int_0^\infty e^{-pt} f(t) dt$ we take the Laplace transform of these equations to get
 
+
+
+
+
+
+\subsection{Stimulated Brillouin scattering}
+
+
+\section{Non-linear effects}
+A key aspect of quasilinear theory is its identification of the distinction between reso-
+nant and non-resonant particles, scattering and diffusion \citep{Sagdeev2018}.
+
+\subsection{Nonlinear frequency shift}
+non-linear basis for trapping induced SRS modes found in \cite{Rose2001}
+\subsection{Nonlinear Landau damping}
 
 
 
