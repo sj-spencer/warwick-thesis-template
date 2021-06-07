@@ -52,32 +52,56 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 
 \begin{equation}
 m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)=-\frac{\partial P}{\partial x}+q E_{x} n \text{\,\,\,\,\,\,\,\,\,(1st moment: Momentum equation)}.
-\end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure.
+\end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure. In order to close this st of equations, we require an expression for the scalar pressure $P$ that does not introduce any higher moments of the distribution function. Typically in this thesis the timescales are such that thermal conduction can be neglected, and we assume that the process is adiabatic. This means that our final equation takes the form:
 
-Next we have two of the characteristic features of a hot plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
+\begin{equation}
+\frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0,
+\end{equation} with $\gamma = C_p/C_v = (n+2)/2 = 3$ in one dimension. 
+
+We must also recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
 
 \begin{equation}
 	\omega_{pe} = \sqrt{\frac{n_e e^2}{m_e \epsilon_0}}.
 \end{equation} This fundamental time-scale allows us to define a fundamental length-scale based on how far a particle with thermal velocity $v_{\text{th}}$ can travel in one oscillation period.
 
 \begin{equation}
-	\lambda_D \equiv \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}
+	\lambda_D = \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}.
 \end{equation}\label{eqn:debye}
 
 \section{The basics: three-wave parametric instabilities}
-Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory of
+Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering.
 
 \subsection{Dispersion curves and linear modes}
 
-A non-magnetised two-species plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode.
+One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $n(x,t) = n_1(x)\text{exp}(-i\omega t)$
+A non-magnetised, two-species (electron-ion) plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode. 
+
+\begin{equation}\label{eqn:bohm-gross}
+	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2} \text{\,\,\,\,\,\,\,\,\,(Electron plasma wave)}
+\end{equation}
 
 \begin{equation}
-	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2}
+ \omega =  c_{si} k \text{\,\,\,\,\,\,\,\,\,(Ion acoustic wave)}
 \end{equation}
+
+\begin{equation}
+ \omega^{2}=\omega_{p e}^{2}+c^2k^{2} \text{\,\,\,\,\,\,\,\,\,(Electromagnetic wave)}
+\end{equation}
+
+With these three waves, we find the following three-wave parametric instabilities:
+
+
+\begin{align*}
+	 	\text{EMW1} \rightarrow \text{EPW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Raman Scattering)}\\
+	 	\text{EMW1} \rightarrow \text{IAW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Brillouin Scattering)}\\
+\end{align*}
+
 
 \subsection{Landau damping}
 
 \subsection{Stimulated Raman scattering}
+
+Unfortunately, by looking for normal modes, we have forced ourselves to find normal modes and we have ignored the possibility of damped oscillations in the system. Considering the electron plasma wave as an initial value problem 
 
 \subsubsection{Rosenbluth gain}
 
