@@ -4,7 +4,7 @@
 
 In this chapter, we present work performed while employed as a Junior Specialist at the University of California, San Diego between January and April 2020. The project was supervised by Professor Farhat Beg, and lead by Dr Adam Higginson (now at University of Boulder). The work presented (including data generated and data analysis) was carried out by the author, except in the cases outline below:
 \begin{itemize}
-\item Figure \ref{fig:SRS_LULI} SRS reflectivity from LULI, made by Matthieu
+\item Figure \ref{fig:SRS_LULI} was produced by M. Bailly-Grandvaux.
 \end{itemize}
 
 The chapter begins with a review of the literature which discusses the effect of an externally-applied magnetic field on stimulated Raman scattering. We then present modelling, performed by the author, of an experiment performed at the \acrlong{LULI} (France): J. R. Marqu\`es, P. Loiseau, J. B\'eard, A. Castan, B. Coleman, T. Gangolf, L. Lancia, A. Soloviev, O. Portugall, and J. Fuchs. Analysis of the SRS diagnostics was performed by J. R. Marq\`es, and (revisited) by M. Bailly-Grandvaux.  The experiment showed a small increase in SRS with an applied magnetic field, and this is recreated in our simulations. We then go on to investigate how the effect of the magnetic field depends on $\kld$ of the SRS electron plasma wave.
@@ -17,6 +17,8 @@ Once again, wjhy is this a problem? why can we model in 1D?
 
 How can we continue to only consider modes without B field? Why no X or O modes?
 
+GREAT PAPER it's fluid theory of SRS SBS competition in magnetised plasmas\citep{Vyas2016}
+
 \subsection{Magnetic field suppresses kinetic SRS}
 
 here's a recent paper about 90T fields effect on SRS in inhomogeneous plasmas \citep{Zhou2021}. 
@@ -28,7 +30,7 @@ We started by replicating the results from \citet{Winjum2018}.
 
 \begin{figure}[ht]
    \centering
-    \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/Winjum_rep_megaPlot_label.pdf}
+    \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/Winjum_rep_megaPlot.png}
     \caption{Electrostatic ($E_x$) field as a function of space and time. cf 0T (left) and 30T (right). Based on Figure 2 b. \citep{Winjum2018}}
     \label{fig:WinjumRep}
 \end{figure}{}
@@ -77,7 +79,7 @@ $n_e$ / $n_{\mathrm{cr}}$ & $T_e$ / eV & bSRS $\kld$ & fSRS $\kld$\\ \hline \hli
 \begin{figure}[ht]
    \centering
     \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/LULI_sims_v3.png}
-    \caption{MAthieu made this}
+    \caption{Reflected light from SRS and SBS (averaged over full simulation time) as a function of the initial homogeneous plasma density. Plasma densities and temperatures taken from FLASH simulations of single-beam shots without magnetic fields. The range of $\kld$ probed is 0.36, 0.34, 0.27, 0.21, 0.18.}
     \label{fig:LULI_sims_v3}
 \end{figure}{}
 
@@ -115,7 +117,7 @@ $n_e$ / $n_{\mathrm{cr}}$ & $\kld$ & regime & predicted behaviour\\ \hline \hlin
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.9\columnwidth]{Chapters/C6_magSRS/kld_scan_SRS_scaling.png}
-    \caption{I made this. Parameters constant to all sims: 
+    \caption{Reflected light from SRS, averaged over the full simulation time, as a function of the initial homogeneous plasma density. By fixing the temperature at $T_e = 1\si{\kilo\electronvolt}$, the folowing values of $\kld$ are probed: 0.55, 0.33, 0.25, 0.20, 0.12. The following parameters are constant to all the simulations: 
  $\lambda_0 = 1056 \si{\nano\metre}$; $L_x = 1000 \si{\micro\metre}$; $T_e = 1 \si{\kilo\electronvolt}$; $I_0 = 1\times 10^{15}\si{W/\cm^2}$; $T_{\mathrm{end}}=10 \si{ps}$; 1000 PPC.}
     \label{fig:SRS_EPOCH}
 \end{figure}{}

@@ -56,7 +56,7 @@ m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)
 
 \begin{equation}
 \frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0,
-\end{equation} with $\gamma = C_p/C_v = (n+2)/2 = 3$ in one dimension. 
+\end{equation} with $\gamma = C_p/C_v = 1 + 2/s = 3$ in one dimension. 
 
 We must also recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
 
@@ -66,9 +66,13 @@ We must also recall the fundamental time and length scales associated with a pla
 
 \begin{equation}
 	\lambda_D = \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}.
-\end{equation}\label{eqn:debye}
+\end{equation}\label{eqn:debye} The thermal velocity is given by:
+\begin{equation}
+	v_{\text{th}} = \sqrt{\frac{\gamma k_BT_e}{m_e}}
+\end{equation}\label{eqn:vth}, where $k_B$ is the Boltzmann constant
 
-\section{The basics: three-wave parametric instabilities}
+Linear approximation means reglecting, in your equations, quadratic or higher order terms in the peturbation variables. Also assume that the peturbation is harmonic both in space and time.
+\section{Fluid theory of three-wave instabilities}
 Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering.
 
 \subsection{Dispersion curves and linear modes}
@@ -99,10 +103,6 @@ With these three waves, we find the following three-wave parametric instabilitie
 \end{alignat*}
 
 
-\subsection{Landau damping}
-
-
-Unfortunately, by looking for normal modes, we have forced ourselves to find normal modes and we have ignored the possibility of damped oscillations in the system. Considering the electron plasma wave as an initial value problem 
 
 \subsection{Stimulated Raman scattering}
 
@@ -143,19 +143,32 @@ Recalling the definition of the Laplace transform of a function $f(t)$: $L\{f(t)
 
 
 \subsection{Stimulated Brillouin scattering}
+Since SBS is only important in Chapter \ref{chp:magSRS}, we will only give a very brief overview of it here.
 
 
-\section{Non-linear effects}
+\section{Kinetic theory of three-wave instabilities}
+
+
+\subsection{Landau damping}
+
+
+Unfortunately, by looking for normal modes, we have forced ourselves to find normal modes and we have ignored the possibility of damped oscillations in the system. Considering the electron plasma wave as an initial value problem 
 A key aspect of quasilinear theory is its identification of the distinction between reso-
 nant and non-resonant particles, scattering and diffusion \citep{Sagdeev2018}.
 
 \subsection{Nonlinear frequency shift}
 non-linear basis for trapping induced SRS modes found in \cite{Rose2001}
-\subsection{Nonlinear Landau damping}
 
 
 
+\section{Three-wave instabilities in a magnetic field}
 
+In a magnetic field, we can define a new fundamental frequency. The cyclotron frequency is given by:
+\begin{equation}
+\omega_c = \frac{eB_0}{m_ec}.
+\end{equation}
+
+The dispersion relation for the upper-hybrid 
 
 \section{Autoresonance}
 

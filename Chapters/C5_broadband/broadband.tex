@@ -153,6 +153,14 @@ Wavelength / nm & $L_x$ /$\si{\micro\metre}$ & $T_e$ / keV & $n_e$ / $n_{cr}$ & 
 
 \section{351nm Nd : glass laser}\label{sec:351}
 
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=\columnwidth]{Chapters/C5_broadband/351nm_delw1_delw0.png}
+    \caption{Intensity of light scattered by backward SRS, time-averaged for all $t>2\si{ps}$. The incident laser intensity varies between $4\times10^{14}\si{W/cm^2}$ and $4\times10^{15}\si{W/cm^2}$.}
+    \label{fig:351nm_base_threshold}
+\end{figure}{}
+
+
 \subsection{Base case: $\Delta f=0$}
 As stated in Section \ref{sec:params}, the plasma density and temperature profiles are taken from the library of radiation hydrodynamic simulations at the Naval Research Laboratory. 
 
@@ -160,12 +168,7 @@ Sorry this is a horrible way to write this, but this is the detailed plasma set-
 $\{T\}_i  = \{3.01, 1.47\times10^3,1.31\times10^6,-2.27\times10^9\}$;
 $\{n\}_i  = \{0.07, 165, 3.95\times10^4, 1.01\times10^9\}$. 
 
-\begin{figure}[ht]
-   \centering
-    \includegraphics[width=0.75\columnwidth]{Chapters/C5_broadband/351nm_threshold.png}
-    \caption{Intensity of light scattered by backward SRS, time-averaged for all $t>2\si{ps}$. The incident laser intensity varies between $4\times10^{14}\si{W/cm^2}$ and $4\times10^{15}\si{W/cm^2}$.}
-    \label{fig:351nm_base_threshold}
-\end{figure}{}
+
 
 \subsection{SSD-type bandwidth: $\Delta f=1\si{THz}$}
 1THz is the maximum bandwidth currently implemented by SSD on a 351nm laser, achieved at the Omega laser facility \citep{Regan2005}. According to \citet{Wen2021}, in order to increase the iSRS threshold we require that the modulation frequency satisfies $\omega_m \gg \omega_{pe} c / 2L_n\Delta\omega$. From the plasma parameters given in Table \ref{tab:plasma} and bandwidth of 1THz, this requirement becomes: $\omega_m \gg 128  \si{THz}$. This is problematic, since the optimal modulation frequency for SSD-type smoothing is on the order of $10 \si{GHz} = 0.001 \si{THz}$ \citep{Regan2005,Kelly2013}.
