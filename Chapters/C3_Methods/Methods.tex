@@ -85,13 +85,28 @@ EPOCH is a collisionless plasma physics simulation code that uses the Particle i
 
 \section{Diagnostics}
 
-The EPOCH code produces outputs in terms of physical variables, for example, electric and magnetic fields as functions of space and time. It can be useful to plot these directly, but also to plot them in terms of frequency and wavenumber. As such
+The EPOCH code produces outputs in terms of physical variables, for example, electric and magnetic fields as functions of space and time. It can be useful to plot these directly.
 
 \subsection{Frequency-filtered diagnostics}
+The core element of several diagnostics used in this thesis is the ability to separate the $E_y$ and $B_z$ fields into different frequency components. 
+
+\subsubsection{Bandstop filter for scattered light} When SRS is measured in experiments, the value reported is the reflectivity: the ratio of SRS-scattered light to incident laser light. In order to measure this in our simulations, we use a bandstop filter to separate out the contributions of SRS-scattered light from any other light which might travel backwards through the laser-entry boundary. Figure \ref{fig:bandstop} shows a typical electromagnetic frequency spectrum for the simulations considered in Chapter \ref{chp:iSRS}. The red-shaded band represents the filter bandwidth of $0.3\omega_0$
+
+
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.8\columnwidth]{Chapters/C3_Methods/EyFFT1D_filter_bandwidth.pdf}
+    \caption{1D FFT at laser-entry boundary (back-scattered light exit boundary)}
+    \label{fig:bandstop}
+\end{figure}{}
 
 \subsection{Auto-resonance diagnostic}
 
 \subsection{Inflation threshold diagnostic}\label{diag:threshold}
+
+This diagnostic 
+
 According to fluid theory, the growth of a parametrically unstable mode in an inhomogeneous plasma is limited by the loss of resonance between the waves as they propagate through the plasma and experience wave-number shift \cite{Rosenbluth1972}. We can formulate this inhomogeneous growth in terms of the Rosenbluth gain exponent\cite{Rosenbluth1972}
 \begin{equation}\label{eqn:GRos}
     G_\mathrm{Ros} = 2\pi\gamma_0^2/|v_{g,1}v_{g,2}\kappa'|,

@@ -14,8 +14,6 @@ This chapter aims to equip the reader with the tools they need to read, and to e
 \section{Pre-requisites}
 This section provides a minimal set of pre-requisites I will be assuming in this chapter. First up, we have Maxwell's equations in differential form:
 
-
-
 \begin{equation}
 \nabla \times \vec{E}=-\frac{\partial \vec{B}}{\partial t} \text{\,\,\,\,\,\,\,\,\,(Faraday-Lenz Law)}
 \end{equation}
@@ -48,15 +46,18 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 \end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of a fluid of electrons: 
 \begin{equation}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}(n u)=0 \text{\,\,\,\,\,\,\,\,\,(0th moment: Continuity equation)}
+\label{eqn:continuity}
 \end{equation}
 
 \begin{equation}
 m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)=-\frac{\partial P}{\partial x}+q E_{x} n \text{\,\,\,\,\,\,\,\,\,(1st moment: Momentum equation)}.
+\label{eqn:momentum}
 \end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure. In order to close this st of equations, we require an expression for the scalar pressure $P$ that does not introduce any higher moments of the distribution function. Typically in this thesis the timescales are such that thermal conduction can be neglected, and we assume that the process is adiabatic. This means that our final equation takes the form:
 
 \begin{equation}
 \frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0,
-\end{equation} with $\gamma = C_p/C_v = 1 + 2/s = 3$ in one dimension. 
+\label{eqn:EOS}
+\end{equation} with $\gamma = C_p/C_v = 1 + 2/s = 3$ in one dimension. When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:EOS} are known as the hydrodynamic equations of motion.
 
 We must also recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
 
@@ -71,13 +72,13 @@ We must also recall the fundamental time and length scales associated with a pla
 	v_{\text{th}} = \sqrt{\frac{\gamma k_BT_e}{m_e}}
 \end{equation}\label{eqn:vth}, where $k_B$ is the Boltzmann constant
 
-Linear approximation means reglecting, in your equations, quadratic or higher order terms in the peturbation variables. Also assume that the peturbation is harmonic both in space and time.
+Linear approximation means neglecting, in your equations, quadratic or higher order terms in the peturbation variables. Also assume that the peturbation is harmonic both in space and time.
 \section{Fluid theory of three-wave instabilities}
 Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering.
 
 \subsection{Dispersion curves and linear modes}
 
-One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $n(x,t) = n_1(x)\text{exp}(-i\omega t)$
+One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)\text{exp}(i(\omega t - kx))$
 A non-magnetised, two-species (electron-ion) plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode. 
 
 \begin{equation}\label{eqn:bohm-gross}
@@ -95,10 +96,15 @@ A non-magnetised, two-species (electron-ion) plasma supports two electrostatic (
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.9\columnwidth]{Chapters/C2_Theory/EPW_EMW_dispersion.pdf}
-    \caption{Dispersion relations for electromagnetic waves and electron plasma waves in a non-magnetised, hot plasma with $T_e= 5\text{keV}$, $n_e=0.1n_{cr}$}
+    \caption{Dispersion relations for electromagnetic waves and electron plasma waves in a non-magnetised, hot plasma with $T_e= 5\text{keV}$, $n_e=0.1n_{cr}$.}
     \label{fig:EMW_EPW_disp}
 \end{figure}{}
 
+
+\subsection{Three-wave instabilities}
+Linear analysis gives us the EPW, IAW, and EMW but does not tell us anything about how the peturbations associated with one of the waves might affect one or more of the other waves present in the plasma. A second order analysis, which considers contributions proportional to the product of two oscillating quanitities, is required to understand how these waves might influence eachother. A three-wave instability is the lowest-order example of this non-linear interaction.
+
+ In the linear analysis, we looked for solutions for the oscillating quantities of the form: $A(x,t) = A_1\text{exp}(i(\omega t - kx))$. When we consider the non-linear terms
 
 With these three waves, we find the following three-wave parametric instabilities:
 
@@ -156,6 +162,7 @@ Since SBS is only important in Chapter \ref{chp:magSRS}, we will only give a ver
 
 \section{Kinetic theory of three-wave instabilities}
 
+Kinetic theory takes account of the complete distribution function of particle velocities, 
 
 \subsection{Landau damping}
 
@@ -168,6 +175,24 @@ nant and non-resonant particles, scattering and diffusion \citep{Sagdeev2018}.
 non-linear basis for trapping induced SRS modes found in \cite{Rose2001}
 
 
+\subsection{Inflationary stimulated Raman scattering}
+
+Stimulated Raman scattering (\acrshort{SRS}) which takes place in the kinetic regime is often called inflationary SRS (\acrshort{iSRS}), and we will use this shorthand throughout the thesis. The name ``inflationary SRS" refers to the ``inflation" of measures of SRS-activity (such as the reflectivity) above the level predicted by fluid theory, often by many orders of magnitude. The kinetic effect responsible for this inflation depends on whether SRS occurs in a homogeneous or inhomogeneous plasma.
+
+For the case of an inhomogeneous plasma below the quarter critical density, SRS grows as a 
+
+
+
+
+\section{Autoresonance}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\columnwidth]{Chapters/C2_Theory/AR_diagnostic.pdf}
+    \caption{Example of autoresonant growth in an EPOCH simulation with parameters: $n_{min} = 0.06 n_{\text{crit}}$; $n_{max} = 0.17 n_{\text{crit}}$; $T_e = 4.5\si{keV}$; $\text{nPPC}=10,000$; $I_0 = 2 \times 10^{15}\si{\watt / \centi\metre^2}$. Black dashed line comes from Chapman \textit{et al.} \citep{Chapman2012} formula.}
+    \label{fig:AR_diagnostic}
+\end{figure}{}
+
 
 \section{Three-wave instabilities in a magnetic field}
 
@@ -178,14 +203,7 @@ In a magnetic field, we can define a new fundamental frequency. The cyclotron fr
 
 The dispersion relation for the upper-hybrid 
 
-\section{Autoresonance}
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.8\columnwidth]{Chapters/C2_Theory/AR_diagnostic.pdf}
-    \caption{Example of autoresonant growth in an EPOCH simulation with parameters: $n_{min} = 0.06 n_{\text{crit}}$; $n_{max} = 0.17 n_{\text{crit}}$; $T_e = 4.5\si{keV}$; $\text{nPPC}=10,000$; $I_0 = 2 \times 10^{15}\si{\watt / \centi\metre^2}$. Black dashed line comes from Chapman \textit{et al.} \citep{Chapman2012} formula.}
-    \label{fig:AR_diagnostic}
-\end{figure}{}
 
 %\bibliographystyle{plainnat}
 %\bibliography{Chapters/C2_Theory/Theory}
