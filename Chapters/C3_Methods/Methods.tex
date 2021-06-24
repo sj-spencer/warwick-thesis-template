@@ -2,7 +2,9 @@
 \chapter{Methods}
 \label{chp:methods}
  
+Many of the diagnostics presented in this chapter have been adapted from a large repository of LPI diagnostics for EPOCH which was created by Alexander Seaton (\href{https://orcid.org/0000-0001-5032-8918}{ORCID: 0000-0001-5032-8918}) as part of his PhD project ``Particle-in-cell Simulations of Laser-Plasma Instabilities in Shock-Ignition". Since Alex left Warwick in September 2019, I have become the main developer and maintainer for the repository.
 
+This chapter introduces the reader to the particle-in-cell code EPOCH, which is used to perform all the simulations presented in this thesis. We also explain the methods used to turn EPOCH's output into diagnostics better-suited to the problem of stimulated Raman scattering in the kinetic regime. 
 
 \section{The particle-in-cell method}
 The core components of a PIC code are: a fixed spatial grid; a solver that moves charged particles according to the Lorentz force law and calculates currents due to this motion (the particle pusher); and a solver which uses the calculated currents to solve Maxwell's equations on the grid (the field solver) \citep{Arber2015}. There are three fundamental features of a PIC code which make it ontologically different from a true plasma: firstly, time is discrete rather than continuous; secondly, electromagnetic fields only take well-defined values on a discrete spatial grid; and thirdly, simulation pseudo-particles have a non-zero size and shape. These are computational limitations, but also practical considerations which make the mathematics behind the simulation more tractable.
@@ -85,23 +87,22 @@ EPOCH is a collisionless plasma physics simulation code that uses the Particle i
 
 \section{Diagnostics}
 
+
+
 The EPOCH code produces outputs in terms of physical variables, for example, electric and magnetic fields as functions of space and time. It can be useful to plot these directly.
 
 \subsection{Frequency-filtered diagnostics}
 The core element of several diagnostics used in this thesis is the ability to separate the $E_y$ and $B_z$ fields into different frequency components. 
 
-\subsubsection{Bandstop filter for scattered light} When SRS is measured in experiments, the value reported is the reflectivity: the ratio of SRS-scattered light to incident laser light. In order to measure this in our simulations, we use a bandstop filter to separate out the contributions of SRS-scattered light from any other light which might travel backwards through the laser-entry boundary. Figure \ref{fig:bandstop} shows a typical electromagnetic frequency spectrum for the simulations considered in Chapter \ref{chp:iSRS}. The red-shaded band represents the filter bandwidth of $0.3\omega_0$
-
+\subsubsection{Bandstop filter for scattered light} When SRS is measured in experiments, the value reported is the reflectivity: the ratio of SRS-scattered light to incident laser light. In order to measure this in our simulations, we use a bandstop filter to separate out the contributions of SRS-scattered light from any other light which might travel backwards through the laser-entry boundary. Figure \ref{fig:bandstop} shows a typical electromagnetic frequency spectrum for the simulations considered in Chapter \ref{chp:iSRS}. The red-shaded band represents the filter bandwidth of $0.3\omega_0$. We choose a filter length of 1001, to achieve a reasonable balance between computation time and the transition bandwidth. Finally, we create a sinc filter kernel which is then multiplied by a Hamming window to create a \textit{windowed-sinc filter}. After filtering the $E_y$ and $B_z$ signals to remove all frequency contributions in the red band, we compute the Poynting flux through the left boundary by: $S(t)=E_yB_z/\mu_o$.
 
 
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.8\columnwidth]{Chapters/C3_Methods/EyFFT1D_filter_bandwidth.pdf}
-    \caption{1D FFT at laser-entry boundary (back-scattered light exit boundary)}
+    \caption{Fourier-transform of $E_y(t)$ at laser-entry boundary (back-scattered light exit boundary). Before the application of the bandstop filter, we see two peaks: the peak at 1.0 is the incident laser, and the broader peak around 0.55 is the light scattered by SRS. The red shaded area represents the bandwidth of frequencies that will be attenuated by our filter.}
     \label{fig:bandstop}
 \end{figure}{}
-
-\subsection{Auto-resonance diagnostic}
 
 \subsection{Inflation threshold diagnostic}\label{diag:threshold}
 

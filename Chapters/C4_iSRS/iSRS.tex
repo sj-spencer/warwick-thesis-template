@@ -270,7 +270,7 @@ of values predicted for shock-ignition $(300\si{\micro\metre} - 1000\si{\micro\m
     \label{fig:paramScan}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[!ht]
    \centering
     \includegraphics[width=0.7\columnwidth]{Chapters/C4_iSRS/fig7_7a_7b.pdf}
     \caption{(a) Hot electron flux through the right boundary in three simulations with parameters: $I_0 = 2.98\times 10^{15} \si{W / \centi \metre^2}$; $n_\mathrm{mid}=0.15 n_\mathrm{cr}$; $L_n=300,500\
@@ -331,21 +331,20 @@ electrons are: $0.005,0.001$ and $0$ respectively.
 
 \section{Saturation}
 
-\begin{figure}[ht]
-   \centering
-    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/783e15_pump_depletion.pdf}
-    \caption{(a) Poynting flux of scattered light (b) laser energy, showing significant depletion of the pump. Simulation parameters: $L_n = 500 \si{\micro\metre} $ centred at $0.15n_\mathrm{cr}$
-    and $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$. }
-    \label{fig:pumpdepletion}
-\end{figure}{}
-
-
 Several saturation mechanisms for iSRS in PIC simulations have been proposed, depending on the physical mechanisms present in the simulation. For simulations in 1D with immobile ions, there are three possible saturation mechanisms for SRS undergoing autoresonance: wave-breaking of the plasma wave; pump depletion of the laser driver; and frequency shift such that the autoresonance condition is no longer satisfied. In simulations with mobile ions and in higher dimensions, additional saturation mechanisms have been identified for iSRS in a homogeneous plasma. These additional saturation mechanisms are: Langmuir decay instability (\acrshort{LDI}); wavefront bowing of the EPW; the trapped particle modulation instability (\acrshort{TPMI}); and self-focusing \citep{Yin2007}.
 
 We can eliminate EPW wave-breaking as the saturation mechanisms in our simulations as the maximum normalised EPW energy well below the wave-breaking limit in all cases. Take, for example, the simylation corresponding to $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$ on the red curve of Figure \ref{fig:paramScan} (a). We can calculate the wave-breaking limit across the density range to be $E_{\text{WB}} e/m_ec\omega_0 = 0.024 - 3.52 $; but the maximum EPW energy in the simulation is $E_{\text{EPW}} e/m_ec\omega_0 = 0.0056$, well below the limit.
 Figure \ref{fig:pumpdepletion} shows the Poynting flux of the scattered light (a) and incident laser (b) for a simulation with intensity in the saturated regime ($I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$). We can see complete depletion of the pump correlated with the maximum intensity of scattered light first at approximately $x=45\si{\micro\metre}$, $t=0.8\si{\pico\second}$. It is interesting to note that iSRS at low densities is depleting the pump before it can reach higher densities, where the growth of SRS would be even greater. 
 
 Finally, we consider saturation due to the non-linear frequency shift which destabilises the auto-resonance.
+
+\begin{figure}[h]
+   \centering
+    \includegraphics[width=\columnwidth]{Chapters/C4_iSRS/783e15_pump_depletion.pdf}
+    \caption{(a) Poynting flux of scattered light (b) laser energy, showing significant depletion of the pump. Simulation parameters: $L_n = 500 \si{\micro\metre} $ centred at $0.15n_\mathrm{cr}$
+    and $I_0 = 7.83\times10^{15} \si{W/\centi\metre^2}$. }
+    \label{fig:pumpdepletion}
+\end{figure}{}
 
 
 \section{Conclusion}\label{sec:conclusion}
