@@ -3,33 +3,25 @@
 \label{chp:theory}
 
 This chapter aims to equip the reader with the tools they need to read, and to engage critically with, the rest of the thesis. By the end of this chapter, the reader should be familiar with the following concepts and methods:
-\begin{enumerate}
+\begin{compactenum}
 	\item Stimulated Raman scattering (\acrshort{SRS}) as a three-wave parametric instability.
 	\item The difference between convective and absolute SRS, and how we can quantify their gain.
 	\item The difference between fluid and kinetic SRS, and how we can use $\kld$ to delineate these two regimes.
 	\item The effect of large trapped-particle populations on SRS, including the growth of additional resonant modes.
-\end{enumerate}
+\end{compactenum}
 
 
 \section{Pre-requisites}
-This section provides a minimal set of pre-requisites I will be assuming in this chapter. First up, we have Maxwell's equations in differential form:
+This section provides a minimal set of pre-requisites I will be assuming in this chapter. We start with Maxwell's equations in differential form:
 
-\begin{equation}
-\nabla \times \vec{E}=-\frac{\partial \vec{B}}{\partial t} \text{\,\,\,\,\,\,\,\,\,(Faraday-Lenz Law)}
-\end{equation}
-
-\begin{equation}
-\nabla \times \vec{B}=\mu_{0} \vec{j}+\frac{1}{c^{2}} \frac{\partial \vec{E}}{\partial t}
-\text{\,\,\,\,\,\,\,\,\,(Ampere-Maxwell Law)}
-\end{equation}
-
-\begin{equation}
-\nabla \cdot \vec{B}=0 \text{\,\,\,\,\,\,\,\,\,(No Magnetic Monopoles)}
-\end{equation}
-
-\begin{equation}
-\nabla \cdot \vec{E}=\frac{\rho}{\epsilon_{0}} \text{\,\,\,\,\,\,\,\,\,(Gauss's Law)}.
-\end{equation} These describe the evolution of the vector fields $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$ using the mathematical notation $\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z} \right)$ to denote the scalar function divergence $(\nabla \cdot)$ and the vector function curl $(\nabla \times)$. The charge density $\rho$ and current density $\vec{j}$ are most properly calculated by summing the contributions of the exact phase-space coordinates of every particle in the plasma. However, we can make an approximation and assume that that the phase space is continuous and take an average to get the distribution function $f(\vec{x},\vec{v},t)$. We can now define $\rho$ and $\vec{j}$ in terms of the distribution function like so:
+\begin{subequations}\label{eqn:Maxwell}
+\begin{alignat}{2}
+ &  \nabla \times \vec{E} = -\frac{\partial \vec{B}}{\partial t} && \text{\,\,\,\,\,\,\,\,\,(Faraday-Lenz Law)} \\
+ & \nabla \times \vec{B} = \mu_{0} \vec{j}+\frac{1}{c^{2}} \frac{\partial \vec{E}}{\partial t} && \text{\,\,\,\,\,\,\,\,\,(Ampere-Maxwell Law)}\\
+ & \nabla \cdot \vec{B} = 0 && \text{\,\,\,\,\,\,\,\,\,(No Magnetic Monopoles)}\\
+ & \nabla \cdot \vec{E} = \frac{\rho}{\epsilon_{0}}  && \text{\,\,\,\,\,\,\,\,\,(Gauss's Law)}.
+\end{alignat}
+\end{subequations} These describe the evolution of the vector fields $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t)]$ using the mathematical notation $\nabla = \left(\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z} \right)$ to denote the scalar function divergence $(\nabla \cdot)$ and the vector function curl $(\nabla \times)$. The charge density $\rho$ and current density $\vec{j}$ are most properly calculated by summing the contributions of the exact phase-space coordinates of every particle in the plasma. However, we can make an approximation and assume that that the phase space is continuous and take an average to get the distribution function $f(\vec{x},\vec{v},t)$. We can now define $\rho$ and $\vec{j}$ in terms of the distribution function like so:
 
 \begin{equation}
 \rho= q \int d \vec{v} f(\vec{x},\vec{v},t)
@@ -39,11 +31,11 @@ This section provides a minimal set of pre-requisites I will be assuming in this
 \vec{j} = q \int d \vec{v} \vec{v} f(\vec{x},\vec{v},t).
 \end{equation}
 
-In order to close the Maxwell equations, we need an equation which tells us how the distribution function evolves in terms of $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t))]$. An entire two weeks of kinetic theory lectures later, we end up with the Vlasov equation for a collisionless plasma:
+In order to close the Maxwell equations, we need an equation which tells us how the distribution function evolves in terms of $[\vec{E}(\vec{x},t),\vec{B}(\vec{x},t)]$. Following any course in the kinetic theory of plasmas (for example, \citet{MMathPhys}), we end up with the Vlasov equation for a collisionless plasma:
 
 \begin{equation}
  	\frac{\partial f}{\partial t}+\vec{v} \cdot {\nabla} f+\frac{q}{m}\left(\vec{E}+\frac{\vec{v} \times \vec{B}}{c}\right) \cdot \frac{\partial f}{\partial \vec{v}}=0
-\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of a fluid of electrons: 
+\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of an electron fluid: 
 \begin{equation}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}(n u)=0 \text{\,\,\,\,\,\,\,\,\,(0th moment: Continuity equation)}
 \label{eqn:continuity}
@@ -52,14 +44,14 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 \begin{equation}
 m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)=-\frac{\partial P}{\partial x}+q E_{x} n \text{\,\,\,\,\,\,\,\,\,(1st moment: Momentum equation)}.
 \label{eqn:momentum}
-\end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure. In order to close this st of equations, we require an expression for the scalar pressure $P$ that does not introduce any higher moments of the distribution function. Typically in this thesis the timescales are such that thermal conduction can be neglected, and we assume that the process is adiabatic. This means that our final equation takes the form:
+\end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure. In order to close this set of equations, we require an expression for the scalar pressure $P$ that does not introduce any higher moments of the distribution function. Typically in this thesis the timescales are such that thermal conduction can be neglected, and we assume that the process is adiabatic. This means that our final equation takes the form:
 
 \begin{equation}
 \frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0,
 \label{eqn:EOS}
-\end{equation} with $\gamma = C_p/C_v = 1 + 2/s = 3$ in one dimension. When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:EOS} are known as the hydrodynamic equations of motion.
+\end{equation} with $\gamma = C_p/C_v = 1 + 2/n = 3$ in one dimension. \todo{ask Tony if you can get an expression for un-linearised P = f(T,n)} When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:EOS} are known as the hydrodynamic equations of motion.
 
-We must also recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of (generally) electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces, to give:
+We recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces acting on it, to give:
 
 \begin{equation}
 	\omega_{pe} = \sqrt{\frac{n_e e^2}{m_e \epsilon_0}}.
@@ -69,38 +61,47 @@ We must also recall the fundamental time and length scales associated with a pla
 	\lambda_D = \frac{v_{\mathrm{th}}}{\omega_{pe}} \propto \left(\frac{\mathrm{temperature}}{\mathrm{density}}\right)^{1/2}.
 \end{equation}\label{eqn:debye} The thermal velocity is given by:
 \begin{equation}
-	v_{\text{th}} = \sqrt{\frac{\gamma k_BT_e}{m_e}}
-\end{equation}\label{eqn:vth}, where $k_B$ is the Boltzmann constant
+	v_{\text{th}} = \sqrt{\frac{\gamma k_BT_e}{m_e}},
+\end{equation}\label{eqn:vth} where $k_B$ is the Boltzmann constant.
 
-Linear approximation means neglecting, in your equations, quadratic or higher order terms in the peturbation variables. Also assume that the peturbation is harmonic both in space and time.
+The final pre-requisite assumed in this chapter is the concept of \textit{linearising} a system of equations. Given a system of equations, we can often make the system easier to solve by assuming that the variables can be written in the form: $n = n_0 + n_1$, where $n_0$ is an initial or equilibrium value and $|n_1| \ll |n_0|$ is a small perturbation to this value. We then substitute this new expression for the variable back into the system of equations to understand the response of the system to this small perturbation. Typically, linearising means neglecting, in your equations, quadratic or higher order terms in the perturbation variables. 
+
 \section{Fluid theory of three-wave instabilities}
-Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering.
+Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering (\acrshort{SRS}).
 
 \subsection{Dispersion curves and linear modes}
 
-One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)\text{exp}(i(\omega t - kx))$
-A non-magnetised, two-species (electron-ion) plasma supports two electrostatic (no time-varying magnetic fields) modes and one electromagnetic mode. 
+One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)e^{-i\omega t}$. A non-magnetised, thermal, two-species (electron-ion) plasma supports two longitudinal electrostatic modes and one electromagnetic mode. 
 
-\begin{equation}\label{eqn:bohm-gross}
-	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2} \text{\,\,\,\,\,\,\,\,\,(Electron plasma wave)}
-\end{equation}
 
+By linearising the electron fluid equations and Maxwell's equations, assuming that ion motion is negligible, and looking for solutions which are harmonic in space and time ($n_e,P,u_e,E \propto  e^{i(kx -\omega t)}$)  we can derive the dispersion relation for electron plasma waves (\acrshort{EPW}s):
+\begin{equation}\label{eqn:EPW}
+	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2}. 
+\end{equation} By a similar analysis, this time assuming that $T_e \gg T_i$, we find the dispersion relation for ion acoustic waves (\acrshort{IAW}s):
+\begin{equation}\label{eqn:IAW}
+ \omega =  c_{s} k,
+\end{equation} where $c_{s}$ is the sound speed,
 \begin{equation}
- \omega =  c_{si} k \text{\,\,\,\,\,\,\,\,\,(Ion acoustic wave)}
-\end{equation}
+c_s = \sqrt{\frac{Z\gamma_ek_BT_e + \gamma_ik_BT_i}{m_i}}.
+\end{equation} Finally, we can find the dispersion relation for electromagnetic waves (\acrshort{EMW}s) in a plasma:
+\begin{equation}\label{eqn:EMW}
+ \omega^{2}=\omega_{p e}^{2}+c^2k^{2}.
+\end{equation} This expression shows that the frequency of EMWs in a plasma is bounded below by the electron plasma frequency. The limit $\omega_0=\omega_{pe}$ defines a critical density past which EMWs cannot propagate:
+\begin{equation}\label{eqn:ncrit}
+ n_{cr} = m_e
+\end{equation} 
 
-\begin{equation}
- \omega^{2}=\omega_{p e}^{2}+c^2k^{2} \text{\,\,\,\,\,\,\,\,\,(Electromagnetic wave)}
-\end{equation}
+Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for electron plasma waves (\acrshort{EPW}s) and electromagnetic waves (\acrshort{EMW}s) in a non-magnetised, thermal plasma. The angular frequency of the waves is normalised to the electron plasma frequency, and the wavenumber to the inverse Debye length. 
+
 
 \begin{figure}[ht]
    \centering
     \includegraphics[width=0.9\columnwidth]{Chapters/C2_Theory/EPW_EMW_dispersion.pdf}
-    \caption{Dispersion relations for electromagnetic waves and electron plasma waves in a non-magnetised, hot plasma with $T_e= 5\text{keV}$, $n_e=0.1n_{cr}$.}
+    \caption{Dispersion relations for electromagnetic waves and electron plasma waves in a non-magnetised, hot plasma with $T_e= 5\text{keV}$, $n_e=0.1n_{cr}$. The limits are chosen such that $\kld < 0.5$ for the \acrshort{EPW}s, which is required for Equation \ref{eqn:EPW} to be valid.}
     \label{fig:EMW_EPW_disp}
 \end{figure}{}
 
-\citet{Seaton2019} gives us good plots of this
+
 
 
 \subsection{Three-wave instabilities}
@@ -122,6 +123,7 @@ With these three waves, we find the following three-wave parametric instabilitie
 
 \subsection{Stimulated Raman scattering}
 
+Stimulated Raman scattering can grow in two ways: 
 
 \subsubsection{Rosenbluth gain}
 
@@ -186,7 +188,7 @@ For the case of an inhomogeneous plasma below the quarter critical density, SRS 
 
 
 
-\section{Autoresonance}
+\subsection{Autoresonance}
 
 \begin{figure}[ht]
     \centering
