@@ -2,7 +2,7 @@
 \chapter{Effects of an External Magnetic Field on Stimulated Raman Scattering}
 \label{chp:magSRS}
 
-In this chapter, we present work performed while employed as a Junior Specialist at the University of California, San Diego between January and April 2020. The project was supervised by Professor Farhat Beg, and lead by Adam Higginson (\href{https://orcid.org/0000-0002-2727-8075}{ORCID: 0000-0002-2727-8075}). The work presented (including data generated and data analysis) was carried out by the author, except in the cases outline below:
+In this chapter, we present work performed by the author while employed as a Junior Specialist at the University of California, San Diego between January and April 2020. The project was supervised by Professor Farhat Beg, and lead by Adam Higginson (\href{https://orcid.org/0000-0002-2727-8075}{ORCID: 0000-0002-2727-8075}). The work presented (including data generated and data analysis) was carried out by the author, except in the cases outline below:
 \begin{itemize}
 \item Figure \ref{fig:SRS_LULI} was produced by M. Bailly-Grandvaux (\href{https://orcid.org/0000-0001-7529-4013}{ORCID: 0000-0001-7529-4013}).
 \end{itemize}
@@ -10,7 +10,6 @@ In this chapter, we present work performed while employed as a Junior Specialist
 The chapter begins with a review of the literature which discusses the effect of an externally-applied magnetic field on stimulated Raman scattering. We then present modelling, performed by the author, of an experiment performed at the \acrlong{LULI} (France): J. R. Marqu\`es, P. Loiseau, J. B\'eard, A. Castan, B. Coleman, T. Gangolf, L. Lancia, A. Soloviev, O. Portugall, and J. Fuchs. Analysis of the SRS diagnostics was performed by J. R. Marq\`es, and (revisited) by M. Bailly-Grandvaux.  The experiment showed a small increase in SRS with an applied magnetic field, and this is recreated in our simulations. We then go on to investigate how the effect of the magnetic field depends on $\kld$ of the SRS electron plasma wave.
 
 \section{Motivation and literature review}
-
 
 
 Once again, wjhy is this a problem? why can we model in 1D? 
@@ -21,11 +20,11 @@ GREAT PAPER it's fluid theory of SRS SBS competition in magnetised plasmas\citep
 
 \subsection{Magnetic field suppresses kinetic SRS}
 
-An electron plasma wave (\acrshort{EPW}) which propagates perpendicularly to a magnetic field experiences damping, caused by the trapped electrons being accelerated across the EPW wave-front and extracting energy from it. As was introduced in Chapter \ref{chp:theory}, inflationary stimulated Raman scattering (\acrshort{iSRS}), which takes place in a homogeneous plasma, depends on the damping of the EPW .
+An electron plasma wave (\acrshort{EPW}) which propagates perpendicularly to a magnetic field experiences damping, caused by the trapped electrons being accelerated across the EPW wave-front and extracting energy from it \citep{Dawson1983}. As was introduced in Chapter \ref{chp:theory}, inflationary stimulated Raman scattering (\acrshort{iSRS}), which takes place in a homogeneous plasma, depends on the damping of the EPW .
 
-The first step of this research project was to replicate the results of \citet{Winjum2018}, in order to benchmark the EPOCH code against the results from OSIRIS and to understand the relevant diagnostics. Figure \ref{fig:WinjumRep} demonstrates the main result of \citet{Winjum2018}.
+The first step of this research project was to replicate the results of \citet{Winjum2018}, in order to benchmark the EPOCH code against the results from OSIRIS and to understand the relevant diagnostics. Figure \ref{fig:WinjumRep} demonstrates the main results of replicating \citet{Winjum2018}. The simulations summarised in Figure \ref{fig:WinjumRep} consider homogeneous SRS in the kinetic regime, with and without a $30\si{T}$ magnetic field applied parallel to the polarisation of the laser. By comparing the left ($B_{\text{ext}}=0\si{T}$) and right ($B_{\text{ext}}=30\si{T}$) columns of Figure \ref{fig:WinjumRep}, we see three key features of the simulation: sub-figures (a) and (b) show that the convective growth of SRS EPWs is suppressed by the magnetic field; sub-figures (c) and (d) show that the population of electrons trapped in the SRS EPWs becomes de-trapped by the magnetic field; sub-figures (e) and (f) show that the magnetic field introduces a periodic disturbance to the electron trapping, and accelerates electrons to with positive and negative $x$-momenta. Recalling the definition of the cyclotron frequency, we can calculate that for a $30\si{T}$ external magnetic field, $\omega_c = eB_0/m_e = 5 \times 10^{12}$ $\si{rad}\si{s}^{-1}$. From inspection of Figure \ref{fig:WinjumRep} (e)
 
-here's a recent paper about 90T fields effect on SRS in inhomogeneous plasmas \citep{Zhou2021}. 
+A 2021 paper by \citet{Zhou2021} uses 1D and 2D \acrshort{PIC} simulations to show that a moderate external magnetic field can suppress inflationary SRS, so that the SRS reflectivity stays at its convective saturation level from fluid theory. 
 
 
 
@@ -37,11 +36,21 @@ here's a recent paper about 90T fields effect on SRS in inhomogeneous plasmas \c
 \end{figure}{}
 
 
-Suppress SRS to reduce harmful electrons and reflectivity, or enhance if it actually makes good electrons (in the case of shock-ignition)
+
 
 \subsection{Magnetic field could enhance kinetic SRS}
 
 \subsection{What about fluid SRS?}
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=\columnwidth]{Chapters/C6_magSRS/kld_regimes.png}
+    \caption{Pictoral view of different non-linear regimes for \acrshort{EPW}s as a function of $\kld$. Reprinted with permission from \citet{Kline2006} (re-use license in Appendix 1).}
+    \label{fig:Kline2006}
+\end{figure}{}
+
+
+In the fluid regime, electron trapping, and de-trapping by the magnetic field, is no longer the most important factor in the nonlinear evolution of the \acrshort{SRS} \acrshort{EPW}. Consulting \citet{Kline2006}'s paper ``Different $\kld$ regimes for nonlinear effects on Langmuir waves", we see that 
 
 \section{Modelling SRS on LULI}
 \subsection{Experimental results}
@@ -101,6 +110,7 @@ also don't forget this great paper about kld scling of iSRS autoresonance \citep
     \label{fig:kld_scan}
 \end{figure}{}
 
+WHAT IS cyclotron frequency / wpe for all these cases?
 
 Plasma parameters chosen to be relevant to LULI experiment (ish). $\lambda_0 = 1053 \si{\nano\metre}$; $L_x = 1000 \si{\micro\metre}$; $T_e = 1 \si{\kilo\electronvolt}$; $I_0 = 1\times 10^{15}\si{W/\cm^2}$; $T_{\mathrm{end}}=10 \si{ps}$; 1000 PPC (from convergence testing on $\left< I_{\mathrm{SRS}} \right>_{t>0}$).
 
