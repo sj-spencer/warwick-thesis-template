@@ -110,12 +110,20 @@ We consider shock-ignition driven by three different laser systems: frequency-tr
 
 NRL provided us with density, temperatyre and intensity lineouts in 1D from simulations of shock-ignition on these these three laser systems. We selected a single time slice, just before the interaction pulse enters the under-dense plasma created by the assembly pulse. Their simulations were performed using the rad-hydro code \todo{Email and ask what code they used}
 
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=\columnwidth]{Chapters/C5_broadband/a_b_c_d_Dens_temp.pdf}
+    \caption{Sub-figures a), b), c) show density and temperature line-outs from NRL simulations at the end of the assembly pulse and the start of the ignition pulse. The laser is incident from the right, and the left-hand side boundary represents the quarter critical density surface. The green highlighted areas show the density and temperature range such that $0.3<\kld<0.45$. Sub-figure d) shows the final density and temperature profiles used for our campaign, defined by third order polynomials on the interval $[0,270\si{\micro\metre}]$, and with the laser incident from the left.}
+    \label{fig:dens_temp}
+\end{figure}{}
+
+
 For all the simulations presented in this section, the following EPOCH parameters are constant: $\Delta x = \mathrm{min}_x(\lambda_D)$; $\mathrm{PPC} = 2000$; $T_{\mathrm{end}}=6\si{ps}$; thermal boundaries for particles; field boundaries are laser ($x_{\mathrm{min}}$), and absorbing boundaries ($x_{\mathrm{max}}$). We treat the ions as a neutralising background population to allow us to pinpoint the effect of bandwidth on inflationary SRS only. The incident laser intensity is set to be approximately the threshold intensity for inflationary SRS. The threshold intensity is found by varying the intensity for identical PIC set-ups to find the minimum intensity such that the time-averaged intensity of scatter from bSRS is greater than $10\%$ of the incident laser intensity. 
+
+\renewcommand{\arraystretch}{1.25}
 
 \begin{table}[h]\label{tab:laser}
 \begin{center}
-
-
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \begin{tabular}[c]{@{}l@{}}Wavelength /\\ nm\end{tabular} & \begin{tabular}[c]{@{}l@{}}Frequency \\ / THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Intensity / \\ $10^{15}\text{Wcm}^{-2}$\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ THz\end{tabular} & \begin{tabular}[c]{@{}l@{}}Bandwidth / \\ $\%$ $\omega_0$\end{tabular} \\ \hline 
@@ -226,9 +234,6 @@ According to this paper: "Stimulated rotational Raman scattering of arbitrarily 
 Excimer lasers have a broad amplification spectrum in the UV when compared to Nd: glass lasers. In this section we consider the argon fluoride (ArF) laser under development at the NRL, which is predicted to have native bandwidth up to 10THz \citep{Obenschain2020}.
 
 \subsection{Base case: $\Delta f=0$}
-Sorry this is a horrible way to write this, but this is the detailed plasma set-up: $T_e(x) = \sum^3_{i=0} T_i x^i$, $n_e(x) = n_{\mathrm{cr}}\sum^3_{i=0} n_i x^i $;
-$\{T\}_i  = \{3.01, 1.47\times10^3,1.31\times10^6,-2.27\times10^9\}$;
-$\{n\}_i  = \{0.07, 165, 3.95\times10^4, 1.01\times10^9\}$.
 
 
 
