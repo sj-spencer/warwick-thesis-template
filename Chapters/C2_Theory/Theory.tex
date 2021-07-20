@@ -47,9 +47,9 @@ m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)
 \end{equation} Where $n$ is the number density (calculated by taking the zeroth moment of the distribution function); $u$ is the macroscopic flow velocity (calculated by taking the first moment of the distribution function); and $P$ is a scalar pressure. In order to close this set of equations, we require an expression for the scalar pressure $P$ that does not introduce any higher moments of the distribution function. Typically in this thesis the timescales are such that thermal conduction can be neglected, and we assume that the process is adiabatic. This means that our final equation takes the form:
 
 \begin{equation}
-\frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0,
-\label{eqn:EOS}
-\end{equation} with $\gamma = C_p/C_v = 1 + 2/n = 3$ in one dimension. \todo{ask Tony if you can get an expression for un-linearised P = f(T,n)} When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:EOS} are known as the hydrodynamic equations of motion.
+\frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0 \text{\,\,\,\,\,\,\,\,\,(Energy equation)},
+\label{eqn:energy}
+\end{equation} with $\gamma = C_p/C_v = 1 + 2/n = 3$ in one dimension. When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy} are known as the hydrodynamic equations of motion. For a multi-species plasma, each species will have it's own continuity, momentum, and energy equations.
 
 We recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces acting on it, to give:
 
@@ -71,8 +71,7 @@ Equipped with this brief revision of the fundamental relationships which describ
 
 \subsection{Dispersion curves and linear modes}
 
-One obvious thing to do, now that we have the fluid equations for an electron plasma, would be to look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)e^{-i\omega t}$. A non-magnetised, thermal, two-species (electron-ion) plasma supports two longitudinal electrostatic modes and one electromagnetic mode. 
-
+Equipped with the hydrodynamic equations of motion (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy}), we now look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)e^{-i\omega t}$. A non-magnetised, thermal, two-species (electron-ion) plasma supports two longitudinal electrostatic modes and one electromagnetic mode. 
 
 By linearising the electron fluid equations and Maxwell's equations, assuming that ion motion is negligible, and looking for solutions which are harmonic in space and time ($n_e,P,u_e,E \propto  e^{i(kx -\omega t)}$)  we can derive the dispersion relation for electron plasma waves (\acrshort{EPW}s):
 \begin{equation}\label{eqn:EPW}
@@ -82,16 +81,16 @@ By linearising the electron fluid equations and Maxwell's equations, assuming th
  \omega =  c_{s} k,
 \end{equation} where $c_{s}$ is the sound speed,
 \begin{equation}
-c_s = \sqrt{\frac{Z\gamma_ek_BT_e + \gamma_ik_BT_i}{m_i}}.
-\end{equation} Finally, we can find the dispersion relation for electromagnetic waves (\acrshort{EMW}s) in a plasma:
+c_s = \sqrt{\frac{Z\gamma_ek_BT_e + \gamma_ik_BT_i}{m_i}},
+\end{equation} where $Z$ is the ion charge state. Finally, we can find the dispersion relation for electromagnetic waves (\acrshort{EMW}s) in a plasma:
 \begin{equation}\label{eqn:EMW}
  \omega^{2}=\omega_{p e}^{2}+c^2k^{2}.
 \end{equation} This expression shows that the frequency of EMWs in a plasma is bounded below by the electron plasma frequency. The limit $\omega_0=\omega_{pe}$ defines a critical density past which EMWs cannot propagate:
 \begin{equation}\label{eqn:ncrit}
- n_{cr} = m_e
+ n_{cr} = \sqrt{\frac{n_e e^2}{m_e\epsilon_0}}.
 \end{equation} 
 
-Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for electron plasma waves (\acrshort{EPW}s) and electromagnetic waves (\acrshort{EMW}s) in a non-magnetised, thermal plasma. The angular frequency of the waves is normalised to the electron plasma frequency, and the wavenumber to the inverse Debye length. 
+Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for electron plasma waves (\acrshort{EPW}s) and electromagnetic waves (\acrshort{EMW}s) in a non-magnetised, thermal plasma. The angular frequency of the waves is normalised to the electron plasma frequency, and the wavenumber to the inverse Debye length. The black dashed line $\omega / k = c$ is the dispersion relation for \acrshort{EMW} in vacuum, and dashed line $\omega / k = \sqrt{3/2}v_th$
 
 
 \begin{figure}[ht]
