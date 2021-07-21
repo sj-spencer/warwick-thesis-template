@@ -10,6 +10,9 @@ This chapter aims to equip the reader with the tools they need to read, and to e
 	\item The effect of large trapped-particle populations on SRS, including the growth of additional resonant modes.
 \end{compactenum}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START OF PREREQUISITES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Pre-requisites}
 This section provides a minimal set of pre-requisites I will be assuming in this chapter. We start with Maxwell's equations in differential form:
@@ -35,7 +38,7 @@ In order to close the Maxwell equations, we need an equation which tells us how 
 
 \begin{equation}
  	\frac{\partial f}{\partial t}+\vec{v} \cdot {\nabla} f+\frac{q}{m}\left(\vec{E}+\frac{\vec{v} \times \vec{B}}{c}\right) \cdot \frac{\partial f}{\partial \vec{v}}=0
-\end{equation} By taking moments of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of an electron fluid: 
+\end{equation} By taking moments, with respect to velocity, of the Vlasov equation (and moving to 1D for brevity), we obtain the following reduced description of the plasma in terms of an electron fluid: 
 \begin{equation}
 \frac{\partial n}{\partial t}+\frac{\partial}{\partial x}(n u)=0 \text{\,\,\,\,\,\,\,\,\,(0th moment: Continuity equation)}
 \label{eqn:continuity}
@@ -49,7 +52,7 @@ m_e n \left(\frac{\partial u}{\partial t} + u\frac{\partial}{\partial x}u\right)
 \begin{equation}
 \frac{d}{dt}\left(\frac{P}{n^{\gamma}}\right) = 0 \text{\,\,\,\,\,\,\,\,\,(Energy equation)},
 \label{eqn:energy}
-\end{equation} with $\gamma = C_p/C_v = 1 + 2/n = 3$ in one dimension. When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy} are known as the hydrodynamic equations of motion. For a multi-species plasma, each species will have it's own continuity, momentum, and energy equations.
+\end{equation} with $\gamma = C_p/C_v = 1 + 2/n = 3$ in one dimension. When taken together, Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy} are known as the hydrodynamic equations of motion. For a multi-species plasma, each species will have its own continuity, momentum, and energy equations.
 
 We recall the fundamental time and length scales associated with a plasma: the plasma frequency and the Debye length. The plasma frequency describes the natural frequency of oscillation of electrons in a cold plasma, its expression in terms of the electron number density can be derived by considering the displacement of a block of plasma and considering the restoring forces acting on it, to give:
 
@@ -66,31 +69,45 @@ We recall the fundamental time and length scales associated with a plasma: the p
 
 The final pre-requisite assumed in this chapter is the concept of \textit{linearising} a system of equations. Given a system of equations, we can often make the system easier to solve by assuming that the variables can be written in the form: $n = n_0 + n_1$, where $n_0$ is an initial or equilibrium value and $|n_1| \ll |n_0|$ is a small perturbation to this value. We then substitute this new expression for the variable back into the system of equations to understand the response of the system to this small perturbation. Typically, linearising means neglecting, in your equations, quadratic or higher order terms in the perturbation variables. 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END OF PREREQUISITES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START OF FLUID THEORY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Fluid theory of three-wave instabilities}
 Equipped with this brief revision of the fundamental relationships which describe a plasma, we can now move onto the theory behind our object of study: stimulated Raman scattering (\acrshort{SRS}).
 
-\subsection{Dispersion curves and linear modes}
+\subsection{Dispersion curves and linear modes}\label{subsec:dispersion}
 
-Equipped with the hydrodynamic equations of motion (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy}), we now look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)e^{-i\omega t}$. A non-magnetised, thermal, two-species (electron-ion) plasma supports two longitudinal electrostatic modes and one electromagnetic mode. 
+Equipped with the hydrodynamic equations of motion (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, and \ref{eqn:energy}), we now look for normal modes of the system. These describe oscillations in which all variables vary sinusoidally with the same frequency, meaning that they can be written as $A(x,t) = A_1(x)e^{-i\omega t}$. A non-magnetised, thermal, two-species (electron-ion) plasma supports two longitudinal electrostatic modes and one electromagnetic mode. An excellent derivation of these modes can be found in Chapter Three of \citet{Jones1985}.
 
 By linearising the electron fluid equations and Maxwell's equations, assuming that ion motion is negligible, and looking for solutions which are harmonic in space and time ($n_e,P,u_e,E \propto  e^{i(kx -\omega t)}$)  we can derive the dispersion relation for electron plasma waves (\acrshort{EPW}s):
 \begin{equation}\label{eqn:EPW}
 	\omega^{2}=\omega_{p e}^{2}+3 k^{2} v_{\text{th}}^{2}. 
-\end{equation} By a similar analysis, this time assuming that $T_e \gg T_i$, we find the dispersion relation for ion acoustic waves (\acrshort{IAW}s):
+\end{equation} Electron plasma waves are also known as ``Langmuir waves'' after Irving Langmuir, and Equation \ref{eqn:EPW} is sometimes called the ``Bohm-Gross dispersion relation''.
+
+By a similar linear analysis, this time assuming that $T_e \gg T_i$ and that $\omega \ll \omega_{pi}$ (the ion plasma frequency), we find the dispersion relation for ion acoustic waves (\acrshort{IAW}s):
 \begin{equation}\label{eqn:IAW}
  \omega =  c_{s} k,
 \end{equation} where $c_{s}$ is the sound speed,
 \begin{equation}
-c_s = \sqrt{\frac{Z\gamma_ek_BT_e + \gamma_ik_BT_i}{m_i}},
-\end{equation} where $Z$ is the ion charge state. Finally, we can find the dispersion relation for electromagnetic waves (\acrshort{EMW}s) in a plasma:
+c_s = \sqrt{\frac{Z\gamma_ek_BT_e + \gamma_ik_BT_i}{m_i}}.
+\end{equation} $Z$ is the ion charge state, and $\gamma_e,\gamma_i$ are the ratio of specific heats for electron and ion fluids, respectively. Typically, we take $\gamma_i = 3$ which corresponds to 1D adiabatic compression of the ions, and $\gamma_e = 1$, corresponding to isothermal compression of the electrons.
+
+Finally, we consider the problem of a high frequency electromagnetic wave (\acrshort{EMW}) travelling in a plasma. The dispersion relation for electromagnetic waves in a plasma is:
 \begin{equation}\label{eqn:EMW}
  \omega^{2}=\omega_{p e}^{2}+c^2k^{2}.
-\end{equation} This expression shows that the frequency of EMWs in a plasma is bounded below by the electron plasma frequency. The limit $\omega_0=\omega_{pe}$ defines a critical density past which EMWs cannot propagate:
+\end{equation} This expression shows that the frequency of EMWs in a plasma is bounded below by the electron plasma frequency. The limit $\omega_0=\omega_{pe}$ defines a critical density past which EMWs cannot propagate, since the the electrons shield can respond to shield out the field of the EMW:
 \begin{equation}\label{eqn:ncrit}
  n_{cr} = \sqrt{\frac{n_e e^2}{m_e\epsilon_0}}.
 \end{equation} 
 
-Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for electron plasma waves (\acrshort{EPW}s) and electromagnetic waves (\acrshort{EMW}s) in a non-magnetised, thermal plasma. The angular frequency of the waves is normalised to the electron plasma frequency, and the wavenumber to the inverse Debye length. The black dashed line $\omega / k = c$ is the dispersion relation for \acrshort{EMW} in vacuum, and dashed line $\omega / k = \sqrt{3/2}v_th$
+Write about WKB ? \todo{Should I write something about the WKB solutions since our corona isn't homogeneous?}
+
+Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for electron plasma waves (\acrshort{EPW}s) and electromagnetic waves (\acrshort{EMW}s) in a non-magnetised, thermal plasma. The angular frequency of the waves is normalised to the electron plasma frequency, and the wavenumber to the inverse Debye length. The black dashed line $\omega / k = c$ is the dispersion relation for \acrshort{EMW} in vacuum, and dashed line $\omega / k = \sqrt{3/2}v_{th}$ is the electron-acoustic wave (\acrshort{EAW}) for a population of hot electrons with thermal velocity $v_{th}$. The frequency of the electron-acoustic wave satisfies $\omega_{pi} < \omega < \omega_{pe}$. The \acrshort{EPW} branch and electron acoustic branch actually merge at short wavelengths ($\kld\sim 0.53$) \citep{Rose2003}. The electron-acoustic wave (\acrshort{EAW}) and its cousin the beam-acoustic mode (\acrshort{BAM}) will be covered in Section \ref{sec:kineticTheory}, where we look at the limits of the hydrodynamic theory and consider some important additions from kinetic theory.
 
 
 \begin{figure}[ht]
@@ -104,19 +121,34 @@ Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for ele
 
 
 \subsection{Three-wave instabilities}
-Linear analysis gives us the EPW, IAW, and EMW but does not tell us anything about how the peturbations associated with one of the waves might affect one or more of the other waves present in the plasma. A second order analysis, which considers contributions proportional to the product of two oscillating quanitities, is required to understand how these waves might influence eachother. A three-wave instability is the lowest-order example of this non-linear interaction.
+From linear analysis of the hydrodynamic equations in an un-magnetised plasma (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, \ref{eqn:energy}) we have recovered three waves: the \acrshort{EPW}, \acrshort{IAW}, and \acrshort{EMW}. Linear analysis, however, does not tell us anything about how the perturbations associated with one of the waves might affect one or more of the other waves present in the plasma. A second order analysis, which considers contributions proportional to the product of two oscillating quantities, is required to understand how these waves might influence each other. A three-wave instability is the lowest-order example of this non-linear interaction.
+
+
+We assume small non-linear coupling, which allows us to say that each of the three waves has angular frequency and wave-number ($w,k$) which locally satisfy the linear dispersion relations presented in Section \ref{subsec:dispersion}. Furthermore, we insist that frequency and wave-number matching are satisfied:
+
+
+
+
+\begin{figure}[ht]
+   \centering
+   \fbox{
+    \includegraphics[width=0.75\columnwidth]{Chapters/C2_Theory/3wave_instabilities.pdf}}
+    \caption{This is them innit}
+    \label{fig:3wave_instabilities}
+\end{figure}{}
+
 
  In the linear analysis, we looked for solutions for the oscillating quantities of the form: $A(x,t) = A_1\text{exp}(i(\omega t - kx))$. When we consider the non-linear terms
 
 With these three waves, we find the following three-wave parametric instabilities:
 
-\begin{alignat*}{2}
-	 	&\text{EMW1} \rightarrow \text{EPW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Raman Scattering)}\\
-	 	&\text{EMW1} \rightarrow \text{IAW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Brillouin Scattering)}\\
-	 	&\text{EMW1} \rightarrow \text{EPW1} + \text{EPW2} &\text{\,\,\,\,\,\,\,\,\,(Two-Plasmon Decay)}\\
-	 	&\text{EPW1} \rightarrow \text{EPW2} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(Langmuir Decay Instability)}\\
-	 	&\text{EMW} \rightarrow \text{EPW} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(The Parametric Instability)}\\
-\end{alignat*}
+%\begin{alignat*}{2}
+%	 	&\text{EMW1} \rightarrow \text{EPW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Raman Scattering)}\\
+%	 	&\text{EMW1} \rightarrow \text{IAW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Brillouin Scattering)}\\
+%	 	&\text{EMW1} \rightarrow \text{EPW1} + \text{EPW2} &\text{\,\,\,\,\,\,\,\,\,(Two-Plasmon Decay)}\\
+%	 	&\text{EPW1} \rightarrow \text{EPW2} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(Langmuir Decay Instability)}\\
+%	 	&\text{EMW} \rightarrow \text{EPW} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(The Parametric Instability)}\\
+%\end{alignat*}
 
 
 
@@ -162,8 +194,16 @@ Recalling the definition of the Laplace transform of a function $f(t)$: $L\{f(t)
 \subsection{Stimulated Brillouin scattering}
 Since SBS is only important in Chapter \ref{chp:magSRS}, we will only give a very brief overview of it here.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END OF FLUID THEORY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Kinetic theory of three-wave instabilities}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START OF KINETIC THEORY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Kinetic theory of three-wave instabilities}\label{sec:kineticTheory}
 
 Kinetic theory takes account of the complete distribution function of particle velocities, 
 
@@ -196,6 +236,13 @@ For the case of an inhomogeneous plasma below the quarter critical density, SRS 
     \label{fig:AR_diagnostic}
 \end{figure}{}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END OF KINETIC THEORY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START OF MAGNETIC FIELD 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Three-wave instabilities in a magnetic field}
 

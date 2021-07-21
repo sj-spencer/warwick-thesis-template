@@ -58,13 +58,13 @@ $T_e=2\si{\kilo\electronvolt}$, $n_e = [0.08,0.12]n_c$, giving $\kld \sim
 
 \subsection{Inflationary SRS}
 
-\citet{Wen2021} derive a condition for the maximum gain of SRS driven by a sinusoidally frequency-modulated broadband laser, when the velocity of the resonance point is equal to the group velocity of the back-scattered light for as long as possible. By tuning the plasma parameters and/or laser parameters away from this condition, they can increase the threshold for kinetic SRS \citep{Wen2021}. The maximum gain criteria is given by the expression:
+\citet{Wen2021} derive a condition for the maximum gain of convective SRS driven by a sinusoidally frequency-modulated broadband laser, when the velocity of the resonance point is equal to the group velocity of the back-scattered light for as long as possible. By tuning the plasma parameters and/or laser parameters away from this condition, they can increase the threshold for kinetic SRS \citep{Wen2021}. The maximum gain criteria is given by the expression:
 
 \begin{equation}\label{eqn:maxGainCondition}
  \Delta\omega\omega_m = \omega_{pe}c / 2L_n,
-\end{equation} and is verified through PIC simulations in the kinetic and fluid regimes. The left-hand side of Eq. \ref{eqn:maxGainCondition} represents the maximum chirp ($|\partial_t\omega_0(x,t)|$) of the laser, and the right-hand side gives an expression for the spatial detuning due to density inhomogeneity. Several simplifying assumptions are made by the authors which allow them to derive this expression for the spatial detuning. Most importantly for our work, they omit the contribution of the non-linear frequency shift in their calculation of the velocity of the resonance point. \todo{Estimate size of this contribution in my cases and hope it is ignorable}
+\end{equation} and is verified through PIC simulations in the kinetic and fluid regimes. The left-hand side of Eq. \ref{eqn:maxGainCondition} represents the maximum chirp ($|\partial_t\omega_0(x,t)|$) of the laser, and the right-hand side gives an expression for the spatial detuning due to density inhomogeneity. Several simplifying assumptions are made by the authors which allow them to derive this expression for the spatial detuning. Most importantly for our work, they omit the contribution of the non-linear frequency shift (which is proportional to the Langmuir wave amplitude) in their calculation of the velocity of the resonance point. \todo{Estimate size of this contribution in my cases and hope it is ignorable}
 
-A key result of this work is that the threshold for iSRS driven by a sinusoidally frequency-modulated laser is independent of the bandwidth or frequency modulation alone, rather it depends on their product. Figure \ref{fig:Wenreplication} shows results from our benchmarking of Wen's work. In this benchmarking study we recovered the results of their Osiris study using our own PIC code, EPOCH. We ran several simulations with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. We find that the inflation threshold has a weak dependence on the bandwith alone. From this preliminary investigation, we were confident in our laser set-up and in the use of EPOCH for this project.
+A key result of \citet{Wen2021} is that the threshold for iSRS driven by a sinusoidally frequency-modulated laser is independent of the bandwidth or frequency modulation alone, rather it depends on their product. Figure \ref{fig:Wenreplication} shows results from our benchmarking of Wen's work. In this benchmarking study we recovered the results of their Osiris study using our own PIC code, EPOCH. We ran several simulations with fixed maximum normalised chirp ($\Delta\omega \omega_m / \omega_0=5.5\times10^{-6}$) and varied bandwidth. We find that the inflation threshold has a weak dependence on the bandwith alone. From this preliminary investigation, we were confident in our laser set-up and in the use of EPOCH for this project.
 
 
 \begin{figure}[ht]
@@ -77,6 +77,8 @@ A key result of this work is that the threshold for iSRS driven by a sinusoidall
 
 \subsection{Multi-beam SRS}
 Studies have also been performed using the code LPSE which show that, at ignition scales, absolute multi-beam backward SRS can be mitigated with bandwidth $\sim 1.6\%$ \citep{Follett2021}.
+
+From this literature review, it is clear that there is no complete picture of how bandwidth affects convective SRS gain in inhomogeneous plasmas.
 
 \section{Decoupled broadband lasers}
 
