@@ -117,16 +117,30 @@ Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for ele
     \label{fig:EMW_EPW_disp}
 \end{figure}{}
 
-
-
-
 \subsection{Three-wave instabilities}
 From linear analysis of the hydrodynamic equations in an un-magnetised plasma (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, \ref{eqn:energy}) we have recovered three waves: the \acrshort{EPW}, \acrshort{IAW}, and \acrshort{EMW}. Linear analysis, however, does not tell us anything about how the perturbations associated with one of the waves might affect one or more of the other waves present in the plasma. A second order analysis, which considers contributions proportional to the product of two oscillating quantities, is required to understand how these waves might influence each other. A three-wave instability is the lowest-order example of this non-linear interaction.
 
+\missingfigure{Flow chart diagram of parametric instability cos I think it's clear and good}
 
-We assume small non-linear coupling, which allows us to say that each of the three waves has angular frequency and wave-number ($w,k$) which locally satisfy the linear dispersion relations presented in Section \ref{subsec:dispersion}. Furthermore, we insist that frequency and wave-number matching are satisfied:
+Following \citet{Nishikawa1976}, we now revise the theory of a three-wave instability under certain simplifying assumptions. We assume small non-linear coupling, which allows us to say that each of the three waves has angular frequency and wave-number $(\omega,\vec{k})$ which locally satisfy the linear dispersion relations presented in Section \ref{subsec:dispersion}. Furthermore, we insist that frequency and wave-number matching are satisfied:
+\begin{subequations}\label{eqn:manley-rowe}
+\begin{align}
+\omega_0 &= \omega_1 + \omega_s \\
+\vec{k_0} &= \vec{k_1} + \vec{k_s}.
+\end{align}
+\end{subequations} The subscripts $0,1,s$ are to prepare us for the specific cases of stimulated Raman and Brillouin scattering in which the three waves are: a large-amplitude laser $(\omega_0,\vec{k_0})$; a plasma wave $(\omega_1,\vec{k_1})$; and a scattered light wave $(\omega_s,\vec{k_s})$. Finally, we assume that the plasma is infinite in extent and spatially homogeneous. Given these requirements, we can say that the three waves each satisfy a wave equation of the form:
 
+\begin{equation}
+\left[ \frac{d^{2}}{d t^{2}}+2 \Gamma_{i} \frac{d}{d t}+\omega_{i}^{2} \right] X_{i}(t)=0,
+\end{equation} where $\omega_i$ is the characteristic frequency and $\Gamma_i$ is the damping rate of the wave. Since wave 0 (the laser) has large amplitude and is undamped, the lowest order coupling of these waves gives the coupled system:
 
+\begin{subequations}\label{eqn:coupled-mode}
+\begin{align}
+\left[ \frac{d^{2}}{d t^{2}}+\omega_{0}^{2} \right] X_{0}(t) & = 0 \\
+\left[ \frac{d^{2}}{d t^{2}}+2 \Gamma_{1} \frac{d}{d t}+\omega_{1}^{2} \right] X_{1}(t) &= 2\alpha X_0(t)X_s(t) \\
+\left[ \frac{d^{2}}{d t^{2}}+2 \Gamma_{s} \frac{d}{d t}+\omega_{s}^{2} \right] X_{s}(t) &= 2\beta X_0(t)X_1(t)
+\end{align}
+\end{subequations} 
 
 
 \begin{figure}[ht]
@@ -138,17 +152,7 @@ We assume small non-linear coupling, which allows us to say that each of the thr
 \end{figure}{}
 
 
- In the linear analysis, we looked for solutions for the oscillating quantities of the form: $A(x,t) = A_1\text{exp}(i(\omega t - kx))$. When we consider the non-linear terms
 
-With these three waves, we find the following three-wave parametric instabilities:
-
-%\begin{alignat*}{2}
-%	 	&\text{EMW1} \rightarrow \text{EPW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Raman Scattering)}\\
-%	 	&\text{EMW1} \rightarrow \text{IAW} + \text{EMW2} &\text{\,\,\,\,\,\,\,\,\,(Stimulated Brillouin Scattering)}\\
-%	 	&\text{EMW1} \rightarrow \text{EPW1} + \text{EPW2} &\text{\,\,\,\,\,\,\,\,\,(Two-Plasmon Decay)}\\
-%	 	&\text{EPW1} \rightarrow \text{EPW2} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(Langmuir Decay Instability)}\\
-%	 	&\text{EMW} \rightarrow \text{EPW} + \text{IAW} &\text{\,\,\,\,\,\,\,\,\,(The Parametric Instability)}\\
-%\end{alignat*}
 
 
 
