@@ -120,7 +120,15 @@ Figure \ref{fig:EMW_EPW_disp} shows graphically the dispersion relations for ele
 \subsection{Three-wave instabilities}
 From linear analysis of the hydrodynamic equations in an un-magnetised plasma (Equations \ref{eqn:continuity}, \ref{eqn:momentum}, \ref{eqn:energy}) we have recovered three waves: the \acrshort{EPW}, \acrshort{IAW}, and \acrshort{EMW}. Linear analysis, however, does not tell us anything about how the perturbations associated with one of the waves might affect one or more of the other waves present in the plasma. A second order analysis, which considers contributions proportional to the product of two oscillating quantities, is required to understand how these waves might influence each other. A three-wave instability is the lowest-order example of this non-linear interaction.
 
-\missingfigure{Flow chart diagram of parametric instability cos I think it's clear and good}
+An intuitive physical understanding of three-wave instabilities in a plasma driven by a large amplitude laser is given in Figure \ref{fig:LPI_graphic}. Starting with this process in mind will help to track through the mathematics that is to follow.
+
+\begin{figure}[ht]
+   \centering
+    \includegraphics[width=0.5\columnwidth]{Chapters/C2_Theory/LPI_graphic.png}
+    \caption{\textbf{Reprinted with permission from \citet{Montgomery2012}.} Graphic depiction of a three-wave instability driven by a large amplitude laser, such as \acrshort{SRS} or \acrshort{SBS}. The laser travels from right to left, causing electrons in the plasma to oscillate in the laser electric field (Step 1). These oscillating electrons radiate doppler-shifted light via Thomson scattering (Step 2), which then beats with the original laser wave (Step 3). The ponderomotive force pushes the plasma particles into the troughs of the beat-wave, creating an electrostatic plasma wave (Step 4).}
+    \label{fig:LPI_graphic}
+\end{figure}{}
+
 
 Following \citet{Nishikawa1976}, we now revise the theory of a three-wave instability under certain simplifying assumptions. We assume small non-linear coupling, which allows us to say that each of the three waves has angular frequency and wave-number $(\omega,\vec{k})$ which locally satisfy the linear dispersion relations presented in Section \ref{subsec:dispersion}. Furthermore, we insist that frequency and wave-number matching are satisfied:
 \begin{subequations}\label{eqn:manley-rowe}
@@ -143,6 +151,7 @@ Following \citet{Nishikawa1976}, we now revise the theory of a three-wave instab
 \end{subequations} 
 
 
+
 \begin{figure}[ht]
    \centering
    \fbox{
@@ -151,14 +160,17 @@ Following \citet{Nishikawa1976}, we now revise the theory of a three-wave instab
     \label{fig:3wave_instabilities}
 \end{figure}{}
 
-
+In Chapters \ref{chp:iSRS}, and \ref{chp:broadbandSRS} we focus entirely \acrshort{SRS}. However, in Chapter \ref{chp:magSRS} we also include the effect of mobile ions, and we observe in our simulations stimulated Brillouin scattering and the Langmuir decay instability.
 
 
 
 
 \subsection{Stimulated Raman scattering}
 
-Stimulated Raman scattering can grow in two ways: 
+Equipped with a general picture of the three-wave scattering processes driven by a large amplitude laser in a plasma, we now look in detail at stimulated Raman scattering (\acrshort{SRS}). Stimulated Raman scattering is a three-wave instability in which a large-amplitude pump wave (the laser) transfers energy to two daughter waves: a scattered light wave and an electron plasma wave.
+
+\subsection{Absolute SRS in a homogeneous plasma}
+The theory of \citet{Nishikawa1976} \todo{add Nishikawa paper reference here too} 
 
 \subsubsection{Rosenbluth gain}
 
